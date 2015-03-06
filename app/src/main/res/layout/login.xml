@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent"
-    android:weightSum="1">
+    android:weightSum="1"
+        >
 
     <TextView
         android:layout_width="wrap_content"
@@ -12,23 +13,31 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
+        android:gravity="center_horizontal"
+
         />
 
     <EditText
+        android:singleLine="true"
+        android:drawableLeft="@drawable/personal19"
+
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:hint="Identification"
+        android:hint=" Identification"
         android:ems="10"
         android:id="@+id/editText"
         android:layout_below="@+id/textView2"
         android:layout_centerHorizontal="true" />
 
     <EditText
+        android:singleLine="true"
+        android:drawableLeft="@drawable/user34"
+
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPassword"
-        android:hint="Mot de passe"
+        android:hint=" Mot de passe"
         android:ems="10"
         android:id="@+id/editText2"
         android:layout_below="@+id/editText"
@@ -70,7 +79,11 @@
         android:layout_below="@+id/button2"
         android:layout_alignRight="@+id/textView4"
         android:layout_alignEnd="@+id/textView4"
-        android:layout_marginTop="20dp" />
+        android:layout_marginTop="20dp"
+        android:textAlignment="center"
+        android:gravity="center_horizontal"
+
+        />
 
     <TextView
         android:layout_width="wrap_content"
@@ -83,7 +96,9 @@
         android:layout_alignEnd="@+id/button2"
         android:layout_alignLeft="@+id/button2"
         android:layout_alignStart="@+id/button2"
-        android:password="false" />
+        android:password="false"
+        android:gravity="center_horizontal"
+        />
 
     <Button
         android:layout_width="wrap_content"
@@ -98,17 +113,5 @@
         android:layout_marginTop="20dp"
         android:onClick="onClick"/>
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick=""
-        android:layout_marginLeft="5dp"
-        android:id="@+id/home"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:src="@mipmap/images"
-        android:layout_above="@+id/editText"
-        android:layout_toLeftOf="@+id/editText"
-        android:layout_toStartOf="@+id/editText" />
 
 </RelativeLayout>

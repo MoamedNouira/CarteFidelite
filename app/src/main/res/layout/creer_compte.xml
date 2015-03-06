@@ -13,6 +13,9 @@
         >
 
     <EditText
+        android:singleLine="true"
+        android:drawableLeft="@drawable/personal19"
+
         android:layout_width="230dp"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
@@ -25,6 +28,9 @@
         />
 
     <EditText
+        android:singleLine="true"
+        android:drawableLeft="@drawable/user34"
+
         android:layout_width="230dp"
         android:layout_height="wrap_content"
         android:inputType="textPassword"
@@ -35,6 +41,9 @@
         android:layout_centerHorizontal="true" />
 
     <EditText
+        android:singleLine="true"
+        android:drawableLeft="@drawable/user34"
+
         android:layout_width="230dp"
         android:layout_height="wrap_content"
         android:inputType="textPassword"
@@ -45,6 +54,9 @@
         android:layout_centerHorizontal="true" />
 
     <EditText
+        android:singleLine="true"
+        android:drawableLeft="@drawable/user34"
+
         android:layout_width="230dp"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
