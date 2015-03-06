@@ -14,6 +14,8 @@ import activity.carte_fidelite.medbac.com.cartefidelite.R;
 
 public class MainActivity extends Activity {
 
+    boolean active = true;
+    int splashTime = 4000;
 
 
 
@@ -21,40 +23,42 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-
-        boolean active = true;
-        int time = 4000;
-        Thread s = new Thread()
-
+        Thread splashThread=new Thread()
         {
-            try {
-                @Override
-                public void run() {
-                    int w = 0;
-                    while (active && ( w < time ))
+            public void run()
+            {
+                try
+                {
+                    int waited=0;
+
+                    while(active && (waited<splashTime))
                     {
                         sleep(100);
-                        if (active) {
-                            w += 100;
+                        if(active)
+                        {
+                            waited +=100;
                         }
                     }
                 }
+                catch(Exception e)
+                {
+                    e.toString();
+                }
+
+
+                finally
+                {
+
+                    Intent int1=new Intent(getApplicationContext(),Login.class);
+                    startActivity(int1);
+                    finish();
+
+
+                }
             }
-            catch(Exception e) {
-            }
-            finally { }
+        };
 
- };
-
-
-
-            Intent i = new Intent(getApplicationContext(), Login.class);
-            startActivity(i);
-            finish();
-            s.State();
-
-
+        splashThread.start();
 
 
 
