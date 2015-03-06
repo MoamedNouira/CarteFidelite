@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">carte fidelite</string>
+
+    <string name="hello_world">Vos cartes de fidélité toujours sur vous</string>
+    <string name="action_settings">Settings</string>
+    <string name="bienvenue">BIENVENUE</string>
+</resources>
