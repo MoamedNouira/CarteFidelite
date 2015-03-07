@@ -55,7 +55,7 @@
 
     <EditText
         android:singleLine="true"
-        android:drawableLeft="@drawable/user34"
+        android:drawableLeft="@drawable/personal19"
 
         android:layout_width="230dp"
         android:layout_height="wrap_content"
@@ -67,6 +67,9 @@
         android:layout_centerHorizontal="true" />
 
     <EditText
+        android:singleLine="true"
+        android:drawableLeft="@drawable/personal19"
+
         android:layout_width="230dp"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
@@ -77,6 +80,10 @@
         android:layout_centerHorizontal="true" />
 
     <EditText
+        android:singleLine="true"
+        android:drawableLeft="@drawable/phone325"
+
+
         android:layout_width="230dp"
         android:layout_height="wrap_content"
         android:inputType="number"
@@ -87,6 +94,9 @@
         android:layout_centerHorizontal="true" />
 
     <EditText
+        android:singleLine="true"
+        android:drawableLeft="@drawable/envelope6"
+
         android:layout_width="230dp"
         android:layout_height="wrap_content"
         android:inputType="number"
@@ -97,6 +107,9 @@
         android:layout_centerHorizontal="true" />
 
     <EditText
+        android:singleLine="true"
+        android:drawableLeft="@drawable/woman"
+
         android:layout_width="230dp"
         android:layout_height="wrap_content"
         android:inputType="number"
@@ -107,6 +120,9 @@
         android:layout_centerHorizontal="true" />
 
     <EditText
+        android:singleLine="true"
+        android:drawableLeft="@drawable/home82"
+
         android:layout_width="230dp"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
@@ -117,6 +133,10 @@
         android:layout_centerHorizontal="true" />
 
     <EditText
+        android:singleLine="true"
+        android:drawableLeft="@drawable/arroba1"
+
+
         android:layout_width="230dp"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
