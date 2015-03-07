@@ -25,7 +25,7 @@ public class Login  extends Activity {
 
     public void onClick(View v) {
         if (v.getId() == creer_compte.getId()) {
-            Intent i = new Intent(this, Creer_compte.class);
+            Intent i = new Intent(this, CreerCompte.class);
             startActivity(i);
 
 

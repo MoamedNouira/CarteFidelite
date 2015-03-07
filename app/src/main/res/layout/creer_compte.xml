@@ -110,6 +110,7 @@
         android:singleLine="true"
         android:drawableLeft="@drawable/woman"
 
+
         android:layout_width="230dp"
         android:layout_height="wrap_content"
         android:inputType="number"
@@ -155,7 +156,9 @@
         android:layout_alignLeft="@+id/editText12"
         android:layout_alignStart="@+id/editText12"
         android:layout_alignRight="@+id/editText12"
-        android:layout_alignEnd="@+id/editText12" />
+        android:layout_alignEnd="@+id/editText12"
+        android:onClick="creerMonCompte"
+        />
 
     </RelativeLayout>
     </ScrollView>
