@@ -8,7 +8,8 @@ import android.view.MenuItem;
 import android.widget.Button;
 import android.view.View;
 import android.widget.ProgressBar;
-
+import android.support.v7.app.ActionBar;
+import android.view.Window;
 import activity.carte_fidelite.medbac.com.cartefidelite.R;
 
 
@@ -23,6 +24,12 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+
+
+
+
         Thread splashThread=new Thread()
         {
             public void run()

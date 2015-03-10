@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">carte fidelite</string>
+    <string name="app_name">FidTn</string>
 
     <string name="hello_world">Vos cartes de fidélité toujours sur vous</string>
     <string name="action_settings">Settings</string>
