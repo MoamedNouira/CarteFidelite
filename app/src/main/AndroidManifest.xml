@@ -35,8 +35,9 @@
             android:theme="@android:style/Theme.Holo.Light.NoActionBar"
 
             />
-        <activity android:name="com.medbac.carte_fidelite.activity.Menu_Carte"
-            android:label="Menu"
+        <activity android:name="com.medbac.carte_fidelite.activity.MenuCarte"
+            android:label=""
+
             />
 
     </application>

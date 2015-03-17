@@ -51,7 +51,7 @@ public class Login  extends Activity {
                 Toast.makeText(this, "Mot de passe est obligatoire", Toast.LENGTH_SHORT).show();
             } else {
                 Toast.makeText(this, "OUI", Toast.LENGTH_SHORT).show();
-                Intent i = new Intent(this, Menu_Carte.class);
+                Intent i = new Intent(this, MenuCarte.class);
                 startActivity(i);
 
             }
