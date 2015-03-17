@@ -39,6 +39,7 @@ public class MenuCarte extends Activity {
     private static String url = "http://mohamednouira.esy.es/getJSON.php";
 
     // clé
+    private static final String TAG_CLIENT = "client";
     private static final String TAG_ID_CLIENT = "id_client";
     private static final String TAG_NOM = "nom";
     private static final String TAG_PRENOM = "prenom";
@@ -127,26 +128,35 @@ public class MenuCarte extends Activity {
                     for (int i = 0; i < contacts.length(); i++) {
                         JSONObject c = contacts.getJSONObject(i);
 
-                        String id = c.getString(TAG_ID);
-                        String name = c.getString(TAG_NAME);
-                        String email = c.getString(TAG_EMAIL);
-                        String address = c.getString(TAG_ADDRESS);
-                        String gender = c.getString(TAG_GENDER);
+                        String id_client = c.getString(TAG_ID_CLIENT);
+                        String nom = c.getString(TAG_NOM);
+                        String prenom = c.getString(TAG_PRENOM);
+                        String login = c.getString(TAG_LOGIN);
+                        String password = c.getString(TAG_PASSWORD);
+                        String cin = c.getString(TAG_CIN);
+                        String adr = c.getString(TAG_ADR);
+                        String tell = c.getString(TAG_TELL);
+                        String mail = c.getString(TAG_MAIL);
+                        String code_postal = c.getString(TAG_CODE_POSTAL);
 
                         // Phone node is JSON Object
+
+                        /*
+
                         JSONObject phone = c.getJSONObject(TAG_PHONE);
                         String mobile = phone.getString(TAG_PHONE_MOBILE);
                         String home = phone.getString(TAG_PHONE_HOME);
                         String office = phone.getString(TAG_PHONE_OFFICE);
 
+	         */
                         // tmp hashmap for single contact
                         HashMap<String, String> contact = new HashMap<String, String>();
 
                         // adding each child node to HashMap key => value
-                        contact.put(TAG_ID, id);
-                        contact.put(TAG_NAME, name);
-                        contact.put(TAG_EMAIL, email);
-                        contact.put(TAG_PHONE_MOBILE, mobile);
+                        contact.put(TAG_ID_CLIENT, id_client);
+                        contact.put(TAG_NOM, nom);
+                        contact.put(TAG_PRENOM, prenom);
+                        contact.put(TAG_MAIL, mail);
 
 
                         // adding contact to contact list
@@ -177,7 +187,7 @@ public class MenuCarte extends Activity {
                 pDialog.dismiss();
             /**
              * Updating parsed JSON data into ListView
-             * */
+             *
             ListAdapter adapter = new SimpleAdapter(
                     MainActivity.this, contactList,
                     R.layout.list_item,
@@ -185,7 +195,7 @@ public class MenuCarte extends Activity {
                             TAG_PHONE_MOBILE }, new int[] { R.id.name,
                     R.id.email, R.id.mobile });
 
-            setListAdapter(adapter);
+            setListAdapter(adapter);      * */
         }
 
     }
