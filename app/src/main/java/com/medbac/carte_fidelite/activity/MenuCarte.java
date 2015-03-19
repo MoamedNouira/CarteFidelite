@@ -22,8 +22,11 @@ import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.EditText;
 import android.widget.ListAdapter;
+import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import android.widget.TextView;
 
 
 import activity.carte_fidelite.medbac.com.cartefidelite.R;
@@ -36,7 +39,7 @@ public class MenuCarte extends Activity {
     private ProgressDialog pDialog;
 
     // URL
-    private static String url = "http://mohamednouira.esy.es/getJSON.php";
+    private static String url = "http://mohamednouira.esy.es/getClient.php";
 
     // clé
     private static final String TAG_CLIENT = "client";
@@ -53,6 +56,7 @@ public class MenuCarte extends Activity {
 
     // tableau json
     JSONArray contacts = null;
+    ListView lv;
 
     // Hashmap for ListView
 	/*
@@ -67,7 +71,8 @@ public class MenuCarte extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.menu_carte);
+         lv = (ListView) findViewById(R.id.listView);
 
         contactList = new ArrayList<HashMap<String, String>>();
 
@@ -93,7 +98,7 @@ public class MenuCarte extends Activity {
 	         *      =Barre de progression
 	         *  -...
 	         */
-            pDialog = new ProgressDialog(MainActivity.this);
+            pDialog = new ProgressDialog(MenuCarte.this);
             pDialog.setMessage("chargement... ");
             pDialog.setCancelable(false);
             pDialog.show();
@@ -122,7 +127,7 @@ public class MenuCarte extends Activity {
                     JSONObject jsonObj = new JSONObject(jsonStr);
 
                     // Get JSON Array
-                    contacts = jsonObj.getJSONArray(TAG_CONTACTS);
+                    contacts = jsonObj.getJSONArray(TAG_CLIENT);
 
                     // looping through All Contacts
                     for (int i = 0; i < contacts.length(); i++) {
@@ -185,17 +190,29 @@ public class MenuCarte extends Activity {
             // Désactivation de la ProgressBar
             if (pDialog.isShowing())
                 pDialog.dismiss();
+/*            TextView t1 = (EditText) findViewById(R.id.editText5);
+            TextView t2 = (EditText) findViewById(R.id.editText6);
+            TextView t3 = (EditText) findViewById(R.id.editText7);
+            TextView t4 = (EditText) findViewById(R.id.editText8);
+
+            t1.setText(contactList.get(0).get(TAG_ID_CLIENT));
+            t2.setText(contactList.get(0).get(TAG_NOM));
+            t3.setText(contactList.get(0).get(TAG_PRENOM));
+            t4.setText(contactList.get(0).get(TAG_MAIL));
+
+            */
+
             /**
              * Updating parsed JSON data into ListView
-             *
+             */
             ListAdapter adapter = new SimpleAdapter(
-                    MainActivity.this, contactList,
-                    R.layout.list_item,
-                    new String[] { TAG_NAME, TAG_EMAIL,
-                            TAG_PHONE_MOBILE }, new int[] { R.id.name,
-                    R.id.email, R.id.mobile });
+                    MenuCarte.this, contactList,
+                    R.layout.item,
+                    new String[] { TAG_ID_CLIENT, TAG_NOM, TAG_PRENOM }, new int[] { R.id.textView5,
+                    R.id.textView6, R.id.textView7 });
 
-            setListAdapter(adapter);      * */
+
+            lv.setAdapter(adapter);
         }
 
     }
