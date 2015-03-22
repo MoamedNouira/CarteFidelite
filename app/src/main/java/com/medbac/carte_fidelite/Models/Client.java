@@ -29,6 +29,9 @@ public class Client {
         this.code_postal = code_postal;
     }
 
+    public Client() {
+    }
+
     public int getId_clinet() {
         return id_clinet;
     }
@@ -104,5 +107,9 @@ public class Client {
 
     public void setCode_postal(int code_postal) {
         this.code_postal = code_postal;
+    }
+
+    public void setId_clinet(int id_clinet) {
+        this.id_clinet = id_clinet;
     }
 }

@@ -28,6 +28,8 @@ import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
+import com.medbac.carte_fidelite.Downloader.GetClient;
+import com.medbac.carte_fidelite.Downloader.ServiceHandler;
 
 import activity.carte_fidelite.medbac.com.cartefidelite.R;
 
@@ -37,6 +39,7 @@ import activity.carte_fidelite.medbac.com.cartefidelite.R;
 public class MenuCarte extends Activity {
 
     private ProgressDialog pDialog;
+
 
     // URL
     private static String url = "http://mohamednouira.esy.es/getClient.php";

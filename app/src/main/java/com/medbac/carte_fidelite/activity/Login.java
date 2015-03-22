@@ -8,6 +8,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.medbac.carte_fidelite.Downloader.GetClient;
+
 import activity.carte_fidelite.medbac.com.cartefidelite.R;
 
 /**
@@ -34,6 +36,7 @@ public class Login  extends Activity {
     }
 
     public void onClick(View v) {
+
         if (v.getId() == creer_compte.getId()) {
             Intent i = new Intent(this, CreerCompte.class);
             startActivity(i);
@@ -50,12 +53,8 @@ public class Login  extends Activity {
             } else if (Spassword == null || Spassword == "" || Spassword.length() < 3) {
                 Toast.makeText(this, "Mot de passe est obligatoire", Toast.LENGTH_SHORT).show();
             } else {
+                GetClient gc = new GetClient("http://mohamednouira.esy.es/getLogin.php",Sid,Spassword,this);
 
-
-
-                Toast.makeText(this, "OUI", Toast.LENGTH_SHORT).show();
-                Intent i = new Intent(this, MenuCarte.class);
-                startActivity(i);
 
             }
 

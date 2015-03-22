@@ -1,14 +1,15 @@
 package com.medbac.carte_fidelite.Downloader;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.util.Log;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
-import com.medbac.carte_fidelite.activity.ServiceHandler;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -22,12 +23,13 @@ import activity.carte_fidelite.medbac.com.cartefidelite.R;
 /**
  * Created by Mohamed Nouira on 19/03/2015.
  */
-public class GetCarte {
+public class GetCarte extends Activity {
 
     private ProgressDialog pDialog;
 
+
     // URL
-    private static String url = "http://mohamednouira.esy.es/getClient.php";
+    private static String url = "http://mohamednouira.esy.es/getCarte.php";
 
     // clé
     private static final String TAG_CLIENT = "client";
@@ -86,7 +88,7 @@ public class GetCarte {
 	         *      =Barre de progression
 	         *  -...
 	         */
-            pDialog = new ProgressDialog(MenuCarte.this);
+            pDialog = new ProgressDialog(GetCarte.this);
             pDialog.setMessage("chargement... ");
             pDialog.setCancelable(false);
             pDialog.show();
@@ -194,7 +196,7 @@ public class GetCarte {
              * Updating parsed JSON data into ListView
              */
             ListAdapter adapter = new SimpleAdapter(
-                    MenuCarte.this, contactList,
+                    GetCarte.this, contactList,
                     R.layout.item,
                     new String[] { TAG_ID_CLIENT, TAG_NOM, TAG_PRENOM }, new int[] { R.id.textView5,
                     R.id.textView6, R.id.textView7 });
@@ -204,5 +206,6 @@ public class GetCarte {
         }
 
     }
+
 
 }
