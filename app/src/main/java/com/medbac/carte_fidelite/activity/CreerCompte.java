@@ -3,11 +3,23 @@ package com.medbac.carte_fidelite.activity;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
+import org.apache.http.NameValuePair;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.message.BasicNameValuePair;
+
+import java.io.InputStream;
+import java.util.ArrayList;
 
 import activity.carte_fidelite.medbac.com.cartefidelite.R;
 
@@ -61,7 +73,7 @@ public class CreerCompte extends Activity {
             Toast.makeText(this,"Mot de passe est obligatoire",Toast.LENGTH_SHORT).show()
             ;
         }
-        else if(Spassword_r==null||Spassword_r==""||Spassword_r.length()<3)
+        else if(Spassword_r==null||Spassword_r==""||Spassword_r.length()<3  )
         {
             Toast.makeText(this,"Répéter mot passe est obligatoire",Toast.LENGTH_SHORT).show()
             ;
@@ -106,7 +118,43 @@ public class CreerCompte extends Activity {
 
         else
         {
-            Toast.makeText(this,"OUI",Toast.LENGTH_SHORT).show();
+
+            InputStream is = null;
+
+            try{
+                HttpClient httpclient = new DefaultHttpClient();
+
+                HttpPost httppost = new HttpPost("http://mohamednouira.esy.es/setClient.php");
+                ArrayList<NameValuePair> client = new ArrayList<NameValuePair>();
+
+                client.add(new BasicNameValuePair("nom", nom.getText().toString()));
+                client.add(new BasicNameValuePair("prenom", prenom.getText().toString()));
+                client.add(new BasicNameValuePair("login", id.getText().toString()));
+                client.add(new BasicNameValuePair("password", password.getText().toString()));
+                client.add(new BasicNameValuePair("cin", cin.getText().toString()));
+                client.add(new BasicNameValuePair("adr", adr.getText().toString()));
+                client.add(new BasicNameValuePair("tell", tell.getText().toString()));
+                client.add(new BasicNameValuePair("mail", mail.getText().toString()));
+                client.add(new BasicNameValuePair("code_postal", code_postal.getText().toString()));
+
+
+                httppost.setEntity(new UrlEncodedFormEntity(client));
+                HttpResponse response = httpclient.execute(httppost);
+                HttpEntity entity = response.getEntity();
+                is = entity.getContent();
+                Toast.makeText(this,"les donnees sont enregistrées",Toast.LENGTH_SHORT).show();
+
+                Intent i = new Intent(this, Login.class);
+                startActivity(i);
+
+
+            }catch(Exception e){
+                Log.e("log_tag", "Error in http connection :" + e.toString());
+            }
+
+
+
+
 
         }
 

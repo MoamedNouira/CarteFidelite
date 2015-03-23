@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+import com.medbac.carte_fidelite.Models.Client;
+
 
 import com.medbac.carte_fidelite.Downloader.GetClient;
 
@@ -20,6 +22,8 @@ public class Login  extends Activity {
     Button creer_compte;
     Button connexion;
     EditText id, password;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,8 +57,8 @@ public class Login  extends Activity {
             } else if (Spassword == null || Spassword == "" || Spassword.length() < 3) {
                 Toast.makeText(this, "Mot de passe est obligatoire", Toast.LENGTH_SHORT).show();
             } else {
-                GetClient gc = new GetClient("http://mohamednouira.esy.es/getLogin.php",Sid,Spassword,this);
 
+                GetClient gc = new GetClient("http://mohamednouira.esy.es/getLogin.php",Sid,Spassword,this);
 
             }
 

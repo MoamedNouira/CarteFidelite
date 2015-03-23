@@ -62,7 +62,7 @@ public class GetCarte extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.menu_carte);
-        lv = (ListView) findViewById(R.id.listView);
+    //    lv = (ListView) findViewById(R.id.listView);
 
         contactList = new ArrayList<HashMap<String, String>>();
 

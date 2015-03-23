@@ -16,7 +16,7 @@ public class Client {
     private int code_postal;
 
 
-    public Client(int id_clinet, String nom, String login, String prenom, String password, int cin, String adr, int tell, String mail, int code_postal) {
+    public  Client(int id_clinet, String nom, String login, String prenom, String password, int cin, String adr, int tell, String mail, int code_postal) {
         this.id_clinet = id_clinet;
         this.nom = nom;
         this.login = login;
