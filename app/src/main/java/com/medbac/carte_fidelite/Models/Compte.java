@@ -9,12 +9,21 @@ public class Compte {
     private int montant;
     private int nb_point;
 
-    public Compte(int id_compte, int code_barre, int montant, int nb_point) {
+    private Client client;
+    private Carte carte;
+
+    public Compte() {
+    }
+
+    public Compte(int id_compte, int code_barre, int montant, int nb_point, Client client, Carte carte) {
         this.id_compte = id_compte;
         this.code_barre = code_barre;
         this.montant = montant;
         this.nb_point = nb_point;
+        this.client = client;
+        this.carte = carte;
     }
+
 
     public int getId_compte() {
         return id_compte;
@@ -46,5 +55,21 @@ public class Compte {
 
     public void setNb_point(int nb_point) {
         this.nb_point = nb_point;
+    }
+
+    public Client getClient() {
+        return client;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
+    }
+
+    public Carte getCarte() {
+        return carte;
+    }
+
+    public void setCarte(Carte carte) {
+        this.carte = carte;
     }
 }

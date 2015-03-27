@@ -58,6 +58,7 @@ public class Login  extends Activity {
                 Toast.makeText(this, "Mot de passe est obligatoire", Toast.LENGTH_SHORT).show();
             } else {
 
+
                 GetClient gc = new GetClient("http://mohamednouira.esy.es/getLogin.php",Sid,Spassword,this);
 
             }

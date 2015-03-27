@@ -18,7 +18,9 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 
+import java.io.BufferedReader;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 import activity.carte_fidelite.medbac.com.cartefidelite.R;
@@ -64,7 +66,7 @@ public class CreerCompte extends Activity {
         String Sadr=adr.getText().toString();
         String Smail=mail.getText().toString();
 
-        if(Sid==null||Sid==""||Sid.length()<3)
+        /* if(Sid==null||Sid==""||Sid.length()<3)
         {
             Toast.makeText(this,"Identifiant est obligatoire",Toast.LENGTH_SHORT).show();
         }
@@ -117,18 +119,18 @@ public class CreerCompte extends Activity {
 
 
         else
-        {
+        {*/
 
-            InputStream is = null;
+         //   InputStream is = null;
 
-            try{
-                HttpClient httpclient = new DefaultHttpClient();
 
-                HttpPost httppost = new HttpPost("http://mohamednouira.esy.es/setClient.php");
+                HttpClient httpClient = new DefaultHttpClient();
+                HttpPost httpPost = new HttpPost("http://mohamednouira.esy.es/setClient.php");
                 ArrayList<NameValuePair> client = new ArrayList<NameValuePair>();
 
+
                 client.add(new BasicNameValuePair("nom", nom.getText().toString()));
-                client.add(new BasicNameValuePair("prenom", prenom.getText().toString()));
+                client.add(new BasicNameValuePair("prenom", "rty"));
                 client.add(new BasicNameValuePair("login", id.getText().toString()));
                 client.add(new BasicNameValuePair("password", password.getText().toString()));
                 client.add(new BasicNameValuePair("cin", cin.getText().toString()));
@@ -137,11 +139,28 @@ public class CreerCompte extends Activity {
                 client.add(new BasicNameValuePair("mail", mail.getText().toString()));
                 client.add(new BasicNameValuePair("code_postal", code_postal.getText().toString()));
 
+            try{
+                httpPost.setEntity(new UrlEncodedFormEntity(client));
+                HttpResponse httpRespose = httpClient.execute(httpPost);
+                Log.e("ss","ee");
+                HttpEntity httpEntity = httpRespose.getEntity();
+                InputStream in = httpEntity.getContent();
+                BufferedReader read = new BufferedReader(new InputStreamReader(in));
 
-                httppost.setEntity(new UrlEncodedFormEntity(client));
-                HttpResponse response = httpclient.execute(httppost);
-                HttpEntity entity = response.getEntity();
-                is = entity.getContent();
+                String isi= "";
+                String baris= "";
+
+                while((baris = read.readLine())!=null){
+                    isi+= baris;
+                }
+
+                //Jika isi tidak sama dengan "null " maka akan tampil Toast "Berhasil" sebaliknya akan tampil "Gagal"
+                if(!isi.equals("null")){
+                    Toast.makeText(this, "Berhasil", Toast.LENGTH_LONG).show();
+                }else{
+                    Toast.makeText(this, "Gagal", Toast.LENGTH_LONG).show();
+                }
+
                 Toast.makeText(this,"les donnees sont enregistrées",Toast.LENGTH_SHORT).show();
 
                 Intent i = new Intent(this, Login.class);
@@ -152,11 +171,7 @@ public class CreerCompte extends Activity {
                 Log.e("log_tag", "Error in http connection :" + e.toString());
             }
 
-
-
-
-
-        }
+       // }
 
 
 

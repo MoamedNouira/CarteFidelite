@@ -9,11 +9,25 @@ public class Promotion {
     private Date  date_deb_promo;
     private Date date_fin_promo;
 
-    public Promotion(int id_promotion, String descr_promo, Date date_deb_promo, Date date_fin_promo) {
+    private Promotion promotion;
+
+    public Promotion(int id_promotion, String descr_promo, Date date_deb_promo, Date date_fin_promo, Promotion promotion) {
         this.id_promotion = id_promotion;
         this.descr_promo = descr_promo;
         this.date_deb_promo = date_deb_promo;
         this.date_fin_promo = date_fin_promo;
+        this.promotion = promotion;
+    }
+
+    public Promotion() {
+    }
+
+    public Promotion getPromotion() {
+        return promotion;
+    }
+
+    public void setPromotion(Promotion promotion) {
+        this.promotion = promotion;
     }
 
     public int getId_promotion() {

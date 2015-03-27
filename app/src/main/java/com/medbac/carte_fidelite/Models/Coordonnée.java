@@ -8,11 +8,18 @@ public class Coordonnée {
     private Double longitude;
     private Double latitude;
 
-    public Coordonnée(int id_coordonnée, Double longitude, Double latitude) {
+    private Enseigne enseigne;
+
+    public Coordonnée() {
+    }
+
+    public Coordonnée(int id_coordonnée, Double longitude, Double latitude, Enseigne enseigne) {
         this.id_coordonnée = id_coordonnée;
         this.longitude = longitude;
         this.latitude = latitude;
+        this.enseigne = enseigne;
     }
+
 
     public int getId_coordonnée() {
         return id_coordonnée;
@@ -36,5 +43,13 @@ public class Coordonnée {
 
     public void setLatitude(Double latitude) {
         this.latitude = latitude;
+    }
+
+    public Enseigne getEnseigne() {
+        return enseigne;
+    }
+
+    public void setEnseigne(Enseigne enseigne) {
+        this.enseigne = enseigne;
     }
 }

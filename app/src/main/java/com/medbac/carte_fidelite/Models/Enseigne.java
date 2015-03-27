@@ -1,5 +1,7 @@
 package com.medbac.carte_fidelite.Models;
 
+import java.util.ArrayList;
+
 /**
  * Created by Mohamed Nouira on 05/03/2015.
  */
@@ -12,7 +14,39 @@ public class Enseigne {
     private int tell;
     private int mail;
 
-    public Enseigne(int id_enseigne, String nom_commercial, String adresse, String vile, int code_postal, int tell, int mail) {
+    private ArrayList<Coordonnée> coordonnée = new ArrayList<Coordonnée>();
+    private ArrayList<Carte> carte = new ArrayList<Carte>();
+    private ArrayList<Promotion> promotions = new ArrayList<Promotion>();
+
+
+    public ArrayList<Coordonnée> getCoordonnée() {
+        return coordonnée;
+    }
+
+    public void setCoordonnée(ArrayList<Coordonnée> coordonnée) {
+        this.coordonnée = coordonnée;
+    }
+
+    public ArrayList<Carte> getCarte() {
+        return carte;
+    }
+
+    public void setCarte(ArrayList<Carte> carte) {
+        this.carte = carte;
+    }
+
+    public ArrayList<Promotion> getPromotions() {
+        return promotions;
+    }
+
+    public void setPromotions(ArrayList<Promotion> promotions) {
+        this.promotions = promotions;
+    }
+
+    public Enseigne() {
+    }
+
+    public Enseigne(int id_enseigne, String nom_commercial, String adresse, String vile, int code_postal, int tell, int mail, ArrayList<Coordonnée> coordonnée, ArrayList<Carte> carte, ArrayList<Promotion> promotions) {
         this.id_enseigne = id_enseigne;
         this.nom_commercial = nom_commercial;
         this.adresse = adresse;
@@ -20,7 +54,11 @@ public class Enseigne {
         this.code_postal = code_postal;
         this.tell = tell;
         this.mail = mail;
+        this.coordonnée = coordonnée;
+        this.carte = carte;
+        this.promotions = promotions;
     }
+
 
     public int getId_enseigne() {
         return id_enseigne;

@@ -1,5 +1,8 @@
 package com.medbac.carte_fidelite.Models;
 
+import java.util.ArrayList;
+import java.util.Collection;
+
 /**
  * Created by Mohamed Nouira on 05/03/2015.
  */
@@ -14,9 +17,13 @@ public class Client {
     private int tell;
     private String mail;
     private int code_postal;
+    private ArrayList <Compte> compte = new ArrayList<Compte>();
 
 
-    public  Client(int id_clinet, String nom, String login, String prenom, String password, int cin, String adr, int tell, String mail, int code_postal) {
+
+
+    public  Client(int id_clinet, String nom, String login, String prenom, String password, int cin,
+                   String adr, int tell, String mail, int code_postal,ArrayList<Compte> compte) {
         this.id_clinet = id_clinet;
         this.nom = nom;
         this.login = login;
@@ -27,6 +34,7 @@ public class Client {
         this.tell = tell;
         this.mail = mail;
         this.code_postal = code_postal;
+        this.compte=compte;
     }
 
     public Client() {
@@ -111,5 +119,13 @@ public class Client {
 
     public void setId_clinet(int id_clinet) {
         this.id_clinet = id_clinet;
+    }
+
+    public ArrayList<Compte> getCompte() {
+        return compte;
+    }
+
+    public void setCompte(ArrayList<Compte> compte) {
+        this.compte = compte;
     }
 }
