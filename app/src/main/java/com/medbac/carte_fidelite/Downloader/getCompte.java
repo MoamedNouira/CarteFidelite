@@ -7,6 +7,7 @@ import android.os.AsyncTask;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.medbac.carte_fidelite.Models.Carte;
 import com.medbac.carte_fidelite.Models.Client;
 import com.medbac.carte_fidelite.Models.Compte;
 import com.medbac.carte_fidelite.activity.MenuCarte;
@@ -141,28 +142,12 @@ public class getCompte {
                         id_client = c.getString(TAG_id_client);
                         id_carte = c.getString(TAG_id_carte);
 
- /*
-
-                        JSONObject phone = c.getJSONObject(TAG_PHONE);
-                        String mobile = phone.getString(TAG_PHONE_MOBILE);
-                        String home = phone.getString(TAG_PHONE_HOME);
-                        String office = phone.getString(TAG_PHONE_OFFICE);
 
 
-                        client1 = new Client();
+                       compte1 = new Compte();
 
-                        client1.setId_clinet(Integer.parseInt(id_client));
-                        client1.setNom(nom);
-                        client1.setPrenom(prenom);
-                        client1.setAdr(adr);
-                        client1.setCin(Integer.parseInt(cin));
-                        client1.setCode_postal(Integer.parseInt(code_postal));
-                        client1.setLogin(login);
-                        client1.setMail(mail);
-                        client1.setPassword(password);
-                        client1.setTell(Integer.parseInt(tell));
 
-   */
+
 
 
                         // Phone node is JSON Object

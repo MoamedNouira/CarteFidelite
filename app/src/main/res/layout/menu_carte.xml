@@ -1,14 +1,91 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
-
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clickable="true">
 
     <ImageView
+        android:layout_width="250dp"
+        android:layout_height="100dp"
+        android:layout_marginLeft="30dp"
+        android:id="@+id/image_menu_logo"
+        android:src="@drawable/menu_logo"
+        android:layout_marginTop="25dp" />
+
+    <Button
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginLeft="30dp"
+        android:id="@+id/button_menu_carte"
+       android:background="@drawable/selector_menu_carte"
+        android:layout_marginTop="180dp" />
+
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/imageView"
-        android:src="@drawable/ss"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:text="Carte"
+        android:id="@+id/text_menu_carte"
+        android:layout_marginTop="285dp"
+        android:layout_marginLeft="55dp"
+        android:textSize="20dp" />
+
+
+    <Button
+        android:background="@drawable/selector_menu_enseigne"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:id="@+id/button_menu_enseigne"
+        android:layout_marginLeft="180dp"
+        android:layout_marginTop="180dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Enseigne"
+        android:id="@+id/text_menu_enseigne"
+        android:layout_marginTop="285dp"
+        android:textSize="20dp"
+        android:layout_marginLeft="195dp" />
+
+    <Button
+        android:background="@drawable/selector_menu_promotion"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:id="@+id/button_menu_promotion"
+        android:layout_marginLeft="180dp"
+        android:layout_marginTop="330dp"/>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Compte"
+        android:id="@+id/text_menu_compte"
+        android:textSize="20dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="435dp" />
+
+    <Button
+        android:background="@drawable/selector_menu_compte"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:id="@+id/button_menu_compte"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="330dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Promotions"
+        android:id="@+id/text_menu_promotions"
+        android:layout_marginTop="435dp"
+        android:textSize="20dp"
+        android:layout_marginLeft="185dp" />
+
+
 </RelativeLayout>
+
+
+
