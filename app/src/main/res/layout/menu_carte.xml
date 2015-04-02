@@ -20,7 +20,9 @@
         android:layout_marginLeft="30dp"
         android:id="@+id/button_menu_carte"
        android:background="@drawable/selector_menu_carte"
-        android:layout_marginTop="180dp" />
+        android:layout_marginTop="180dp"
+
+        />
 
     <TextView
         android:layout_width="wrap_content"

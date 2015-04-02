@@ -16,6 +16,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
+
 /**
  * Created by Mohamed Nouira on 26/03/2015.
  */
@@ -24,6 +26,8 @@ public class getCompte {
 
 
     private static String url ;
+
+    public  ArrayList ListCompte = new ArrayList();
 
     private ProgressDialog pDialog;
     public static Compte compte1 = null;
@@ -45,9 +49,9 @@ public class getCompte {
 
 
 
-    public getCompte(String url,String id_compte, Context context){
+    public getCompte(String url,String id_client, Context context){
         this.context = context;
-        this.url = url+"?id_compte="+id_compte;
+        this.url = url+"?id_client="+id_client;
 
         new getComptes().execute();
 
@@ -91,10 +95,10 @@ public class getCompte {
 	         *      =Barre de progression
 	         *  -...
 	         */
-            pDialog = new ProgressDialog(context);
-            pDialog.setMessage("chargement... ");
-            pDialog.setCancelable(false);
-            pDialog.show();
+           // pDialog = new ProgressDialog(context);
+            //pDialog.setMessage("chargement... ");
+            //pDialog.setCancelable(false);
+            //pDialog.show();
 
         }
 
@@ -145,6 +149,20 @@ public class getCompte {
 
 
                        compte1 = new Compte();
+                       compte1.setId_compte(Integer.parseInt(id_compte));
+                       compte1.setCode_barre(Integer.parseInt(code_barre));
+                       compte1.setMontant(Integer.parseInt(montant));
+                        compte1.setNb_point(Integer.parseInt(nb_point));
+                        compte1.setId_client(Integer.parseInt(id_client));
+                        compte1.setId_carte(Integer.parseInt(id_carte));
+                        compte1.setClient(GetClient.client1);
+                        //GetCarte gcarte = new GetCarte("http://mohamednouira.esy.es/getCarte.php",id_carte,context);
+                      //  compte1.setCarte(GetCarte.carte1);
+                        ListCompte.add(compte1);
+                        Log.e("samarche","add  ListCompte");
+
+
+
 
 
 
@@ -166,7 +184,6 @@ public class getCompte {
 
 
                         // adding each child node to HashMap key => value
-                        Log.e("samarche","samarchefffffffffffff");
 
                         // adding contact to contact list
 
@@ -193,29 +210,14 @@ public class getCompte {
 	         *  -...
 	         */
             // Désactivation de la ProgressBar
-            if (pDialog.isShowing())
-                pDialog.dismiss();
+       //     if (pDialog.isShowing())
+         //       pDialog.dismiss();
 
 
 
-            if(GetClient.client1 == null){
-                Toast.makeText(context, "rrrrrrrrrrrrrrrr", Toast.LENGTH_LONG).show();
-            }else{
-
-                Intent ii = new Intent(context, MenuCarte.class);
-                context.startActivity(ii);}
 
 
-       /*   TextView t1 = (EditText) findViewById(R.id.editText5);
-            TextView t2 = (EditText) findViewById(R.id.editText6);
-            TextView t3 = (EditText) findViewById(R.id.editText7);
-            TextView t4 = (EditText) findViewById(R.id.editText8);
-
-            t1.setText(contactList.get(0).get(TAG_ID_CLIENT));
-            t2.setText(contactList.get(0).get(TAG_NOM));
-            t3.setText(contactList.get(0).get(TAG_PRENOM));
-            t4.setText(contactList.get(0).get(TAG_MAIL));
-
+       /*
             */
 
             /**

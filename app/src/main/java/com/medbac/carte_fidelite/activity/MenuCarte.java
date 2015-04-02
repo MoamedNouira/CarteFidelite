@@ -69,46 +69,80 @@ public class MenuCarte extends Activity {
 
     }
 
+    public void onClick2(View v) {
+
+        if (v.getId() == ButtonMenuCarte.getId()) {
+            Intent i = new Intent(this, Carte.class);
+            startActivity(i);
+        }
+        if (v.getId() == ButtonMenuEnseigne.getId()) {
+            Intent i = new Intent(this, Enseigne.class);
+            startActivity(i);
+        }
+        if (v.getId() == ButtonMenuPromotion.getId()) {
+            Intent i = new Intent(this, Promotion.class);
+            startActivity(i);
+        }
+        if (v.getId() == ButtonMenuCompte.getId()) {
+            Intent i = new Intent(this, Compte.class);
+            startActivity(i);
+        }
+    }
+
+
 
     public void addListenerOnButton() {
+
+
+
+
 
         ButtonMenuCarte.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View arg0) {
-                Toast.makeText(MenuCarte.this, "Carte  clicked!",
+                Toast.makeText(MenuCarte.this, "Carte",
                         Toast.LENGTH_SHORT).show();
                 ButtonMenuCarte.setFocusableInTouchMode(false);
                 ButtonMenuCarte.setFocusable(false);
+              onClick2(arg0);
+
+
             }
         });
 
         ButtonMenuEnseigne.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View arg0) {
-                Toast.makeText(MenuCarte.this, "enseigne  clicked!",
+                Toast.makeText(MenuCarte.this, "enseigne",
                         Toast.LENGTH_SHORT).show();
                 ButtonMenuEnseigne.setFocusableInTouchMode(false);
                 ButtonMenuEnseigne.setFocusable(false);
+                onClick2(arg0);
+
             }
         });
 
         ButtonMenuPromotion.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View arg0) {
-                Toast.makeText(MenuCarte.this, "Promotion  clicked!",
+                Toast.makeText(MenuCarte.this, "Promotion",
                         Toast.LENGTH_SHORT).show();
                 ButtonMenuPromotion.setFocusableInTouchMode(false);
                 ButtonMenuPromotion.setFocusable(false);
+                onClick2(arg0);
+
             }
         });
 
         ButtonMenuCompte.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View arg0) {
-                Toast.makeText(MenuCarte.this, "Compte  clicked!",
+                Toast.makeText(MenuCarte.this, "Compte",
                         Toast.LENGTH_SHORT).show();
                 ButtonMenuCompte.setFocusableInTouchMode(false);
                 ButtonMenuCompte.setFocusable(false);
+                onClick2(arg0);
+
             }
         });
 

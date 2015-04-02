@@ -125,7 +125,7 @@ public class CreerCompte extends Activity {
 
 
                 HttpClient httpClient = new DefaultHttpClient();
-                HttpPost httpPost = new HttpPost("http://mohamednouira.esy.es/setClient.php");
+                HttpPost httpPost = new HttpPost("http://192.168.1.100/carte_fidelite/setClientLocal.php");
                 ArrayList<NameValuePair> client = new ArrayList<NameValuePair>();
 
 

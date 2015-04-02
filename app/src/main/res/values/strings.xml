@@ -6,4 +6,9 @@
     <string name="action_compte">Settings</string>
     <string name="bienvenue">BIENVENUE</string>
     <string name="title_activity_menu">Menu</string>
+    <string name="title_activity_carte">Carte</string>
+    <string name="title_activity_enseigne">enseigne</string>
+    <string name="title_activity_promotion">promotion</string>
+    <string name="title_activity_compte">compte</string>
+    <string name="title_activity_list_carte">ListCarte</string>
 </resources>
