@@ -57,7 +57,7 @@ public class GetClient  {
         this.context = context;
         this.url = url+"?login="+login+"&password="+password;;
 
-        new GetContacts().execute();
+        new GetClients().execute();
 
     }
 
@@ -77,7 +77,7 @@ public class GetClient  {
      * à jour l'interface de l'application en fin de traitement.
      *
      */
-    private class GetContacts extends AsyncTask<Void, Void, Void> {
+    private class GetClients extends AsyncTask<Void, Void, Void> {
 
         String id_client;
         String nom ;
