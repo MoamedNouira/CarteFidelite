@@ -1,5 +1,4 @@
 package com.medbac.carte_fidelite.Downloader;
-//gggggggggggggggggggggggggggggggggggggggggggg
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
