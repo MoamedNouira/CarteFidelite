@@ -155,11 +155,14 @@ public class getCompte {
                         compte1.setNb_point(Integer.parseInt(nb_point));
                         compte1.setId_client(Integer.parseInt(id_client));
                         compte1.setId_carte(Integer.parseInt(id_carte));
+
                         compte1.setClient(GetClient.client1);
-                        //GetCarte gcarte = new GetCarte("http://mohamednouira.esy.es/getCarte.php",id_carte,context);
-                      //  compte1.setCarte(GetCarte.carte1);
+                        GetCarte gcarte = new GetCarte("http://mohamednouira.esy.es/getCarte.php",id_carte,context);
+                        compte1.setCarte(GetCarte.carte1);
+                        Log.e("samarche",""+compte1.getId_carte());
                         ListCompte.add(compte1);
                         Log.e("samarche","add  ListCompte");
+
 
 
 

@@ -6,7 +6,7 @@ import java.util.ArrayList;
  * Created by Mohamed Nouira on 05/03/2015.
  */
 public class Carte {
-    private int id_carte;
+    private int id_carte,id_enseigne,id_categories;
     private String descr_carte;
     private String type_carte;
     private String nom;
@@ -25,7 +25,7 @@ public class Carte {
     public Carte() {
     }
 
-    public Carte(int id_carte, String descr_carte, String type_carte, String nom, ArrayList<Compte> compte, Catégories catégories, Enseigne enseigne) {
+    public Carte(int id_carte, String descr_carte, String type_carte, String nom, ArrayList<Compte> compte, Catégories catégories, Enseigne enseigne,int id_categories,int id_enseigne) {
         this.id_carte = id_carte;
         this.descr_carte = descr_carte;
         this.type_carte = type_carte;
@@ -33,6 +33,8 @@ public class Carte {
         this.compte = compte;
         this.catégories = catégories;
         this.enseigne = enseigne;
+        this.id_categories=id_categories;
+        this.id_enseigne=id_enseigne;
     }
 
     public int getId_carte() {
@@ -92,5 +94,21 @@ public class Carte {
 
     public void setEnseigne(Enseigne enseigne) {
         this.enseigne = enseigne;
+    }
+
+    public int getId_enseigne() {
+        return id_enseigne;
+    }
+
+    public void setId_enseigne(int id_enseigne) {
+        this.id_enseigne = id_enseigne;
+    }
+
+    public int getId_categories() {
+        return id_categories;
+    }
+
+    public void setId_categories(int id_categories) {
+        this.id_categories = id_categories;
     }
 }

@@ -12,7 +12,7 @@ public class Enseigne {
     private String vile;
     private int code_postal;
     private int tell;
-    private int mail;
+    private String mail;
 
     private ArrayList<Coordonnée> coordonnée = new ArrayList<Coordonnée>();
     private ArrayList<Carte> carte = new ArrayList<Carte>();
@@ -46,7 +46,7 @@ public class Enseigne {
     public Enseigne() {
     }
 
-    public Enseigne(int id_enseigne, String nom_commercial, String adresse, String vile, int code_postal, int tell, int mail, ArrayList<Coordonnée> coordonnée, ArrayList<Carte> carte, ArrayList<Promotion> promotions) {
+    public Enseigne(int id_enseigne, String nom_commercial, String adresse, String vile, int code_postal, int tell, String mail, ArrayList<Coordonnée> coordonnée, ArrayList<Carte> carte, ArrayList<Promotion> promotions) {
         this.id_enseigne = id_enseigne;
         this.nom_commercial = nom_commercial;
         this.adresse = adresse;
@@ -108,11 +108,11 @@ public class Enseigne {
         this.tell = tell;
     }
 
-    public int getMail() {
+    public String getMail() {
         return mail;
     }
 
-    public void setMail(int mail) {
+    public void setMail(String mail) {
         this.mail = mail;
     }
 }

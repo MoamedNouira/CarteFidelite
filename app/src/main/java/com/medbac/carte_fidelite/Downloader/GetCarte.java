@@ -28,24 +28,25 @@ import activity.carte_fidelite.medbac.com.cartefidelite.R;
 /**
  * Created by Mohamed Nouira on 19/03/2015.
  */
-public class GetCarte
+public class GetCarte{
 
 private static String url ;
 
 //private ProgressDialog pDialog;
 public static Carte carte1 = null;
+
+
 // clé
-private static final String TAG_CLIENT = "client";
-private static final String TAG_ID_CLIENT = "id_client";
-private static final String TAG_NOM = "nom";
-private static final String TAG_PRENOM = "prenom";
-private static final String TAG_LOGIN = "login";
-private static final String TAG_PASSWORD = "password";
-private static final String TAG_CIN = "cin";
-private static final String TAG_ADR = "adr";
-private static final String TAG_TELL = "tell";
-private static final String TAG_MAIL = "mail";
-private static final String TAG_CODE_POSTAL = "code_postal";
+private static final String TAG_CLIENT = "carte";
+private static final String TAG_id_carte = "id_carte";
+private static final String TAG_nom = "nom";
+private static final String TAG_descr_carte = "descr_carte";
+private static final String TAG_type_carte = "type_carte";
+private static final String TAG_id_enseigne = "id_enseigne";
+private static final String TAG_id_categories = "id_categories";
+
+
+
 
 // tableau json
 JSONArray carte = null;
@@ -59,7 +60,7 @@ Context context;
             this.context = context;
             this.url = url+"?id_carte="+id_carte;;
 
-            new GetCarte().execute();
+            new GetCartes().execute();
 
         }
 
@@ -79,18 +80,15 @@ Context context;
  * à jour l'interface de l'application en fin de traitement.
  *
  */
-private class GetContacts extends AsyncTask<Void, Void, Void> {
+private class GetCartes extends AsyncTask<Void, Void, Void> {
 
-    String id_client;
+    String id_carte;
     String nom ;
-    String prenom ;
-    String login ;
-    String password;
-    String cin ;
-    String adr ;
-    String tell ;
-    String mail;
-    String code_postal ;
+    String descr_carte ;
+    String type_carte ;
+    String id_enseigne ;
+    String id_categories ;
+
 
 
     @Override
@@ -132,40 +130,35 @@ private class GetContacts extends AsyncTask<Void, Void, Void> {
                 JSONObject jsonObj = new JSONObject(jsonStr);
 
                 // Get JSON Array
-                client = jsonObj.getJSONArray(TAG_CLIENT);
+                carte = jsonObj.getJSONArray(TAG_CLIENT);
+
+
+
 
 
                 // looping through All Contacts
-                for (int i = 0; i < client.length(); i++) {
-                    JSONObject c = client.getJSONObject(i);
+                for (int i = 0; i < carte.length(); i++) {
+                    JSONObject c = carte.getJSONObject(i);
 
-                    id_client = c.getString(TAG_ID_CLIENT);
-                    nom = c.getString(TAG_NOM);
-                    prenom = c.getString(TAG_PRENOM);
-                    login = c.getString(TAG_LOGIN);
-                    password = c.getString(TAG_PASSWORD);
-                    cin = c.getString(TAG_CIN);
-                    adr = c.getString(TAG_ADR);
-                    tell = c.getString(TAG_TELL);
-                    mail = c.getString(TAG_MAIL);
-                    code_postal = c.getString(TAG_CODE_POSTAL);
+                    id_carte = c.getString(TAG_id_carte);
+                    nom = c.getString(TAG_nom);
+                    descr_carte = c.getString(TAG_descr_carte);
+                    type_carte = c.getString(TAG_type_carte);
+                    id_enseigne = c.getString(TAG_id_enseigne);
+                    id_categories = c.getString(TAG_id_categories);
 
-                    client1 = new Client();
+                    Carte carte1 = new Carte();
+                    carte1.setId_carte(Integer.parseInt(id_carte));
+                    carte1.setNom(nom);
+                    carte1.setDescr_carte(descr_carte);
+                    carte1.setType_carte(type_carte);
+                    carte1.setId_categories(Integer.parseInt(id_categories));
+                    carte1.setId_enseigne(Integer.parseInt(id_enseigne));
+                    Log.e("samarche","add CARTE");
 
-                    client1.setId_clinet(Integer.parseInt(id_client));
-                    client1.setNom(nom);
-                    client1.setPrenom(prenom);
-                    client1.setAdr(adr);
-                    client1.setCin(Integer.parseInt(cin));
-                    client1.setCode_postal(Integer.parseInt(code_postal));
-                    client1.setLogin(login);
-                    client1.setMail(mail);
-                    client1.setPassword(password);
-                    client1.setTell(Integer.parseInt(tell));
+                    GetEnseigne gc = new GetEnseigne("http://mohamednouira.esy.es/getEnseigne.php",id_enseigne,context);
+                    carte1.setEnseigne(gc.enseigne1);
 
-                    getCompte gc = new getCompte("http://mohamednouira.esy.es/getCompte.php",id_client,context);
-                    client1.setCompte(gc.ListCompte);
-                    Log.e("samarche","add list compte to client");
 
 
                 }
@@ -195,13 +188,6 @@ private class GetContacts extends AsyncTask<Void, Void, Void> {
        //     pDialog.dismiss();
 
 
-
-        if(GetClient.client1 == null){
-            Toast.makeText(context, "rrrrrrrrrrrrrrrr", Toast.LENGTH_LONG).show();
-        }else{
-
-            Intent ii = new Intent(context, MenuCarte.class);
-            context.startActivity(ii);}
     }
 
 }
