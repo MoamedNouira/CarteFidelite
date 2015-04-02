@@ -196,12 +196,16 @@ public class GetClient  {
 
 
 
-            if(GetClient.client1 == null){
-                Toast.makeText(context, "rrrrrrrrrrrrrrrr", Toast.LENGTH_LONG).show();
-            }else{
+            if(GetClient.client1 == null ){
+                Toast.makeText(context, "login ou password no valide  ", Toast.LENGTH_LONG).show();
+            }else {
 
                 Intent ii = new Intent(context, MenuCarte.class);
                 context.startActivity(ii);}
+
+
+
+
         }
 
     }

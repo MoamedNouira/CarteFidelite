@@ -23,6 +23,7 @@ public class GetEnseigne {
 
     private ProgressDialog pDialog;
     public  Enseigne enseigne1 = null;
+    public int test = 0;
     // clé
     private static final String TAG_enseigne= "enseigne";
     private static final String TAG_id_enseigne = "id_enseigne";
@@ -48,6 +49,10 @@ public class GetEnseigne {
         this.url = url+"?id_enseigne="+id_enseigne;
 
         new GetEnseignes().execute();
+
+    }
+    public GetEnseigne(){
+
 
     }
 
@@ -167,6 +172,7 @@ public class GetEnseigne {
         @Override
         protected void onPostExecute(Void result) {
             super.onPostExecute(result);
+             test =1;
 			 /*
 	         * Ici, le code exécuté une fois le traitement terminé, par exemple:
 	         *  -Mise à jour de l'affichage
