@@ -156,6 +156,9 @@ private class GetCartes extends AsyncTask<Void, Void, Void> {
                     carte1.setId_enseigne(Integer.parseInt(id_enseigne));
                     Log.e("samarche","add CARTE");
 
+
+
+
                     GetEnseigne gc = new GetEnseigne("http://mohamednouira.esy.es/getEnseigne.php",id_enseigne,context);
                     carte1.setEnseigne(gc.enseigne1);
 

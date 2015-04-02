@@ -30,6 +30,7 @@ public class Carte {
         this.descr_carte = descr_carte;
         this.type_carte = type_carte;
         this.nom = nom;
+
         this.compte = compte;
         this.catégories = catégories;
         this.enseigne = enseigne;
