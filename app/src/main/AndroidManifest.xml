@@ -58,8 +58,10 @@
             android:theme="@android:style/Theme.Holo.Light.NoActionBar" />
         <activity
             android:name="com.medbac.carte_fidelite.activity.ListCarte"
-            android:label="@string/title_activity_list_carte" >
-        </activity>
+            android:label="@string/title_activity_promotion"
+            android:theme="@android:style/Theme.Holo.Light.NoActionBar" />
+
+
     </application>
 
 </manifest>

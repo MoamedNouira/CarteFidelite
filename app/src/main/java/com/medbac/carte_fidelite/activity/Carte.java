@@ -20,12 +20,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.medbac.carte_fidelite.Downloader.GetClient;
+
 import activity.carte_fidelite.medbac.com.cartefidelite.R;
 
 public class Carte extends Activity {
 
-
-
+   Button ButtonListCarte;
 
 
     @Override
@@ -33,9 +34,36 @@ public class Carte extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_carte);
 
+        ButtonListCarte = (Button) findViewById(R.id.button_carte_listcarte);
+        ButtonListCarte.setFocusableInTouchMode(true);
+        addListenerOnButton();
 
     }
 
+    public void onClick2(View v) {
+
+        if (v.getId() == ButtonListCarte.getId()) {
+            Intent i = new Intent(this, ListCarte.class);
+            startActivity(i);
+        }
+    }
+    public void addListenerOnButton() {
+        ButtonListCarte.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View arg0) {
+                Toast.makeText(Carte.this, "List Carte",
+                        Toast.LENGTH_SHORT).show();
+                ButtonListCarte.setFocusableInTouchMode(false);
+                ButtonListCarte.setFocusable(false);
+                onClick2(arg0);
+
+            }
+        });
+
+
+
+
+    }
 
 
     @Override
