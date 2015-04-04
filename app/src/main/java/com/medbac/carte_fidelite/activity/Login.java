@@ -52,9 +52,9 @@ public class Login  extends Activity {
             String Spassword = password.getText().toString();
 
 
-            if (Sid == null || Sid == "" || Sid.length() < 3) {
+            if (Sid == null || Sid == "" || Sid.length() < 1) {
                 Toast.makeText(this, "Identifiant est obligatoire", Toast.LENGTH_SHORT).show();
-            } else if (Spassword == null || Spassword == "" || Spassword.length() < 3) {
+            } else if (Spassword == null || Spassword == "" || Spassword.length() < 1) {
                 Toast.makeText(this, "Mot de passe est obligatoire", Toast.LENGTH_SHORT).show();
             } else {
 
