@@ -19,7 +19,7 @@
         android:paddingBottom="25dp">
         
 		<ImageView     
-			android:id="@+id/list_image"   
+			android:id="@+id/image_item_list"
 	        android:layout_width="50dip"
 	        android:layout_height="50dip"
 	        android:src="@drawable/menu_enseigne2"/>

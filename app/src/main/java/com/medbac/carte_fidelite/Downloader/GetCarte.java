@@ -148,19 +148,21 @@ private class GetCartes extends AsyncTask<Void, Void, Void> {
                     id_categories = c.getString(TAG_id_categories);
 
                     Carte carte1 = new Carte();
+
                     carte1.setId_carte(Integer.parseInt(id_carte));
                     carte1.setNom(nom);
                     carte1.setDescr_carte(descr_carte);
                     carte1.setType_carte(type_carte);
                     carte1.setId_categories(Integer.parseInt(id_categories));
                     carte1.setId_enseigne(Integer.parseInt(id_enseigne));
-                    Log.e("samarche","add CARTE");
+                  //  Log.e("samarchennnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn getCarte",carte1.getNom());
 
+                    GetCatégories gc = new GetCatégories("http://mohamednouira.esy.es/GetCategories.php",id_categories,context);
+                    carte1.setCatégories(gc.catégories1);
 
+                    GetEnseigne gcC = new GetEnseigne("http://mohamednouira.esy.es/getEnseigne.php",id_enseigne,context);
+                    carte1.setEnseigne(gcC.enseigne1);
 
-
-                    GetEnseigne gc = new GetEnseigne("http://mohamednouira.esy.es/getEnseigne.php",id_enseigne,context);
-                    carte1.setEnseigne(gc.enseigne1);
 
 
 

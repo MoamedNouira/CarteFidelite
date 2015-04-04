@@ -31,6 +31,8 @@ public class getCompte {
 
     private ProgressDialog pDialog;
     public static Compte compte1 = null;
+    public static ArrayList<Carte> ListCompteCarte ;
+
     // clé
     private static final String TAG_compte = "compte";
     private static final String TAG_id_compte = "id_compte";
@@ -126,6 +128,7 @@ public class getCompte {
                     // Get JSON Array
                     compte = jsonObj.getJSONArray(TAG_compte);
 
+                    ListCompteCarte = new ArrayList<Carte>() ;
 
                     // looping through All Contacts
                     for (int i = 0; i < compte.length(); i++) {
@@ -149,18 +152,28 @@ public class getCompte {
 
 
                        compte1 = new Compte();
+
                        compte1.setId_compte(Integer.parseInt(id_compte));
                        compte1.setCode_barre(Integer.parseInt(code_barre));
                        compte1.setMontant(Integer.parseInt(montant));
                         compte1.setNb_point(Integer.parseInt(nb_point));
+
                         compte1.setId_client(Integer.parseInt(id_client));
+
                         compte1.setId_carte(Integer.parseInt(id_carte));
 
                         compte1.setClient(GetClient.client1);
+
                         GetCarte gcarte = new GetCarte("http://mohamednouira.esy.es/getCarte.php",id_carte,context);
+
+                       // Log.e("samarchennnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn",""+ ListCompteCarte.get(i).getNom());
+
+
                         compte1.setCarte(GetCarte.carte1);
-                        Log.e("samarche",""+compte1.getId_carte());
+                      //  Log.e("samarchennnnnnnnnnnnnnnnnnnnn",""+compte1.getCarte().getNom());
+
                         ListCompte.add(compte1);
+
                         Log.e("samarche","add  ListCompte");
 
 

@@ -19,7 +19,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Ajoute Carte"
+        android:text="Ajoute   Carte"
         android:id="@+id/text_carte_add"
         android:layout_marginTop="285dp"
         android:layout_marginLeft="195dp"

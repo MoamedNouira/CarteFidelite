@@ -9,6 +9,7 @@ public class Compte {
     private int montant;
     private int nb_point;
 
+
     public void setId_client(int id_client) {
         this.id_client = id_client;
     }

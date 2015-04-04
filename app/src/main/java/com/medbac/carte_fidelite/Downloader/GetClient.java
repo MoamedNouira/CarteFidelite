@@ -11,8 +11,11 @@ import android.widget.SimpleAdapter;
 import android.widget.Toast;
 
 import com.medbac.carte_fidelite.Models.Client;
+import com.medbac.carte_fidelite.Models.Compte;
+
 import com.medbac.carte_fidelite.activity.Login;
 import com.medbac.carte_fidelite.activity.MenuCarte;
+
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -162,9 +165,7 @@ public class GetClient  {
                         client1.setTell(Integer.parseInt(tell));
 
                       getCompte gc = new getCompte("http://mohamednouira.esy.es/getCompte.php",id_client,context);
-
                       client1.setCompte(gc.ListCompte);
-
                         Log.e("samarche","add list compte to client");
 
 
