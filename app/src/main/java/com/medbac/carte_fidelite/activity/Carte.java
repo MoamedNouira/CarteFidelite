@@ -27,6 +27,7 @@ import activity.carte_fidelite.medbac.com.cartefidelite.R;
 public class Carte extends Activity {
 
    Button ButtonListCarte;
+   Button ButtonLiteAjouteCarte;
 
 
     @Override
@@ -36,6 +37,9 @@ public class Carte extends Activity {
 
         ButtonListCarte = (Button) findViewById(R.id.button_carte_listcarte);
         ButtonListCarte.setFocusableInTouchMode(true);
+        ButtonLiteAjouteCarte = (Button) findViewById(R.id.button_carte_add);
+        ButtonLiteAjouteCarte.setFocusableInTouchMode(true);
+
         addListenerOnButton();
 
     }
@@ -46,6 +50,11 @@ public class Carte extends Activity {
             Intent i = new Intent(this, ListCarte.class);
             startActivity(i);
         }
+        if (v.getId() == ButtonLiteAjouteCarte.getId()) {
+            Intent i = new Intent(this, LiteAjouteCarte.class);
+            startActivity(i);
+        }
+
     }
     public void addListenerOnButton() {
         ButtonListCarte.setOnClickListener(new View.OnClickListener() {
@@ -59,8 +68,18 @@ public class Carte extends Activity {
 
             }
         });
+        ButtonLiteAjouteCarte.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View arg0) {
+                Toast.makeText(MenuCarte.this, "Ajoute Carte",
+                        Toast.LENGTH_SHORT).show();
+                ButtonLiteAjouteCarte.setFocusableInTouchMode(false);
+                ButtonLiteAjouteCarte.setFocusable(false);
+                onClick2(arg0);
 
 
+            }
+        });
 
 
     }
