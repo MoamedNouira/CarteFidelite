@@ -80,7 +80,7 @@ public class MenuCarte extends Activity {
             startActivity(i);
         }
         if (v.getId() == ButtonMenuPromotion.getId()) {
-            Intent i = new Intent(this, Promotion.class);
+            Intent i = new Intent(this, ListPromotion.class);
             startActivity(i);
         }
         if (v.getId() == ButtonMenuCompte.getId()) {
