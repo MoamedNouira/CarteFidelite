@@ -102,12 +102,12 @@ public class CreerCompte extends Activity {
 
 
             HttpClient httpClient = new DefaultHttpClient();
-            HttpPost httpPost = new HttpPost("http://mohamednouira.esy.es/carte_fidelite/setClientLocal.php");
+            HttpPost httpPost = new HttpPost("http://mohamednouira.esy.es/setClient.php");
             ArrayList<NameValuePair> client = new ArrayList<NameValuePair>();
 
 
             client.add(new BasicNameValuePair("nom", nom.getText().toString()));
-            client.add(new BasicNameValuePair("prenom", "rty"));
+            client.add(new BasicNameValuePair("prenom", prenom.getText().toString()));
             client.add(new BasicNameValuePair("login", id.getText().toString()));
             client.add(new BasicNameValuePair("password", password.getText().toString()));
             client.add(new BasicNameValuePair("cin", cin.getText().toString()));
