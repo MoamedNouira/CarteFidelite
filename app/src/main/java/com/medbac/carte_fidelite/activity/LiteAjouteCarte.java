@@ -21,9 +21,9 @@ public class LiteAjouteCarte  extends Activity implements TabHost.OnTabChangeLis
         view = (TabHost)findViewById(R.id.tabhost_ajoute_carte);
         view.setOnTabChangedListener(this);
         view.setup();
-        addTab("Tab1","Tab 1",R.drawable.user34,R.id.tab1_ajoute_categorie);
-        addTab("Tab2","Tab 2",R.drawable.home82,R.id.tab2_ajoute_nom);
-        addTab("Tab3","Tab 3",R.drawable.home82,R.id.tab1_ajoute_vierge);
+        addTab("Categorie","Categorie",R.drawable.user34,R.id.tab1_ajoute_categorie);
+        addTab("Nom","Nom",R.drawable.home82,R.id.tab2_ajoute_nom);
+        addTab("Vierge","vierge",R.drawable.home82,R.id.tab1_ajoute_vierge);
 
 
     }

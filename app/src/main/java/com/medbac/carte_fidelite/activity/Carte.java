@@ -71,7 +71,7 @@ public class Carte extends Activity {
         ButtonLiteAjouteCarte.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View arg0) {
-                Toast.makeText(MenuCarte.this, "Ajoute Carte",
+                Toast.makeText(Carte.this, "Ajoute Carte",
                         Toast.LENGTH_SHORT).show();
                 ButtonLiteAjouteCarte.setFocusableInTouchMode(false);
                 ButtonLiteAjouteCarte.setFocusable(false);

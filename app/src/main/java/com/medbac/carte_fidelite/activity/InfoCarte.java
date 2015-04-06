@@ -23,8 +23,8 @@ public class InfoCarte extends Activity implements OnTabChangeListener {
         view = (TabHost)findViewById(R.id.tabhost);
         view.setOnTabChangedListener(this);
         view.setup();
-        addTab("Tab1","Tab 1",android.R.drawable.ic_menu_preferences,R.id.tab1);
-        addTab("Tab2","Tab 2",android.R.drawable.ic_menu_call,R.id.tab2);
+        addTab("Carte","Carte",android.R.drawable.ic_menu_preferences,R.id.tab1);
+        addTab("Localiser","Localiser",android.R.drawable.ic_menu_call,R.id.tab2);
     }
 
     private void addTab(String tag, String title, int icon, int content){
