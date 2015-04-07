@@ -137,7 +137,7 @@ public class getAllCategorie  {
                         Log.e("ServiceHandler", "jjjjjjjjjjjjjjjjj");
 
                         AdapterListAjouteCarteCat adapter = new AdapterListAjouteCarteCat(context, listCat);
-                        ListView ListViewAjouteCarteCat = (ListView)((Activity)context).findViewById(R.id.listViewAjouteCarteCat);
+                  //      ListView ListViewAjouteCarteCat = (ListView)((Activity)context).findViewById(R.id.listViewAjouteCarteCat);
 //                        ListViewAjouteCarteCat.setAdapter(adapter);
 
 
