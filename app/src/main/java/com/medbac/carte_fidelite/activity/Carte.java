@@ -51,7 +51,7 @@ public class Carte extends Activity {
             startActivity(i);
         }
         if (v.getId() == ButtonLiteAjouteCarte.getId()) {
-            Intent i = new Intent(this, LiteAjouteCarte.class);
+            Intent i = new Intent(Carte.this, FragmentAjouteCarte.class);
             startActivity(i);
         }
 

@@ -86,7 +86,7 @@ public class ListCarte extends Activity {
         ListViewCarte.setOnItemClickListener(new OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> arg0, View view, int position,long arg3) {
-                Intent i = new Intent(ListCarte.this,InfoCarte.class);
+                Intent i = new Intent(ListCarte.this,FrInfoCarte.class);
                 i.putExtra("position", position);
                 startActivity(i);
             }
