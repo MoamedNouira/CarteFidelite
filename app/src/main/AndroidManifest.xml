@@ -87,7 +87,10 @@
             android:name="com.medbac.carte_fidelite.activity.FragmentAjouteCarte"
             android:label="@string/title_activity_promotion"
             android:theme="@android:style/Theme.Holo" />
-
+        <activity
+            android:name="com.medbac.carte_fidelite.activity.Activity_facvc"
+            android:label="@string/title_activity_promotion"
+            android:theme="@android:style/Theme.Holo" />
 
     </application>
 

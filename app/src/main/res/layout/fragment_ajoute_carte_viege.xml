@@ -3,14 +3,73 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#C1E1A6" >
+    android:id="@+id/facv">
 
-    <TextView android:layout_width="fill_parent"
+    <TextView android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="Design Top Rated Screen"
+        android:text="Créer votre carte personnalisée"
         android:textSize="20dp"
-        android:layout_centerInParent="true"/>
+        android:layout_marginTop="10dp"
+        android:id="@+id/textView9"
+        android:layout_centerHorizontal="true"
+        />
 
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText13"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginRight="60dp"
+        android:hint="Nom de carte"/>
+<EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText14"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginRight="60dp"
+        android:hint="Enseigne"/>
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/arrow"
+        android:id="@+id/facv_cplus"
+        android:layout_marginTop="55dp"
+        android:layout_marginLeft="280dp"
+        />
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/arrow"
+        android:id="@+id/facv_eplus"
+        android:layout_marginTop="95dp"
+        android:layout_marginLeft="280dp" />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Scanner le code barre"
+        android:id="@+id/button7"
+        android:layout_marginTop="130dp"
+        android:layout_centerHorizontal="true"
+        />
+
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText15"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="190dp"
+        android:layout_marginRight="60dp"
+        android:hint="Ou saisissez vorte numéro de carte"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Valider"
+        android:id="@+id/button8"
+        android:layout_marginTop="270dp"
+        android:layout_centerHorizontal="true"
+        />
 </RelativeLayout>

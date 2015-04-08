@@ -68,32 +68,52 @@ public class CreerCompte extends Activity {
         String Sadr = adr.getText().toString();
         String Smail = mail.getText().toString();
 
-        if (Sid == null || Sid == "" || Sid.length() < 3) {
+        if (Sid == null || Sid == "" ) {
+            id.setError("Identifiant est obligatoire");
+
             Toast.makeText(this, "Identifiant est obligatoire", Toast.LENGTH_SHORT).show();
-        } else if (Spassword == null || Spassword == "" || Spassword.length() < 3) {
+        } else if (Spassword == null || Spassword == "") {
+            password.setError("Mot de passe est obligatoire");
+
             Toast.makeText(this, "Mot de passe est obligatoire", Toast.LENGTH_SHORT).show()
             ;
-        } else if (Spassword_r == null || Spassword_r == "" || Spassword_r.length() < 3) {
+        } else if (Spassword_r == null || Spassword_r == "" || Spassword_r != Spassword) {
+            password_r.setError("Répéter mot passe est obligatoire");
+
             Toast.makeText(this, "Répéter mot passe est obligatoire", Toast.LENGTH_SHORT).show()
             ;
-        } else if (Sprenom == null || Sprenom == "" || Sprenom.length() < 3) {
+        } else if (Sprenom == null || Sprenom == "" ) {
+            prenom.setError("Prénom est obligatoire");
+
             Toast.makeText(this, "Prénom est obligatoire", Toast.LENGTH_SHORT).show()
             ;
-        } else if (Snom == null || Snom == "" || Snom.length() < 3) {
+        } else if (Snom == null || Snom == "" ) {
+            nom.setError("Nom est obligatoire");
+
             Toast.makeText(this, "Nom est obligatoire", Toast.LENGTH_SHORT).show()
             ;
-        } else if (Stell == null || Stell == "" || Stell.length() < 3) {
+        } else if (Stell == null || Stell == "" ) {
+            tell.setError("Téléphone est obligatoire");
+
             Toast.makeText(this, "Téléphone est obligatoire", Toast.LENGTH_SHORT).show()
             ;
-        } else if (Scode_postal == null || Scode_postal == "" || Scode_postal.length() < 3) {
+        } else if (Scode_postal == null || Scode_postal == "") {
+            code_postal.setError("Code postal est obligatoire");
+
             Toast.makeText(this, "Code postal est obligatoire", Toast.LENGTH_SHORT).show()
             ;
-        } else if (Scin == null || Scin == "" || Scin.length() < 3) {
+        } else if (Scin == null || Scin == "" ) {
+            cin.setError("CIN est obligatoire");
+
             Toast.makeText(this, "CIN est obligatoire", Toast.LENGTH_SHORT).show();
-        } else if (Sadr == null || Sadr == "" || Sadr.length() < 3) {
+        } else if (Sadr == null || Sadr == "" ) {
+            adr.setError("Adress est obligatoire");
+
             Toast.makeText(this, "Adress est obligatoire", Toast.LENGTH_SHORT).show()
             ;
-        } else if (Smail == null || Smail == "" || Smail.length() < 3) {
+        } else if (Smail == null || Smail == "" ) {
+            mail.setError("e-mail est obligatoire");
+
             Toast.makeText(this, "e-mail est obligatoire", Toast.LENGTH_SHORT).show()
             ;
         } else {

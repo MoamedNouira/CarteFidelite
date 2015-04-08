@@ -53,8 +53,11 @@ public class Login  extends Activity {
 
 
             if (Sid == null || Sid == "" || Sid.length() < 1) {
+                id.setError("Identifiant est obligatoire");
                 Toast.makeText(this, "Identifiant est obligatoire", Toast.LENGTH_SHORT).show();
             } else if (Spassword == null || Spassword == "" || Spassword.length() < 1) {
+                password.setError("Mot de passe est obligatoire");
+
                 Toast.makeText(this, "Mot de passe est obligatoire", Toast.LENGTH_SHORT).show();
             } else {
 

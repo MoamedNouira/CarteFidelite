@@ -12,4 +12,5 @@
     <string name="title_activity_compte">compte</string>
     <string name="title_activity_list_carte">ListCarte</string>
     <string name="title_activity_aff_carte">AffCarte</string>
+
 </resources>
