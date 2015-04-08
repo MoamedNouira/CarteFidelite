@@ -39,7 +39,8 @@ public class FragmentAjouteCarteViege   extends Fragment {
 
         if (v.getId() == facvc.getId()) {
             Intent i = new Intent(getActivity(), Activity_facvc.class);
-            startActivity(i);
+           // startActivity(i);
+            getActivity().startActivityForResult(i,1);
         }
 
 
@@ -60,5 +61,8 @@ public class FragmentAjouteCarteViege   extends Fragment {
 
     }
 
+public void onActivityResult(int request,int result, Intent date){
 
+
+}
 }

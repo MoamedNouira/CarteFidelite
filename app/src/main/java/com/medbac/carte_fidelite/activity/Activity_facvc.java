@@ -31,6 +31,7 @@ public class Activity_facvc extends Activity  {
     EditText type_carte;
     EditText description;
     Button prendre_photo;
+    Button ok;
     Uri imageUri                      = null;
     static TextView imageDetails      = null;
     public  static ImageView showImg  = null;
@@ -47,11 +48,29 @@ public class Activity_facvc extends Activity  {
         imageDetails = (TextView) findViewById(R.id.imageDetails);
         type_carte = (EditText) findViewById(R.id.type_carte);
         description = (EditText) findViewById(R.id.description);
-
-
+        ok = (Button) findViewById(R.id.ok);
         showImg = (ImageView) findViewById(R.id.showImg);
 
         final Button photo = (Button) findViewById(R.id.prendre_photo);
+
+        ok.setOnClickListener(new OnClickListener() {
+            public void onClick(View v) {
+            Intent data = new Intent();
+
+            String stype_carte = type_carte.getText().toString();
+            String sdescription = description.getText().toString();
+            data.putExtra("type_carte",stype_carte);
+                data.putExtra("description",sdescription);
+                setResult(Activity_facvc.RESULT_OK);
+                finish();
+
+            }
+
+        });
+
+
+
+
 
 
 
