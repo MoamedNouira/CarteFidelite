@@ -88,7 +88,11 @@
             android:label="@string/title_activity_promotion"
             android:theme="@android:style/Theme.Holo" />
         <activity
-            android:name="com.medbac.carte_fidelite.activity.Activity_facvc"
+            android:name="com.medbac.carte_fidelite.activity.Facvc"
+            android:label="@string/title_activity_promotion"
+            android:theme="@android:style/Theme.Holo" />
+        <activity
+            android:name="com.medbac.carte_fidelite.activity.Facve"
             android:label="@string/title_activity_promotion"
             android:theme="@android:style/Theme.Holo" />
 

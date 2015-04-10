@@ -7,6 +7,8 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.LayerDrawable;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -26,7 +28,7 @@ import activity.carte_fidelite.medbac.com.cartefidelite.R;
 /**
  * Created by Mohamed Nouira on 08/04/2015.
  */
-public class Activity_facvc extends Activity  {
+public class Facvc extends Activity  {
 
     EditText type_carte;
     EditText description;
@@ -35,7 +37,7 @@ public class Activity_facvc extends Activity  {
     Uri imageUri                      = null;
     static TextView imageDetails      = null;
     public  static ImageView showImg  = null;
-    Activity_facvc CameraActivity = null;
+    Facvc CameraActivity = null;
     final static int CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE = 1;
 
     @Override
@@ -59,9 +61,12 @@ public class Activity_facvc extends Activity  {
 
             String stype_carte = type_carte.getText().toString();
             String sdescription = description.getText().toString();
-            data.putExtra("type_carte",stype_carte);
+           // Bitmap bitmapp = showImg.getDrawable().getBounds();
+
+                data.putExtra("type_carte",stype_carte);
                 data.putExtra("description",sdescription);
-                setResult(Activity_facvc.RESULT_OK);
+                data.putExtra("showImg",R.id.showImg);
+                setResult(Facvc.RESULT_OK);
                 finish();
 
             }
@@ -215,7 +220,7 @@ public class Activity_facvc extends Activity  {
     // Class with extends AsyncTask class
     public class LoadImagesFromSDCard  extends AsyncTask<String, Void, Void> {
 
-        private ProgressDialog Dialog = new ProgressDialog(Activity_facvc.this);
+        private ProgressDialog Dialog = new ProgressDialog(Facvc.this);
 
         Bitmap mBitmap;
 
