@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 import com.medbac.carte_fidelite.Models.Client;
 
@@ -22,6 +23,7 @@ public class Login  extends Activity {
     Button creer_compte;
     Button connexion;
     EditText id, password;
+    TextView motpasse;
 
 
 
@@ -35,7 +37,7 @@ public class Login  extends Activity {
 
         id = (EditText) findViewById(R.id.editText13);
         password = (EditText) findViewById(R.id.editText16);
-
+        motpasse = (TextView) findViewById(R.id.textView2);
 
     }
 
@@ -45,6 +47,13 @@ public class Login  extends Activity {
             Intent i = new Intent(this, CreerCompte.class);
             startActivity(i);
         }
+
+        if (v.getId() == motpasse.getId()) {
+            Intent i = new Intent(this, MotPasse.class);
+            startActivity(i);
+        }
+
+
         if (v.getId() == connexion.getId()) {
 
 
