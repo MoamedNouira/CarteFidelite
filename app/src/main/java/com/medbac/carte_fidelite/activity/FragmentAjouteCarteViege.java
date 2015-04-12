@@ -15,6 +15,8 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.google.zxing.integration.android.IntentIntegrator;
+import com.google.zxing.integration.android.IntentResult;
 import com.medbac.carte_fidelite.Downloader.GetClient;
 
 import org.apache.http.HttpEntity;
@@ -49,6 +51,7 @@ public class FragmentAjouteCarteViege   extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_ajoute_carte_viege, container, false);
+
         scanner = (Button)  rootView.findViewById(R.id.button7);
         valider = (Button)  rootView.findViewById(R.id.button8);
         nom_carte = (EditText)  rootView.findViewById(R.id.nom_carte);
@@ -68,6 +71,16 @@ public class FragmentAjouteCarteViege   extends Fragment {
         return rootView;
     }
     public void onClick2(View v) {
+
+        if (v.getId() == scanner.getId()) {
+            IntentIntegrator integrator = new IntentIntegrator(getActivity());
+            integrator.setMessage("Scan a barcode");
+            integrator.initiateScan();
+
+
+        }
+
+
 
         if (v.getId() == facvc.getId()) {
             Intent i = new Intent(getActivity(), Facvc.class);
@@ -134,12 +147,44 @@ public class FragmentAjouteCarteViege   extends Fragment {
             }
         });
 
+            scanner.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View arg0) {
+                    scanner.setFocusableInTouchMode(false);
+                    scanner.setFocusable(false);
+                    onClick2(arg0);
 
-
+                }
+            });
 
     }
 
+
+
+
 public void onActivityResult(int request,int result, Intent data){
+
+
+    IntentResult scanResult = IntentIntegrator.parseActivityResult(	request, result, data);
+    if (scanResult != null) {
+
+        String barcode;
+        barcode = scanResult.getContents();
+        code_barre.setText(barcode);
+
+    }
+/*
+    IntentResult res = IntentIntegrator.parseActivityResult(request, result, data);
+    if (res != null) {
+        String contents = res.getContents();
+        if (contents != null) {
+            showDialog(R.string.result_succeeded, result.toString());
+        } else {
+            showDialog(R.string.result_failed, getString(R.string.result_failed_why));
+        }
+    }
+*/
+
     if (request == 1) {
         if(result == Activity.RESULT_OK){
             String type_carte=data.getStringExtra("type_carte");
