@@ -79,22 +79,23 @@
             android:name="com.medbac.carte_fidelite.activity.LiteAjouteCarte"
             android:label="@string/title_activity_promotion"
             android:theme="@android:style/Theme.Holo.Light.NoActionBar" />
+            />
         <activity
             android:name="com.medbac.carte_fidelite.activity.FrInfoCarte"
             android:label="@string/title_activity_promotion"
-            android:theme="@android:style/Theme.Holo" />
+            android:theme="@android:style/Theme.Holo.Light" />
         <activity
             android:name="com.medbac.carte_fidelite.activity.FragmentAjouteCarte"
             android:label="@string/title_activity_promotion"
-            android:theme="@android:style/Theme.Holo" />
+            android:theme="@android:style/Theme.Holo.Light" />
         <activity
             android:name="com.medbac.carte_fidelite.activity.Facvc"
             android:label="@string/title_activity_promotion"
-            android:theme="@android:style/Theme.Holo" />
+            android:theme="@android:style/Theme.Holo.Light.NoActionBar" />
         <activity
             android:name="com.medbac.carte_fidelite.activity.Facve"
             android:label="@string/title_activity_promotion"
-            android:theme="@android:style/Theme.Holo" />
+            android:theme="@android:style/Theme.Holo.Light.NoActionBar" />
 
     </application>
 

@@ -3,119 +3,69 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:weightSum="1"
-        >
+    android:background="@drawable/bk"
+    >
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:text="@string/bienvenue"
-        android:id="@+id/textView2"
-        android:layout_weight="0.11"
-        android:layout_alignParentTop="true"
+
+    <EditText
+        android:layout_width="215dp"
+        android:layout_height="35dp"
+        android:id="@+id/editText13"
+        android:layout_marginLeft="58dp"
+        android:layout_marginTop="150dp"
+        android:hint="nom d'utilisateur"
+        android:background="@drawable/tbk"
+        android:gravity="center"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:gravity="center_horizontal"
+
 
         />
-
     <EditText
-        android:singleLine="true"
-        android:drawableLeft="@drawable/personal19"
-
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:hint=" Identification"
-        android:ems="10"
-        android:id="@+id/editText"
-        android:layout_below="@+id/textView2"
-        android:layout_centerHorizontal="true" />
-
-    <EditText
-        android:singleLine="true"
-        android:drawableLeft="@drawable/user34"
-
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="215dp"
+        android:layout_height="35dp"
+        android:id="@+id/editText16"
+        android:layout_marginLeft="58dp"
+        android:layout_marginTop="195dp"
         android:inputType="textPassword"
-        android:hint=" Mot de passe"
-        android:ems="10"
-        android:id="@+id/editText2"
-        android:layout_below="@+id/editText"
+        android:hint="mot de passe"
+        android:background="@drawable/tbk"
         android:layout_centerHorizontal="true"
-        android:password="false"
-        android:phoneNumber="false" />
 
-    <Button
+        android:gravity="center"
+
+
+        />
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/button"
-        android:layout_marginTop="20dp"
-        android:layout_below="@+id/editText2"
-        android:layout_alignLeft="@+id/editText2"
-        android:layout_alignStart="@+id/editText2"
-        android:layout_alignRight="@+id/editText2"
-        android:layout_alignEnd="@+id/editText2"
-        android:text="Connexion"
+        android:text="Mot de passe oublié"
+        android:id="@+id/textView2"
+        android:layout_marginTop="302dp"
+        android:layout_centerHorizontal="true"
+        android:textColor="#f5683d"
         android:onClick="onClick"
 
         />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Mot de passe oublié"
-        android:id="@+id/button2"
-        android:layout_centerVertical="true"
-        android:layout_alignLeft="@+id/button"
-        android:layout_alignStart="@+id/button"
-        android:layout_alignRight="@+id/button"
-        android:layout_alignEnd="@+id/button"
-        android:layout_marginTop="20dp" />
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:id="@+id/bt_connexion"
+        android:background="@drawable/selector_login_conx"
+        android:layout_marginTop="245dp"
+        android:onClick="onClick"
+        android:layout_centerHorizontal="true"
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Vous n&apos;avez pas de compte"
-        android:id="@+id/textView3"
-        android:layout_alignLeft="@+id/textView4"
-        android:layout_alignStart="@+id/textView4"
-        android:layout_below="@+id/button2"
-        android:layout_alignRight="@+id/textView4"
-        android:layout_alignEnd="@+id/textView4"
-        android:layout_marginTop="20dp"
-        android:textAlignment="center"
-        android:gravity="center_horizontal"
-
-        />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Inscrivez vous gratuitement pour ne perdre plus aucune de vos cartes"
-        android:id="@+id/textView4"
-        android:layout_marginTop="20dp"
-        android:layout_below="@+id/textView3"
-        android:layout_alignRight="@+id/button2"
-        android:layout_alignEnd="@+id/button2"
-        android:layout_alignLeft="@+id/button2"
-        android:layout_alignStart="@+id/button2"
-        android:password="false"
-        android:gravity="center_horizontal"
         />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Créer un compte"
-        android:id="@+id/button3"
-        android:layout_below="@+id/textView4"
-        android:layout_alignLeft="@+id/textView4"
-        android:layout_alignStart="@+id/textView4"
-        android:layout_alignRight="@+id/textView4"
-        android:layout_alignEnd="@+id/textView4"
-        android:layout_marginTop="20dp"
-        android:onClick="onClick"/>
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:id="@+id/bt_compte"
+        android:background="@drawable/selector_login_compte"
+        android:layout_marginTop="440dp"
+        android:onClick="onClick"
+        android:layout_centerHorizontal="true"
 
-
+        />
 </RelativeLayout>

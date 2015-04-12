@@ -2,166 +2,71 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:weightSum="1"
+    android:background="@drawable/bkc"
     >
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        >
 
     <EditText
-        android:singleLine="true"
-        android:drawableLeft="@drawable/personal19"
-
-        android:layout_width="230dp"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:ems="10"
-        android:id="@+id/editText3"
-        android:layout_alignParentTop="true"
+        android:layout_width="250dp"
+        android:layout_height="42dp"
+        android:id="@+id/compte_id"
+        android:layout_marginLeft="28dp"
+        android:layout_marginTop="195dp"
+        android:hint="nom d'utilisateur"
+        android:background="@drawable/tbk"
+        android:gravity="center"
         android:layout_centerHorizontal="true"
-        android:hint="Identifiant"
 
         />
-
     <EditText
-        android:singleLine="true"
-        android:drawableLeft="@drawable/user34"
+        android:layout_width="250dp"
+        android:layout_height="42dp"
+        android:id="@+id/compte_mail"
+        android:layout_marginLeft="28dp"
+        android:layout_marginTop="260dp"
+        android:hint="email"
+        android:background="@drawable/tbk"
+        android:gravity="center"
+        android:layout_centerHorizontal="true"
 
-        android:layout_width="230dp"
-        android:layout_height="wrap_content"
+        />
+    <EditText
         android:inputType="textPassword"
-        android:hint="Mot de passe"
-        android:ems="10"
-        android:id="@+id/editText4"
-        android:layout_below="@+id/editText3"
-        android:layout_centerHorizontal="true" />
+        android:layout_width="250dp"
+        android:layout_height="42dp"
+        android:id="@+id/compte_pwd"
+        android:layout_marginLeft="28dp"
+        android:layout_marginTop="320dp"
+        android:hint="mot de passe"
+        android:background="@drawable/tbk"
+        android:gravity="center"
+        android:layout_centerHorizontal="true"
 
+
+        />
     <EditText
-        android:singleLine="true"
-        android:drawableLeft="@drawable/user34"
-
-        android:layout_width="230dp"
-        android:layout_height="wrap_content"
         android:inputType="textPassword"
-        android:hint="Répéter mot passe"
-        android:ems="10"
-        android:id="@+id/editText5"
-        android:layout_below="@+id/editText4"
-        android:layout_centerHorizontal="true" />
+        android:layout_width="250dp"
+        android:layout_height="42dp"
+        android:id="@+id/compte_rpwd"
+        android:layout_marginLeft="28dp"
+        android:layout_marginTop="380dp"
+        android:hint="Répéter mot de passe"
+        android:background="@drawable/tbk"
+        android:gravity="center"
+        android:layout_centerHorizontal="true"
 
-    <EditText
-        android:singleLine="true"
-        android:drawableLeft="@drawable/personal19"
-
-        android:layout_width="230dp"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:hint="Prénom"
-        android:ems="10"
-        android:id="@+id/editText6"
-        android:layout_below="@+id/editText5"
-        android:layout_centerHorizontal="true" />
-
-    <EditText
-        android:singleLine="true"
-        android:drawableLeft="@drawable/personal19"
-
-        android:layout_width="230dp"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:hint="Nom"
-        android:ems="10"
-        android:id="@+id/editText7"
-        android:layout_below="@+id/editText6"
-        android:layout_centerHorizontal="true" />
-
-    <EditText
-        android:singleLine="true"
-        android:drawableLeft="@drawable/phone325"
-
-
-        android:layout_width="230dp"
-        android:layout_height="wrap_content"
-        android:inputType="number"
-        android:hint="Téléphone"
-        android:ems="10"
-        android:id="@+id/editText8"
-        android:layout_below="@+id/editText7"
-        android:layout_centerHorizontal="true" />
-
-    <EditText
-        android:singleLine="true"
-        android:drawableLeft="@drawable/envelope6"
-
-        android:layout_width="230dp"
-        android:layout_height="wrap_content"
-        android:inputType="number"
-        android:hint="Code postal"
-        android:ems="10"
-        android:id="@+id/editText9"
-        android:layout_below="@+id/editText8"
-        android:layout_centerHorizontal="true" />
-
-    <EditText
-        android:singleLine="true"
-        android:drawableLeft="@drawable/woman"
-
-
-        android:layout_width="230dp"
-        android:layout_height="wrap_content"
-        android:inputType="number"
-        android:hint="CIN"
-        android:ems="10"
-        android:id="@+id/editText10"
-        android:layout_below="@+id/editText9"
-        android:layout_centerHorizontal="true" />
-
-    <EditText
-        android:singleLine="true"
-        android:drawableLeft="@drawable/home82"
-
-        android:layout_width="230dp"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:hint="Adress"
-        android:ems="10"
-        android:id="@+id/editText11"
-        android:layout_below="@+id/editText10"
-        android:layout_centerHorizontal="true" />
-
-    <EditText
-        android:singleLine="true"
-        android:drawableLeft="@drawable/arroba1"
-
-
-        android:layout_width="230dp"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:hint="e-mail"
-        android:ems="10"
-        android:id="@+id/editText12"
-        android:layout_below="@+id/editText11"
-        android:layout_centerHorizontal="true" />
-
+        />
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Créer mon compte"
-        android:id="@+id/button4"
-        android:layout_below="@+id/editText12"
-        android:layout_alignLeft="@+id/editText12"
-        android:layout_alignStart="@+id/editText12"
-        android:layout_alignRight="@+id/editText12"
-        android:layout_alignEnd="@+id/editText12"
-        android:onClick="creerMonCompte"
-        />
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:id="@+id/bt_compte_compte"
+        android:background="@drawable/selector_compte_compte"
+        android:layout_marginTop="440dp"
+        android:onClick="onClick"
+        android:layout_centerHorizontal="true"
 
-    </RelativeLayout>
-    </ScrollView>
+        />
 
 
 </RelativeLayout>

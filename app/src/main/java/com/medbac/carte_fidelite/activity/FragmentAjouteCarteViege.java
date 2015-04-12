@@ -93,55 +93,6 @@ public class FragmentAjouteCarteViege   extends Fragment {
 
             } else {
 
-                //   InputStream is = null;
-
-                HttpClient httpClient = new DefaultHttpClient();
-                HttpPost httpPost = new HttpPost("http://mohamednouira.esy.es/setClient.php");
-                ArrayList<NameValuePair> client = new ArrayList<NameValuePair>();
-
-
-                client.add(new BasicNameValuePair("nom", nom.getText().toString()));
-                client.add(new BasicNameValuePair("prenom", prenom.getText().toString()));
-                client.add(new BasicNameValuePair("login", id.getText().toString()));
-                client.add(new BasicNameValuePair("password", password.getText().toString()));
-                client.add(new BasicNameValuePair("cin", cin.getText().toString()));
-                client.add(new BasicNameValuePair("adr", adr.getText().toString()));
-                client.add(new BasicNameValuePair("tell", tell.getText().toString()));
-                client.add(new BasicNameValuePair("mail", mail.getText().toString()));
-                client.add(new BasicNameValuePair("code_postal", code_postal.getText().toString()));
-
-                try {
-                    httpPost.setEntity(new UrlEncodedFormEntity(client));
-                    HttpResponse httpRespose = httpClient.execute(httpPost);
-                    Log.e("ss", "ee");
-                    HttpEntity httpEntity = httpRespose.getEntity();
-                    InputStream in = httpEntity.getContent();
-                    BufferedReader read = new BufferedReader(new InputStreamReader(in));
-
-                    String isi = "";
-                    String baris = "";
-
-                    while ((baris = read.readLine()) != null) {
-                        isi += baris;
-                    }
-
-                    //Jika isi tidak sama dengan "null " maka akan tampil Toast "Berhasil" sebaliknya akan tampil "Gagal"
-                    if (!isi.equals("null")) {
-                        Toast.makeText(this, "Berhasil", Toast.LENGTH_LONG).show();
-                    } else {
-                        Toast.makeText(this, "Gagal", Toast.LENGTH_LONG).show();
-                    }
-
-                    Toast.makeText(this, "les donnees sont enregistrées", Toast.LENGTH_SHORT).show();
-
-                    Intent i = new Intent(this, Login.class);
-                    startActivity(i);
-
-
-                } catch (Exception e) {
-                    Log.e("log_tag", "Error in http connection :" + e.toString());
-                }
-
 
             }
 

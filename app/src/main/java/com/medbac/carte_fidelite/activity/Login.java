@@ -30,11 +30,11 @@ public class Login  extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
 
-        creer_compte = (Button) findViewById(R.id.button3);
-        connexion = (Button) findViewById(R.id.button);
+        creer_compte = (Button) findViewById(R.id.bt_compte);
+        connexion = (Button) findViewById(R.id.bt_connexion);
 
-        id = (EditText) findViewById(R.id.editText);
-        password = (EditText) findViewById(R.id.editText2);
+        id = (EditText) findViewById(R.id.editText13);
+        password = (EditText) findViewById(R.id.editText16);
 
 
     }
@@ -54,11 +54,9 @@ public class Login  extends Activity {
 
             if (Sid == null || Sid == "" || Sid.length() < 1) {
                 id.setError("Identifiant est obligatoire");
-                Toast.makeText(this, "Identifiant est obligatoire", Toast.LENGTH_SHORT).show();
             } else if (Spassword == null || Spassword == "" || Spassword.length() < 1) {
                 password.setError("Mot de passe est obligatoire");
 
-                Toast.makeText(this, "Mot de passe est obligatoire", Toast.LENGTH_SHORT).show();
             } else {
 
 
