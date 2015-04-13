@@ -44,7 +44,9 @@ public class Facve extends Activity {
                 data.putExtra("tell",stell);
                 data.putExtra("mail",smail);
 
-                setResult(Facvc.RESULT_OK);
+              // setResult(Facvc.RESULT_OK);
+                setResult(RESULT_OK, data);
+
                 finish();
 
             }

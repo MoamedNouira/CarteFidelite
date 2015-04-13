@@ -66,7 +66,9 @@ public class Facvc extends Activity  {
                 data.putExtra("type_carte",stype_carte);
                 data.putExtra("description",sdescription);
                 data.putExtra("showImg",R.id.showImg);
-                setResult(Facvc.RESULT_OK);
+              //  setResult(Facvc.RESULT_OK);
+                setResult(RESULT_OK, data);
+
                 finish();
 
             }

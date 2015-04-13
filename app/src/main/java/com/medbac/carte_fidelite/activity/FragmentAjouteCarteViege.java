@@ -13,10 +13,11 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.zxing.integration.android.IntentIntegrator;
-import com.google.zxing.integration.android.IntentResult;
+//import com.google.zxing.integration.android.IntentIntegrator;
+//import com.google.zxing.integration.android.IntentResult;
 import com.medbac.carte_fidelite.Downloader.GetClient;
 
 import org.apache.http.HttpEntity;
@@ -47,9 +48,9 @@ public class FragmentAjouteCarteViege   extends Fragment {
     Compte compte;
     Carte carte;
     Enseigne enseigne;
+    TextView code;
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_ajoute_carte_viege, container, false);
 
         scanner = (Button)  rootView.findViewById(R.id.button7);
@@ -59,6 +60,7 @@ public class FragmentAjouteCarteViege   extends Fragment {
         code_barre = (EditText)  rootView.findViewById(R.id.editText15);
         facvc = (ImageView)  rootView.findViewById(R.id.facv_cplus);
         facve = (ImageView)  rootView.findViewById(R.id.facv_eplus);
+
         Carte carte= new Carte();
         Compte compte=new Compte();
         Enseigne enseigne = new Enseigne();
@@ -68,29 +70,38 @@ public class FragmentAjouteCarteViege   extends Fragment {
         addListenerOnButton();
 
 
+
+
+
         return rootView;
     }
     public void onClick2(View v) {
 
         if (v.getId() == scanner.getId()) {
-            IntentIntegrator integrator = new IntentIntegrator(getActivity());
-            integrator.setMessage("Scan a barcode");
-            integrator.initiateScan();
 
+
+            Intent i = new Intent(getActivity(), Barrecode.class);
+            startActivityForResult(i, 3);
+
+
+         // IntentIntegrator intentIntegrator = new IntentIntegrator(getActivity());
+          //  intentIntegrator.initiateScan();
 
         }
 
 
 
         if (v.getId() == facvc.getId()) {
+
             Intent i = new Intent(getActivity(), Facvc.class);
            // startActivity(i);
-            getActivity().startActivityForResult(i,1);
+            startActivityForResult(i, 1);
+
         }
         if (v.getId() == facve.getId()) {
             Intent i = new Intent(getActivity(), Facve.class);
             // startActivity(i);
-            getActivity().startActivityForResult(i,2);
+            startActivityForResult(i, 2);
         }
 
         if (v.getId() == valider.getId()) {
@@ -164,15 +175,25 @@ public class FragmentAjouteCarteViege   extends Fragment {
 
 public void onActivityResult(int request,int result, Intent data){
 
+    super.onActivityResult(request, result, data);
 
-    IntentResult scanResult = IntentIntegrator.parseActivityResult(	request, result, data);
-    if (scanResult != null) {
 
-        String barcode;
-        barcode = scanResult.getContents();
-        code_barre.setText(barcode);
+                             /*    IntentResult scanningResult = IntentIntegrator.parseActivityResult(request, result, data);
+                        String scanData = (scanningResult != null) ? scanningResult.getContents() : "";
+                        if (scanData == null || scanData.isEmpty()) {
+                            code.setText("Scan complete, no data");
+                        } else {
+                            code.setText(scanData);
+                        }
+                        */
+    //if (scanResult != null) {
 
-    }
+     //   String barcode;
+      //  barcode = scanResult.getContents();
+
+      //  code_barre.setText("dddddd");
+
+   // }
 /*
     IntentResult res = IntentIntegrator.parseActivityResult(request, result, data);
     if (res != null) {
@@ -186,7 +207,10 @@ public void onActivityResult(int request,int result, Intent data){
 */
 
     if (request == 1) {
+
         if(result == Activity.RESULT_OK){
+            nom_carte.setText("nom_carte");
+
             String type_carte=data.getStringExtra("type_carte");
             String description=data.getStringExtra("description");
             ImageView showImg = (ImageView) data.getParcelableExtra("showImg");
@@ -196,7 +220,10 @@ public void onActivityResult(int request,int result, Intent data){
         }
     }
     if (request == 2) {
+
         if(result == Activity.RESULT_OK){
+            nom_enseigne.setText("nom_enseigne");
+
             String adresse=data.getStringExtra("adresse");
             String vile=data.getStringExtra("vile");
             String code_postal=data.getStringExtra("code_postal");
@@ -204,6 +231,17 @@ public void onActivityResult(int request,int result, Intent data){
             String mail=data.getStringExtra("mail");
 
 
+
+        }
+        if (result == Activity.RESULT_CANCELED) {
+        }
+    }
+
+    if (request == 3) {
+
+        if(result == Activity.RESULT_OK){
+            String code=data.getStringExtra("code");
+            code_barre.setText(code);
         }
         if (result == Activity.RESULT_CANCELED) {
             //Write your code if there's no result
