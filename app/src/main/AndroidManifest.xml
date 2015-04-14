@@ -107,6 +107,10 @@
             android:name="com.medbac.carte_fidelite.activity.Barrecode"
             android:label="@string/title_activity_promotion"
             android:theme="@android:style/Theme.Holo.Light.NoActionBar" />
+        <activity
+            android:name="com.medbac.carte_fidelite.activity.AffichageBarreCode"
+            android:label="@string/title_activity_promotion"
+            android:theme="@android:style/Theme.Holo.Light.NoActionBar" />
 
     </application>
 
