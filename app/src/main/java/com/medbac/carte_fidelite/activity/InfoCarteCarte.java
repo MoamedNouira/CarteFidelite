@@ -13,7 +13,7 @@ import android.widget.TextView;
 
 public class InfoCarteCarte extends Fragment {
 
-    TextView id_compte;
+    public static TextView id_compte;
 
 
     @Override
@@ -32,22 +32,12 @@ public class InfoCarteCarte extends Fragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 
-
-
         View rootView = inflater.inflate(R.layout.fragment_info_carte_carte, container, false);
         id_compte = (TextView)  rootView.findViewById(R.id.textView10);
 
+           id_compte.setText(FrInfoCarte.info_carte_id_compte+"");
 
-        Bundle extras = getArguments();
 
-        if (extras != null) {
-            int strtext = extras.getInt("id_compte");
-            Log.e("zzzzzzzzzzzzzzzzzzzzzzzzzzzzzz", "" + strtext);
-            id_compte.setText(strtext);
-        }else{
-            id_compte.setText("nnnnnnnnnnnn");
-
-        }
 
 
 

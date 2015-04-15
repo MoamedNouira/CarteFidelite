@@ -1,6 +1,10 @@
 package com.medbac.carte_fidelite.activity;
 
 import activity.carte_fidelite.medbac.com.cartefidelite.R;
+
+import android.location.Address;
+import android.location.Location;
+import android.location.LocationManager;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -15,6 +19,7 @@ public class CarteLocaliser extends Fragment {
 
     MapView mMapView;
     private GoogleMap googleMap;
+    Location location;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -35,8 +40,15 @@ public class CarteLocaliser extends Fragment {
 
         googleMap = mMapView.getMap();
         // latitude and longitude
-        double latitude = 36.818810000000000000;
-        double longitude = 10.165960000000041000;
+
+        LocationManager lm = (LocationManager)getActivity().getSystemService(getActivity().LOCATION_SERVICE);
+        Location location = lm.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+        double longitude = location.getLongitude();
+        double latitude = location.getLatitude();
+
+     //   double latitude = 36.818810000000000000;
+      //  double longitude = 10.165960000000041000;
+
 
         // create marker
         MarkerOptions marker = new MarkerOptions().position(
@@ -49,9 +61,14 @@ public class CarteLocaliser extends Fragment {
         // adding marker
         googleMap.addMarker(marker);
 
+        googleMap.addMarker(new MarkerOptions()
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE))
+                .anchor(0.0f, 1.0f) // Anchors the marker on the bottom left
+                .position(new LatLng(65.1899, -19.7133)));
+
 
         CameraPosition cameraPosition = new CameraPosition.Builder()
-                .target(new LatLng(36.818810000000000000, 10.165960000000041000)).zoom(12).build();
+                .target(new LatLng(latitude, longitude)).zoom(12).build();
         googleMap.animateCamera(CameraUpdateFactory
                 .newCameraPosition(cameraPosition));
 

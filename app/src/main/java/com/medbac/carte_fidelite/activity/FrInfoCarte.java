@@ -6,9 +6,11 @@ import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.widget.TextView;
+import android.app.FragmentManager;
 
 import com.medbac.carte_fidelite.Adapter.TabsPagerAdapterInfoCarte;
 
@@ -21,7 +23,8 @@ public class FrInfoCarte extends FragmentActivity implements
 	private ViewPager viewPager;
 	private TabsPagerAdapterInfoCarte mAdapter;
 	private ActionBar actionBar;
-
+    InfoCarteCarte compte;
+public static int info_carte_id_compte;
 
 	// Tab titles
 	private String[] tabs = { "Carte", "Localiser" };
@@ -30,11 +33,6 @@ public class FrInfoCarte extends FragmentActivity implements
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.fragment_info_carte);
-
-
-
-
-
 		// Initilization
 		viewPager = (ViewPager) findViewById(R.id.pager);
 		actionBar = getActionBar();
@@ -44,21 +42,14 @@ public class FrInfoCarte extends FragmentActivity implements
 		actionBar.setHomeButtonEnabled(false);
 		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 
-        Bundle extras = getIntent().getExtras();
-        if (extras != null) {
-           int scode = extras.getInt("id_compte");
-            Log.e("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", "" + scode);
-
-            Bundle bundle=new Bundle();
-            bundle.putInt("id_compte",scode);
-            //set Fragmentclass Arguments
-            Log.e("wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww", "" + bundle.getInt("id_compte"));
-
-            InfoCarteCarte fragobj=new InfoCarteCarte();
-            fragobj.setArguments(bundle);
+   //    Bundle extras = getIntent().getExtras();
+     //   if (extras != null) {
+      //     int scode = extras.getInt("id_compte");
+    //        Log.e("wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww", "" + scode);
 
 
-        }
+
+     //   }
 
 
 
@@ -99,6 +90,16 @@ public class FrInfoCarte extends FragmentActivity implements
 		// on tab selected
 		// show respected fragment view
 		viewPager.setCurrentItem(tab.getPosition());
+
+        Bundle extras = getIntent().getExtras();
+          if (extras != null) {
+               info_carte_id_compte = extras.getInt("id_compte");
+              Log.e("wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww", "" +info_carte_id_compte);
+
+          }
+
+
+
 	}
 
 	@Override
