@@ -42,7 +42,8 @@ import activity.carte_fidelite.medbac.com.cartefidelite.R;
  */
 public class ListCarte extends Activity {
 
-    ArrayList  ListCompte;
+      ArrayList  ListCompte;
+    ArrayList ListCompte2;
     ArrayList ListCartes;
     Compte compte;
     Carte carte;
@@ -57,9 +58,9 @@ public class ListCarte extends Activity {
 
         ListViewCarte = (ListView)findViewById(R.id.listView);
 
-        ArrayList <Compte> ListCompte =new ArrayList<Compte>();
+         ArrayList <Compte> ListCompte =new ArrayList<Compte>();
 
-        ListCompte = GetClient.client1.getCompte();
+         ListCompte = GetClient.client1.getCompte();
 
         for(int i=0;i< ListCompte.size();i++)
         {
@@ -85,10 +86,18 @@ public class ListCarte extends Activity {
 
         ListViewCarte.setOnItemClickListener(new OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> arg0, View view, int position,long arg3) {
+               public void onItemClick(AdapterView<?> arg0, View view, int position,long arg3) {
                 Intent i = new Intent(ListCarte.this,FrInfoCarte.class);
                 i.putExtra("position", position);
+
+
+                ArrayList <Compte> ListCompte2 =new ArrayList<Compte>();
+                ListCompte2 = GetClient.client1.getCompte();
+                i.putExtra("id_compte",ListCompte2.get(position).getId_compte());
                 startActivity(i);
+
+
+
             }
         });
 

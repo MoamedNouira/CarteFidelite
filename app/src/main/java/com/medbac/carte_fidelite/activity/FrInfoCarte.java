@@ -3,9 +3,12 @@ package com.medbac.carte_fidelite.activity;
 import android.app.ActionBar;
 import android.app.ActionBar.Tab;
 import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
+import android.widget.TextView;
 
 import com.medbac.carte_fidelite.Adapter.TabsPagerAdapterInfoCarte;
 
@@ -14,9 +17,12 @@ import activity.carte_fidelite.medbac.com.cartefidelite.R;
 public class FrInfoCarte extends FragmentActivity implements
 		ActionBar.TabListener {
 
+
 	private ViewPager viewPager;
 	private TabsPagerAdapterInfoCarte mAdapter;
 	private ActionBar actionBar;
+
+
 	// Tab titles
 	private String[] tabs = { "Carte", "Localiser" };
 
@@ -25,6 +31,10 @@ public class FrInfoCarte extends FragmentActivity implements
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.fragment_info_carte);
 
+
+
+
+
 		// Initilization
 		viewPager = (ViewPager) findViewById(R.id.pager);
 		actionBar = getActionBar();
@@ -32,7 +42,25 @@ public class FrInfoCarte extends FragmentActivity implements
 
 		viewPager.setAdapter(mAdapter);
 		actionBar.setHomeButtonEnabled(false);
-		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);		
+		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+           int scode = extras.getInt("id_compte");
+            Log.e("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", "" + scode);
+
+            Bundle bundle=new Bundle();
+            bundle.putInt("id_compte",scode);
+            //set Fragmentclass Arguments
+            Log.e("wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww", "" + bundle.getInt("id_compte"));
+
+            InfoCarteCarte fragobj=new InfoCarteCarte();
+            fragobj.setArguments(bundle);
+
+
+        }
+
+
 
 		// Adding Tabs
 		for (String tab_name : tabs) {
