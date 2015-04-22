@@ -64,7 +64,7 @@ public class CarteLocaliser extends Fragment {
         googleMap.addMarker(new MarkerOptions()
                 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE))
                 .anchor(0.0f, 1.0f) // Anchors the marker on the bottom left
-                .position(new LatLng(65.1899, -19.7133)));
+                .position(new LatLng(longitude, latitude)));
 
 
         CameraPosition cameraPosition = new CameraPosition.Builder()
