@@ -1,7 +1,10 @@
 package com.medbac.carte_fidelite.activity;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
+import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ListView;
 import android.widget.TabHost;
 import android.widget.TabHost.OnTabChangeListener;
@@ -13,6 +16,8 @@ import com.medbac.carte_fidelite.Downloader.getAllPromotion;
 import com.medbac.carte_fidelite.Models.Promotion;
 
 
+import org.json.JSONArray;
+
 import java.util.ArrayList;
 
 import activity.carte_fidelite.medbac.com.cartefidelite.R;
@@ -21,10 +26,11 @@ import activity.carte_fidelite.medbac.com.cartefidelite.R;
  * Created by Mohamed Nouira on 05/04/2015.
  */
 public class ListPromotion extends Activity  {
-    ListView ListViewOffers;
-    ArrayList<Promotion>        ListOffer;
-    AdapterListPromotion adapter;
 
+
+    ListView ListViewOffers;
+    ArrayList<Promotion>     ListOffer;
+    AdapterListPromotion adapter;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,11 +39,14 @@ public class ListPromotion extends Activity  {
         ArrayList<Promotion> ListOffer =new ArrayList<Promotion>();
 
 
-       getAllPromotion gp = new getAllPromotion("http://mohamednouira.esy.es/getAllPromotion.php",this);
-        ListOffer = getAllPromotion.ListPromotion;
+        getAllPromotion gp = new getAllPromotion("http://mohamednouira.esy.es/getAllPromotion.php",this,ListViewOffers);
 
-        adapter = new AdapterListPromotion(this, ListOffer);
-        ListViewOffers.setAdapter(adapter);
+
+
+       // ListOffer = getAllPromotion.ListPromotion;
+
+       // adapter = new AdapterListPromotion(this, ListOffer);
+       // ListViewOffers.setAdapter(adapter);
 
 
 
@@ -45,10 +54,8 @@ public class ListPromotion extends Activity  {
     }
 
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-    }
+
 
 }
+
 

@@ -5,8 +5,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.util.Log;
+import android.widget.ListView;
 import android.widget.Toast;
 
+import com.medbac.carte_fidelite.Adapter.AdapterListPromotion;
 import com.medbac.carte_fidelite.Models.Client;
 import com.medbac.carte_fidelite.Models.Promotion;
 import com.medbac.carte_fidelite.activity.MenuCarte;
@@ -18,6 +20,7 @@ import org.json.JSONObject;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Locale;
 
 /**
  * Created by Mohamed Nouira on 22/04/2015.
@@ -26,6 +29,9 @@ public class getAllPromotion   {
 
     private static String url ;
     public static ArrayList ListPromotion  = new ArrayList();
+    ListView ListViewOffers;
+    AdapterListPromotion adapter;
+
 
     private ProgressDialog pDialog;
     public static Promotion promotion1 = null;
@@ -46,10 +52,10 @@ public class getAllPromotion   {
 
 
 
-    public getAllPromotion(String url, Context context){
+    public getAllPromotion(String url, Context context,ListView ListViewOffers){
         this.context = context;
         this.url = url;
-
+this.ListViewOffers=ListViewOffers;
         new getAllPromotions().execute();
 
     }
@@ -125,7 +131,7 @@ public class getAllPromotion   {
                     // looping through All Contacts
                     for (int i = 0; i < promotion.length(); i++) {
                         JSONObject c = promotion.getJSONObject(i);
-
+                        try {
 
                         String id_promotion;
                         String descr_promo ;
@@ -140,7 +146,7 @@ public class getAllPromotion   {
                         descr_promo = c.getString(TAG_descr_promo);
 
 
-                        SimpleDateFormat formatter = new SimpleDateFormat("dd-MMM-yyyy");
+                        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
                         String dateInString = c.getString(TAG_date_deb_promo);
                              date_deb_promo = formatter.parse(dateInString);
 
@@ -166,6 +172,12 @@ public class getAllPromotion   {
                         //Log.e("samarche","add list compte to client");
 
                         ListPromotion.add(promotion1);
+
+
+                        } catch (Exception e) {
+                            e.printStackTrace();
+
+                        }
                         Log.e("samarche","add  ListPromotion");
 
 
@@ -195,9 +207,13 @@ public class getAllPromotion   {
 	         *  -...
 	         */
             // Désactivation de la ProgressBar
+            if (pDialog.isShowing())
+                pDialog.dismiss();
 
 
 
+            adapter = new AdapterListPromotion(context, ListPromotion);
+            ListViewOffers.setAdapter(adapter);
 
         }
 

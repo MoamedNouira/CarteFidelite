@@ -1,6 +1,7 @@
 package com.medbac.carte_fidelite.Adapter;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +15,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Locale;
 
 import activity.carte_fidelite.medbac.com.cartefidelite.R;
 
@@ -24,7 +26,6 @@ public class AdapterListPromotion  extends BaseAdapter {
 
     private ArrayList<Promotion> list_promotion;
     Context c;
-    Promotion promotion;
 
     public AdapterListPromotion(Context c, ArrayList<Promotion> list_promotion){
         this.c = c;
@@ -60,13 +61,12 @@ public class AdapterListPromotion  extends BaseAdapter {
         TextView title_date_fin_promo=(TextView)v.findViewById(R.id.title_date_fin_promo);
         ImageView info_offers=(ImageView)v.findViewById(R.id.info_offers);
 
-        list_promotion = new ArrayList<Promotion>();
 
 
         title_descr_promo.setText(list_promotion.get(position).getDescr_promo());
 
 
-            DateFormat df = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
+            DateFormat df = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
              Date today = list_promotion.get(position).getDate_deb_promo();
              Date today2 = list_promotion.get(position).getDate_fin_promo();
 
