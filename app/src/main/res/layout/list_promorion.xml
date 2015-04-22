@@ -2,77 +2,19 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent">
 
-        <TabHost
-            android:id="@+id/tabhost_promotion"
-
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:layout_marginTop="50dp">
-            <TabWidget
-                android:id="@android:id/tabs"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                />
-            <FrameLayout
-                android:id="@android:id/tabcontent"
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:paddingTop="63dp"
-                >
-                <LinearLayout
-                    android:id="@+id/tab1_promotion"
-                    android:orientation="vertical"
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
-                    >
-
-                    <Button
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="New Button"
-                        android:id="@+id/button5_promotion"
-                        android:layout_marginTop="300dp"
-                        android:layout_marginLeft="50dp" />
-
-                    <Button
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="New Button"
-                        android:id="@+id/button6_promotion"
-                        android:layout_marginTop="-50dp"
-                        android:layout_marginLeft="200dp" />
-
-                </LinearLayout>
-                <LinearLayout
-                    android:id="@+id/tab2_promotion"
-                    android:orientation="vertical"
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
-                    >
-                    <TextView
-                        android:layout_width="fill_parent"
-                        android:layout_height="fill_parent"
-                        android:background="#000000"
-                        android:textColor="#ffffff"
-                        android:gravity="center"
-                        android:text="Tab2"
-                        />
-                </LinearLayout>
-            </FrameLayout>
-        </TabHost>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Large Text"
-            android:id="@+id/textView8"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="15dp" />
 
 
 
 
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/listView_offers"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true"
+        android:listSelector="@drawable/list_selector" />
+
+    />
 
 
 </RelativeLayout>
