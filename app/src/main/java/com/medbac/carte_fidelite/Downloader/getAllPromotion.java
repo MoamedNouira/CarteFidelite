@@ -15,6 +15,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -24,7 +25,7 @@ import java.util.Date;
 public class getAllPromotion   {
 
     private static String url ;
-    public ArrayList ListPromotion  = new ArrayList();
+    public static ArrayList ListPromotion  = new ArrayList();
 
     private ProgressDialog pDialog;
     public static Promotion promotion1 = null;
@@ -98,7 +99,7 @@ public class getAllPromotion   {
 
         @Override
         protected Void doInBackground(Void... arg0) {
-			/*
+          	/*
 	         * Ici, le code qui doit être exécuté dans l'AsyncTask, par exemple:
 	         *  -Une requête de base de données
 	         *  -Un appel à un Web Service
@@ -137,8 +138,17 @@ public class getAllPromotion   {
 
                         id_promotion = c.getString(TAG_id_promotion);
                         descr_promo = c.getString(TAG_descr_promo);
-                        date_deb_promo = c.getString(TAG_date_deb_promo);
-                        date_fin_promo = c.getString(TAG_date_fin_promo);
+
+
+                        SimpleDateFormat formatter = new SimpleDateFormat("dd-MMM-yyyy");
+                        String dateInString = c.getString(TAG_date_deb_promo);
+                             date_deb_promo = formatter.parse(dateInString);
+
+                        String dateInString2 = c.getString(TAG_date_fin_promo);
+                         date_fin_promo = formatter.parse(dateInString2);
+
+                      //  date_deb_promo = c.getString(TAG_date_deb_promo);
+                        //date_fin_promo = c.getString(TAG_date_fin_promo);
                         id_enseigne = c.getString(TAG_id_enseigne);
 
 
@@ -148,7 +158,7 @@ public class getAllPromotion   {
                         promotion1.setDescr_promo(descr_promo);
                         promotion1.setDate_deb_promo(date_deb_promo);
                         promotion1.setDate_fin_promo(date_fin_promo);
-                        promotion1.setId_enseigne(id_enseigne);
+                        promotion1.setId_enseigne(Integer.parseInt(id_enseigne));
 
 
                        // getCompte gc = new getCompte("http://mohamednouira.esy.es/getCompte.php",id_client,context);
@@ -168,6 +178,8 @@ public class getAllPromotion   {
                 Toast.makeText(context, "eerreurr !!", Toast.LENGTH_SHORT).show();
                 Log.e("ServiceHandler", "Couldn't get any data from the url");
             }
+
+
 
             return null;
         }
