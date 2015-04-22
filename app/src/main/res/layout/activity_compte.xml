@@ -147,11 +147,13 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New Button"
-        android:id="@+id/button3"
+        android:text="modifier compte"
+        android:id="@+id/compte_modifier"
         android:layout_marginTop="37dp"
         android:layout_below="@+id/compte_text_Mail"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:onClick="onClick"
+        />
 
 
 </RelativeLayout>
