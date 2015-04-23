@@ -164,12 +164,6 @@ public class getCompte {
                         ListCompte.add(compte1);
                         GetCarte gcarte = new GetCarte("http://mohamednouira.esy.es/getCarte.php", id_carte, context, i);
 
-
-
-
-
-
-
                         // Phone node is JSON Object
 
                         /*
