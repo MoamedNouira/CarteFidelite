@@ -165,7 +165,8 @@ public class GetClient  {
                         client1.setTell(Integer.parseInt(tell));
 
                       getCompte gc = new getCompte("http://mohamednouira.esy.es/getCompte.php",id_client,context);
-                      client1.setCompte(gc.ListCompte);
+
+                        client1.setCompte(gc.ListCompte);
                         Log.e("samarche","add list compte to client");
 
 

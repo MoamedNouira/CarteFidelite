@@ -5,12 +5,15 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import com.medbac.carte_fidelite.Adapter.AdapterListPromotion;
 import com.medbac.carte_fidelite.Models.Client;
 import com.medbac.carte_fidelite.Models.Promotion;
+import com.medbac.carte_fidelite.activity.InfoOffer;
 import com.medbac.carte_fidelite.activity.MenuCarte;
 
 import org.json.JSONArray;
@@ -52,10 +55,9 @@ public class getAllPromotion   {
 
 
 
-    public getAllPromotion(String url, Context context,ListView ListViewOffers){
+    public getAllPromotion(String url, Context context){
         this.context = context;
         this.url = url;
-this.ListViewOffers=ListViewOffers;
         new getAllPromotions().execute();
 
     }
@@ -212,8 +214,9 @@ this.ListViewOffers=ListViewOffers;
 
 
 
-            adapter = new AdapterListPromotion(context, ListPromotion);
-            ListViewOffers.setAdapter(adapter);
+           // adapter = new AdapterListPromotion(context, ListPromotion);
+          //  ListViewOffers.setAdapter(adapter);
+
 
         }
 

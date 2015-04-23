@@ -188,8 +188,10 @@ private class GetCartes extends AsyncTask<Void, Void, Void> {
 	         *  -Désactivation de la ProgressBar
 	         *  -...
 	         */
-        getCompte.compte1.setCarte(carte1);
 
+        getCompte.compte1.setCarte(carte1);
+        getCompte.ListCompte.add(getCompte.compte1);
+        Log.e("id compete apres getcarte ",""+ListCompte.get(i).getId_compte());
 //        Log.e("samarchennnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn",""+ carte1.getNom());
         // Désactivation de la ProgressBar
       //  if (pDialog.isShowing())

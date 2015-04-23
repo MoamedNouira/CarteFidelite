@@ -27,7 +27,7 @@ public class getCompte {
 
     private static String url ;
 
-    public  ArrayList ListCompte = new ArrayList();
+    public static  ArrayList<Compte> ListCompte = new ArrayList<Compte>();
 
     private ProgressDialog pDialog;
     public static Compte compte1 = null;
@@ -150,7 +150,6 @@ public class getCompte {
                         id_carte = c.getString(TAG_id_carte);
 
 
-
                        compte1 = new Compte();
                        compte1.setId_compte(Integer.parseInt(id_compte));
                        compte1.setCode_barre(Integer.parseInt(code_barre));
@@ -166,14 +165,10 @@ public class getCompte {
                         GetCarte gcarte = new GetCarte("http://mohamednouira.esy.es/getCarte.php", id_carte, context);
 
 
-                       // Log.e("samarchennnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn",""+ ListCompteCarte.get(i).getNom());
 
 
-                      //  Log.e("samarchennnnnnnnnnnnnnnnnnnnn",""+compte1.getCarte().getNom());
 
-                        ListCompte.add(compte1);
 
-                        Log.e("samarche","add  ListCompte");
 
                         // Phone node is JSON Object
 
