@@ -82,7 +82,7 @@ public class AdapterListCarte extends BaseAdapter {
           }
 
         txt_title.setText(Integer.toString(list_compte.get(position).getId_compte()));
-      //  txt_artist.setText(getCompte.ListCompteCarte.get(position).getNom());
+        txt_artist.setText(getCompte.ListCompte.get(position).getCarte().getNom());
 
 
         return v;

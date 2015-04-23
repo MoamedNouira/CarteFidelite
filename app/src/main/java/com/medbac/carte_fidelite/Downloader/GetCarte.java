@@ -50,16 +50,16 @@ private static final String TAG_id_categories = "id_categories";
 
 // tableau json
 JSONArray carte = null;
-
+int compteur;
 Context context;
 
 
 
 
-        public GetCarte(String url, String id_carte, Context context){
+        public GetCarte(String url, String id_carte, Context context, int compteur){
             this.context = context;
             this.url = url+"?id_carte="+id_carte;;
-
+            this.compteur = compteur;
             new GetCartes().execute();
 
         }
@@ -123,7 +123,7 @@ private class GetCartes extends AsyncTask<Void, Void, Void> {
         // get response
         String jsonStr = sh.makeServiceCall(url, ServiceHandler.GET);
 
-        Log.d("Response: ", "> " + jsonStr);
+        Log.d("Response: Carte", "> " + jsonStr);
 
         if (jsonStr != null) {
             try {
@@ -147,7 +147,7 @@ private class GetCartes extends AsyncTask<Void, Void, Void> {
                     id_enseigne = c.getString(TAG_id_enseigne);
                     id_categories = c.getString(TAG_id_categories);
 
-                    Carte carte1 = new Carte();
+                    carte1 = new Carte();
 
                     carte1.setId_carte(Integer.parseInt(id_carte));
                     carte1.setNom(nom);
@@ -189,9 +189,9 @@ private class GetCartes extends AsyncTask<Void, Void, Void> {
 	         *  -...
 	         */
 
-        getCompte.compte1.setCarte(carte1);
-        getCompte.ListCompte.add(getCompte.compte1);
-        Log.e("id compete apres getcarte ",""+ListCompte.get(i).getId_compte());
+        getCompte.ListCompte.get(compteur).setCarte(carte1);
+
+        Log.e("id compete apres getcarte ",""+ getCompte.ListCompte.get(compteur).getId_compte());
 //        Log.e("samarchennnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn",""+ carte1.getNom());
         // Désactivation de la ProgressBar
       //  if (pDialog.isShowing())

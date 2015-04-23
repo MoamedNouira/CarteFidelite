@@ -161,8 +161,8 @@ public class getCompte {
                         compte1.setId_carte(Integer.parseInt(id_carte));
 
                         compte1.setClient(GetClient.client1);
-
-                        GetCarte gcarte = new GetCarte("http://mohamednouira.esy.es/getCarte.php", id_carte, context);
+                        ListCompte.add(compte1);
+                        GetCarte gcarte = new GetCarte("http://mohamednouira.esy.es/getCarte.php", id_carte, context, i);
 
 
 
@@ -214,8 +214,6 @@ public class getCompte {
             // Désactivation de la ProgressBar
        //     if (pDialog.isShowing())
          //       pDialog.dismiss();
-
-
 
 
 
