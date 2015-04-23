@@ -3,9 +3,12 @@ package com.medbac.carte_fidelite.activity;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TabHost;
 import android.widget.TabHost.OnTabChangeListener;
@@ -32,7 +35,7 @@ import activity.carte_fidelite.medbac.com.cartefidelite.R;
 /**
  * Created by Mohamed Nouira on 05/04/2015.
  */
-public class ListPromotion extends Activity {
+public class ListPromotion extends Activity  implements AdapterView.OnItemClickListener {
 
     Context context;
 
@@ -59,11 +62,27 @@ public class ListPromotion extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.list_promorion);
         ListViewOffers = (ListView) findViewById(R.id.listView_offers);
+        ListViewOffers.setOnItemClickListener(this);
 
         ListPromotions = new ArrayList<Promotion>();
         new GetPromotion().execute();
 
     }
+
+    @Override
+
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        Intent i = new Intent(ListPromotion.this, InfoOffer.class);
+        i.putExtra("id_promotion", ListPromotions.get(position).getId_promotion());
+        i.putExtra("descr_promo", ListPromotions.get(position).getDescr_promo());
+        i.putExtra("date_deb_promo", ListPromotions.get(position).getDate_deb_promo());
+        i.putExtra("date_fin_promo", ListPromotions.get(position).getDate_fin_promo());
+
+        startActivity(i);
+    }
+
+
+
 
     private class GetPromotion extends AsyncTask<Void, Void, Void> {
         String id_promotion;

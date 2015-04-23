@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -13,7 +14,7 @@ import activity.carte_fidelite.medbac.com.cartefidelite.R;
 /**
  * Created by Mohamed Nouira on 23/04/2015.
  */
-public class InfoOffer extends Activity {
+public class InfoOffer extends Activity{
 
     TextView text_enseigne,date_d,date_fin,offer_desc;
 
@@ -30,6 +31,7 @@ public class InfoOffer extends Activity {
 
 
     }
+
 
 
 

@@ -17,7 +17,6 @@
     <uses-feature android:name="android.hardware.camera.flash" />
     <android:uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" android:maxSdkVersion="18" />
     <android:uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <android:uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" android:maxSdkVersion="18" />
     <permission
         android:name="activity.carte_fidelite.medbac.com.cartefidelite.permission.MAPS_RECEIVE"
         android:protectionLevel="signature" />
