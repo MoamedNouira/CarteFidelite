@@ -79,30 +79,18 @@ public class ListEnseigne extends Activity  implements AdapterView.OnItemClickLi
     @Override
 
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        //  Enseigne enseigne = new Enseigne();
-        //    enseigne=ListPromotions.get(position).getEnseigne();
-        //   Intent i = new Intent(ListPromotion.this, InfoOffer.class);
 
-        //   i.putExtra("id_enseigne", ListPromotions.get(position).getId_enseigne());
-        //   i.putExtra("nom_enseigne", ListPromotions.get(position).getEnseigne().getNom_commercial());
-        //   i.putExtra("id_promotion", ListPromotions.get(position).getId_promotion());
-        //   i.putExtra("descr_promo", ListPromotions.get(position).getDescr_promo());
+         Intent i = new Intent(ListEnseigne.this, InfoEnseigne.class);
+       Log.e("GetEnseigneGetEnseigneGetEnseigneGetEnseigneGetEnseigneGetEnseigne", ""+ ListEnseignes.get(position).getNom_commercial());
 
-        //  SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
-        //  Date today =  ListPromotions.get(position).getDate_deb_promo();
-        // Date today2 = ListPromotions.get(position).getDate_fin_promo();
-
-        // String reportDate = formatter.format(today);
-        //  String reportDate2 = formatter.format(today2);
-
-
-
-        // i.putExtra("date_deb_promo",reportDate);
-        //  i.putExtra("date_fin_promo",reportDate2);
-
-
-
-        // startActivity(i);
+         i.putExtra("id_enseigne", ListEnseignes.get(position).getId_enseigne());
+         i.putExtra("nom_commercial", ListEnseignes.get(position).getNom_commercial());
+          i.putExtra("adresse", ListEnseignes.get(position).getAdresse());
+        i.putExtra("vile",ListEnseignes.get(position).getVile());
+        i.putExtra("code_postal",ListEnseignes.get(position).getCode_postal());
+         i.putExtra("tell",ListEnseignes.get(position).getTell());
+          i.putExtra("mail",ListEnseignes.get(position).getMail());
+         startActivity(i);
     }
 
 
@@ -189,7 +177,6 @@ public class ListEnseigne extends Activity  implements AdapterView.OnItemClickLi
                             //  GetEnseigne gEnseigne = new GetEnseigne("http://mohamednouira.esy.es/getEnseigne.php", id_enseigne, context, i);
 
                             ListEnseignes.add(enseigne1);
-                        Log.e("GetEnseigneGetEnseigneGetEnseigneGetEnseigneGetEnseigneGetEnseigne", ""+id_enseigne);
 
 
 

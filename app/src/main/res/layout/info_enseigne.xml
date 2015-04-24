@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+
+
+    <TextView android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        android:text="Nom: "
+        android:textSize="20dp"
+        android:layout_marginTop="40dp"
+        android:id="@+id/enseigne_nom"
+        android:layout_marginLeft="20dp" />
+    <TextView android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        android:textSize="20dp"
+        android:layout_marginTop="30dp"
+        android:id="@+id/enseigne_text_nom"
+        android:layout_marginLeft="75dp"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Medium Text"/>
+
+
+    <TextView android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        android:text="Vile: "
+        android:textSize="20dp"
+        android:layout_marginTop="80dp"
+        android:id="@+id/enseigne_Vile"
+        android:layout_marginLeft="20dp" />
+    <TextView android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        android:textSize="20dp"
+        android:layout_marginTop="70dp"
+        android:id="@+id/enseigne_text_vile"
+        android:layout_marginLeft="100dp"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Medium Text"
+        />
+
+
+    <TextView android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        android:text="adresse: "
+        android:textSize="20dp"
+        android:layout_marginTop="120dp"
+        android:id="@+id/enseigne_adresse"
+        android:layout_marginLeft="20dp" />
+    <TextView android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        android:textSize="20dp"
+        android:layout_marginTop="110dp"
+        android:id="@+id/enseigne_text_adresse"
+        android:layout_marginLeft="150dp"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Medium Text"
+        />
+
+
+    <TextView android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        android:text="code postal: "
+        android:textSize="20dp"
+        android:layout_marginTop="160dp"
+        android:id="@+id/enseigne_code"
+        android:layout_marginLeft="20dp" />
+    <TextView android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        android:textSize="20dp"
+        android:layout_marginTop="150dp"
+        android:id="@+id/enseigne_text_code"
+        android:layout_marginLeft="60dp"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Medium Text"
+        />
+
+    <TextView android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        android:text="téléphone: "
+        android:textSize="20dp"
+        android:layout_marginTop="200dp"
+        android:id="@+id/enseigne_tell "
+        android:layout_marginLeft="20dp" />
+    <TextView android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        android:textSize="20dp"
+        android:layout_marginTop="190dp"
+        android:id="@+id/enseigne_text_tell"
+        android:layout_marginLeft="105dp"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Medium Text"
+        />
+
+    <TextView android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        android:text="mail: "
+        android:textSize="20dp"
+        android:layout_marginTop="240dp"
+        android:id="@+id/enseigne_mail "
+        android:layout_marginLeft="20dp" />
+    <TextView android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        android:textSize="20dp"
+        android:layout_marginTop="230dp"
+        android:id="@+id/enseigne_text_mail"
+        android:layout_marginLeft="135dp"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Medium Text"
+        />
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="modifier enseigne"
+        android:id="@+id/enseigne_modifier"
+        android:layout_marginTop="37dp"
+        android:layout_below="@+id/enseigne_text_mail"
+        android:layout_centerHorizontal="true"
+        android:onClick="onClick"
+        />
+
+
+</RelativeLayout>
