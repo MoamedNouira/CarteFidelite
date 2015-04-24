@@ -5,15 +5,15 @@ package com.medbac.carte_fidelite.Models;
  */
 public class Coordonnée {
     private int id_coordonnée;
-    private Double longitude;
-    private Double latitude;
+    private float longitude;
+    private float latitude;
 
     private Enseigne enseigne;
 
     public Coordonnée() {
     }
 
-    public Coordonnée(int id_coordonnée, Double longitude, Double latitude, Enseigne enseigne) {
+    public Coordonnée(int id_coordonnée, float longitude, float latitude, Enseigne enseigne) {
         this.id_coordonnée = id_coordonnée;
         this.longitude = longitude;
         this.latitude = latitude;
@@ -29,7 +29,7 @@ public class Coordonnée {
         this.id_coordonnée = id_coordonnée;
     }
 
-    public Double getLongitude() {
+    public float getLongitude() {
         return longitude;
     }
 
@@ -37,7 +37,7 @@ public class Coordonnée {
         this.longitude = longitude;
     }
 
-    public Double getLatitude() {
+    public float getLatitude() {
         return latitude;
     }
 
