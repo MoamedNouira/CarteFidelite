@@ -36,7 +36,7 @@ public class GetEnseigne{
     private static String url ;
 
     //private ProgressDialog pDialog;
-    Enseigne enseigne1 = null;
+    Enseigne enseigne1 ;
 
 
     // clé
@@ -62,7 +62,6 @@ public class GetEnseigne{
 
     public GetEnseigne(String url, String id_enseignex, Context context, int compteur){
         this.context = context;
-
         this.url = url+"?id_enseigne=";;
         this.id_enseignex = id_enseignex;
         this.compteur = compteur;
@@ -145,7 +144,7 @@ public class GetEnseigne{
 
                     // looping through All Contacts
                     for (int i = 0; i < enseigne.length(); i++) {
-                        JSONObject c = carte.getJSONObject(i);
+                        JSONObject c = enseigne.getJSONObject(i);
 
                         id_enseigne = c.getString(TAG_id_enseigne);
                         nom_commercial = c.getString(TAG_nom_commercial);
@@ -199,7 +198,7 @@ public class GetEnseigne{
 
             ListPromotion.ListPromotions.get(compteur).setEnseigne(enseigne1);
 
-            Log.e("ServiceHandler", "okokokokok"+  enseigne1.getNom_commercial());
+         //   Log.e("ServiceHandler", "okokokokok"+  enseigne1.getId_enseigne());
             enseigne1 = null;
 //        Log.e("samarchennnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn",""+ carte1.getNom());
             // Désactivation de la ProgressBar

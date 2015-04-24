@@ -44,11 +44,13 @@ private static final String TAG_descr_carte = "descr_carte";
 private static final String TAG_type_carte = "type_carte";
 private static final String TAG_id_enseigne = "id_enseigne";
 private static final String TAG_id_categories = "id_categories";
+    private static final String TAG_image = "image";
 
 
 
 
-// tableau json
+
+    // tableau json
 JSONArray carte = null;
 int compteur;
 Context context;
@@ -90,6 +92,7 @@ private class GetCartes extends AsyncTask<Void, Void, Void> {
     String type_carte ;
     String id_enseigne ;
     String id_categories ;
+    String image;
 
 
 
@@ -149,6 +152,8 @@ private class GetCartes extends AsyncTask<Void, Void, Void> {
                     type_carte = c.getString(TAG_type_carte);
                     id_enseigne = c.getString(TAG_id_enseigne);
                     id_categories = c.getString(TAG_id_categories);
+                    image = c.getString(TAG_image);
+
 
                     carte1 = new Carte();
 
@@ -158,6 +163,7 @@ private class GetCartes extends AsyncTask<Void, Void, Void> {
                     carte1.setType_carte(type_carte);
                     carte1.setId_categories(Integer.parseInt(id_categories));
                     carte1.setId_enseigne(Integer.parseInt(id_enseigne));
+                    carte1.setImage(image);
                     Log.e("samarchennnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn getCarte",carte1.getNom());
 
                   //  GetCatégories gc = new GetCatégories("http://mohamednouira.esy.es/GetCategories.php",id_categories,context);

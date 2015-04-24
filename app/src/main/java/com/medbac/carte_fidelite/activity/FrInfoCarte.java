@@ -24,7 +24,13 @@ public class FrInfoCarte extends FragmentActivity implements
 	private TabsPagerAdapterInfoCarte mAdapter;
 	private ActionBar actionBar;
     InfoCarteCarte compte;
-public static int info_carte_id_compte;
+
+    public static    String nom_carte ;
+    public static    long code_barre ;
+    public static   int montant ;
+    public static  int nb_point ;
+    public static   String descr_carte;
+    public static   String image;
 
 	// Tab titles
 	private String[] tabs = { "Carte", "Localiser" };
@@ -93,8 +99,14 @@ public static int info_carte_id_compte;
 
         Bundle extras = getIntent().getExtras();
           if (extras != null) {
-               info_carte_id_compte = extras.getInt("id_compte");
-              Log.e("wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww", "" +info_carte_id_compte);
+              nom_carte = extras.getString("nom_carte");
+           code_barre = extras.getLong("code_barre");
+            montant = extras.getInt("montant");
+            nb_point = extras.getInt("nb_point");
+               descr_carte = extras.getString("descr_carte");
+              image = extras.getString("image");
+
+
 
           }
 

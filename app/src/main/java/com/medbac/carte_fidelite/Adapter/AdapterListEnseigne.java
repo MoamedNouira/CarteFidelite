@@ -62,13 +62,10 @@ public class AdapterListEnseigne extends BaseAdapter {
         }
         ImageView image_item_list_enseigne=(ImageView)v.findViewById(R.id.image_item_list_enseigne);
         TextView title_enseigne_nom_commercial=(TextView)v.findViewById(R.id.title_enseigne_nom_commercial);
-        TextView vil_enseigne=(TextView)v.findViewById(R.id.vil_enseigne);
-       // TextView title_enseigne_nom_commercial=(TextView)v.findViewById(R.id.title_enseigne_nom_commercial);
         ImageView list_image_enseugne=(ImageView)v.findViewById(R.id.list_image_enseugne);
 
 
         title_enseigne_nom_commercial.setText(list_enseigne.get(position).getNom_commercial());
-       // txt_artist.setText(list_carte.get(position).getNom());
 
 
         return v;

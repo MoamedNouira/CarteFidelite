@@ -93,7 +93,16 @@ public class ListCarte extends Activity {
 
                 ArrayList <Compte> ListCompte2 =new ArrayList<Compte>();
                 ListCompte2 = GetClient.client1.getCompte();
-                i.putExtra("id_compte",ListCompte2.get(position).getId_compte());
+                i.putExtra("nom_carte",ListCompte2.get(position).getCarte().getNom());
+                i.putExtra("code_barre",ListCompte2.get(position).getCode_barre());
+                i.putExtra("montant",ListCompte2.get(position).getMontant());
+                i.putExtra("nb_point",ListCompte2.get(position).getNb_point());
+                i.putExtra("descr_carte",ListCompte2.get(position).getCarte().getDescr_carte());
+                i.putExtra("image",ListCompte2.get(position).getCarte().getImage());
+
+
+
+
                 startActivity(i);
 
 

@@ -9,6 +9,15 @@ public class Enseigne {
     private int id_enseigne;
     private String nom_commercial;
     private String adresse;
+
+    public String getVile() {
+        return vile;
+    }
+
+    public void setVile(String vile) {
+        this.vile = vile;
+    }
+
     private String vile;
     private int code_postal;
     private int tell;
@@ -84,13 +93,7 @@ public class Enseigne {
         this.adresse = adresse;
     }
 
-    public String getVile() {
-        return vile;
-    }
 
-    public void setVile(String vile) {
-        this.vile = vile;
-    }
 
     public int getCode_postal() {
         return code_postal;

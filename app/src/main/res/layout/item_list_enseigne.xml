@@ -31,38 +31,19 @@
         android:id="@+id/title_enseigne_nom_commercial"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/thumbnail_enseigne"
-        android:layout_toRightOf="@+id/thumbnail_enseigne"
         android:text="FFFFFFFFFFFF"
         android:textColor="#040404"
         android:typeface="sans" 
         android:textSize="15dip"
-        android:textStyle="bold"/>
+        android:textStyle="bold"
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="170dp" />
 
 	<!-- vile Name -->
-     <TextView
-        android:id="@+id/vil_enseigne"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/title_enseigne_nom_commercial"
-        android:textColor="#343434"
-        android:textSize="10dip"
-        android:layout_marginTop="1dip"
-        android:layout_toRightOf="@+id/thumbnail_enseigne"
-        android:text="FDDDDDDDDDDDDDDDDDDDDDD ..." />
+
 
 	<!-- tell -->
-    <TextView
-        android:id="@+id/tell_enseugne"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="right"
-        android:text="NNNNNNNNNNNNN"
-        android:textSize="10dip"
-        android:textColor="#10bcc9"
-        android:textStyle="bold"
-        android:layout_marginTop="50dp"
-        android:layout_marginLeft="160dp" />
+
       
      <!-- Rightend Arrow -->    
      <ImageView android:layout_width="wrap_content"

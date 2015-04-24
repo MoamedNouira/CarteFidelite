@@ -146,7 +146,8 @@ public class getCompte {
 
                        compte1 = new Compte();
                        compte1.setId_compte(Integer.parseInt(id_compte));
-                       compte1.setCode_barre(Integer.parseInt(code_barre));
+                       long l = Long.parseLong(code_barre);
+                       compte1.setCode_barre(l);
                        compte1.setMontant(Integer.parseInt(montant));
                        compte1.setNb_point(Integer.parseInt(nb_point));
 

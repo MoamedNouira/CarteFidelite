@@ -81,7 +81,7 @@ public class ListPromotion extends Activity  implements AdapterView.OnItemClickL
        Intent i = new Intent(ListPromotion.this, InfoOffer.class);
 
         i.putExtra("id_enseigne", ListPromotions.get(position).getId_enseigne());
-        i.putExtra("nom_enseigne", ListPromotions.get(position).getEnseigne().getNom_commercial());
+       i.putExtra("nom_enseigne", ListPromotions.get(position).getEnseigne().getNom_commercial());
         i.putExtra("id_promotion", ListPromotions.get(position).getId_promotion());
         i.putExtra("descr_promo", ListPromotions.get(position).getDescr_promo());
 
@@ -186,11 +186,11 @@ public class ListPromotion extends Activity  implements AdapterView.OnItemClickL
                             // getCompte gc = new getCompte("http://mohamednouira.esy.es/getCompte.php",id_client,context);
                             //client1.setCompte(gc.ListCompte);
                             //Log.e("samarche","add list compte to client");
+                            GetEnseigne gEnseigne = new GetEnseigne("http://mohamednouira.esy.es/getEnseigne.php", id_enseigne, context, i);
 
                             ListPromotions.add(promotion1);
                         //    Log.e("GetEnseigneGetEnseigne", ""+id_enseigne);
 
-                           GetEnseigne gEnseigne = new GetEnseigne("http://mohamednouira.esy.es/getEnseigne.php", id_enseigne, context, i);
 
 
                         } catch (Exception e) {

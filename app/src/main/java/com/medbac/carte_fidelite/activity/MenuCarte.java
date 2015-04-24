@@ -76,7 +76,7 @@ public class MenuCarte extends Activity {
             startActivity(i);
         }
         if (v.getId() == ButtonMenuEnseigne.getId()) {
-            Intent i = new Intent(this, Enseigne.class);
+            Intent i = new Intent(this, ListEnseigne.class);
             startActivity(i);
         }
         if (v.getId() == ButtonMenuPromotion.getId()) {

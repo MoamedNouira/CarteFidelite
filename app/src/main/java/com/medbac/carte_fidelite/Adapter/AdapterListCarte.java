@@ -21,6 +21,7 @@ import com.medbac.carte_fidelite.Models.Client;
 
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 /**
  * Created by ideapad on 03/04/2015.
@@ -81,8 +82,11 @@ public class AdapterListCarte extends BaseAdapter {
             list_carte.add(carten);
           }
 
-        txt_title.setText(Integer.toString(list_compte.get(position).getId_compte()));
-        txt_artist.setText(getCompte.ListCompte.get(position).getCarte().getNom());
+        txt_title.setText(getCompte.ListCompte.get(position).getCarte().getNom());
+        txt_artist.setText(GetClient.client1.getNom()+" "+GetClient.client1.getPrenom());
+        String strLong = Long.toString(getCompte.ListCompte.get(position).getCode_barre());
+        txt_duration.setText(strLong);
+
 
 
         return v;

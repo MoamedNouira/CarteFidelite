@@ -9,11 +9,14 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
-public class InfoCarteCarte extends Fragment {
+import com.google.zxing.integration.android.IntentIntegrator;
 
-    public static TextView id_compte;
+public class InfoCarteCarte extends Fragment implements View.OnClickListener {
+    Button scanBtn;
+
 
 
     @Override
@@ -33,9 +36,18 @@ public class InfoCarteCarte extends Fragment {
 			Bundle savedInstanceState) {
 
         View rootView = inflater.inflate(R.layout.fragment_info_carte_carte, container, false);
-        id_compte = (TextView)  rootView.findViewById(R.id.textView10);
+        TextView nom_carte = (TextView)  rootView.findViewById(R.id.textView10);
+        TextView  descr_carte = (TextView)  rootView.findViewById(R.id.textView11);
+        TextView montant = (TextView)  rootView.findViewById(R.id.textView12);
+        TextView nb_point = (TextView)  rootView.findViewById(R.id.textView13);
+        scanBtn = (Button)  rootView.findViewById(R.id.ButtonButton);
 
-           id_compte.setText(FrInfoCarte.info_carte_id_compte+"");
+        nom_carte.setText(FrInfoCarte.nom_carte+"");
+        descr_carte.setText(FrInfoCarte.descr_carte+"");
+        montant.setText(FrInfoCarte.montant+"");
+        nb_point.setText(FrInfoCarte.nb_point+"");
+        scanBtn.setOnClickListener(this);
+
 
 
 
@@ -54,4 +66,21 @@ public class InfoCarteCarte extends Fragment {
 
         return rootView;
 	}
+    public void onClick(View v){
+
+        if(v.getId()==R.id.ButtonButton){
+            Intent i = new Intent(getActivity(), AffichageBarreCode.class);
+            long scode = FrInfoCarte.code_barre;
+            Log.e(" scodescodescodescodescode",""+scode);
+            String strLong = Long.toString(scode);
+            i.putExtra("scode",strLong);
+            startActivity(i);
+
+            // setResult(Facvc.RESULT_OK);
+
+
+
+        }
+    }
+
 }

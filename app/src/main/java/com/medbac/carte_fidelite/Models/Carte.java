@@ -10,6 +10,15 @@ public class Carte {
     private String descr_carte;
     private String type_carte;
     private String nom;
+    private String image;
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
 
     private ArrayList <Compte> compte = new ArrayList<Compte>();
     private Catégories catégories;

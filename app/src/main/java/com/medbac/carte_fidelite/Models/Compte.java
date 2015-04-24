@@ -5,7 +5,7 @@ package com.medbac.carte_fidelite.Models;
  */
 public class Compte {
     private int id_compte;
-    private int code_barre;
+    private long code_barre;
     private int montant;
     private int nb_point;
 
@@ -56,11 +56,11 @@ public class Compte {
         this.id_compte = id_compte;
     }
 
-    public int getCode_barre() {
+    public long getCode_barre() {
         return code_barre;
     }
 
-    public void setCode_barre(int code_barre) {
+    public void setCode_barre(long code_barre) {
         this.code_barre = code_barre;
     }
 
