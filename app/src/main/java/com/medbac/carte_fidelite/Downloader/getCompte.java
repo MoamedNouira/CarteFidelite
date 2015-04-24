@@ -135,12 +135,6 @@ public class getCompte {
                         JSONObject c = compte.getJSONObject(i);
 
 
-                        String id_compte;
-                        String code_barre ;
-                        String montant ;
-                        String nb_point ;
-                        String id_client;
-                        String id_carte ;
 
                         id_compte = c.getString(TAG_id_compte);
                         code_barre = c.getString(TAG_code_barre);
@@ -162,26 +156,12 @@ public class getCompte {
 
                         compte1.setClient(GetClient.client1);
                         ListCompte.add(compte1);
+
+
+
                         GetCarte gcarte = new GetCarte("http://mohamednouira.esy.es/getCarte.php", id_carte, context, i);
 
-                        // Phone node is JSON Object
 
-                        /*
-
-                        JSONObject phone = c.getJSONObject(TAG_PHONE);
-                        String mobile = phone.getString(TAG_PHONE_MOBILE);
-                        String home = phone.getString(TAG_PHONE_HOME);
-                        String office = phone.getString(TAG_PHONE_OFFICE);
-
-	         */
-                        // tmp hashmap for single contact
-
-
-
-
-                        // adding each child node to HashMap key => value
-
-                        // adding contact to contact list
 
                     }
                 } catch (JSONException e) {

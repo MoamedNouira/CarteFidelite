@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -16,15 +17,18 @@ import android.widget.TabHost.TabSpec;
 import android.widget.Toast;
 
 import com.medbac.carte_fidelite.Adapter.AdapterListPromotion;
+import com.medbac.carte_fidelite.Downloader.GetEnseigne;
 import com.medbac.carte_fidelite.Downloader.ServiceHandler;
 import com.medbac.carte_fidelite.Downloader.getAllPromotion;
 import com.medbac.carte_fidelite.Models.Promotion;
+import com.medbac.carte_fidelite.Models.Enseigne;
 
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -35,7 +39,7 @@ import activity.carte_fidelite.medbac.com.cartefidelite.R;
 /**
  * Created by Mohamed Nouira on 05/04/2015.
  */
-public class ListPromotion extends Activity  implements AdapterView.OnItemClickListener {
+public class ListPromotion extends Activity  implements AdapterView.OnItemClickListener  {
 
     Context context;
 
@@ -72,11 +76,28 @@ public class ListPromotion extends Activity  implements AdapterView.OnItemClickL
     @Override
 
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        Intent i = new Intent(ListPromotion.this, InfoOffer.class);
+       Enseigne enseigne = new Enseigne();
+        enseigne=ListPromotions.get(position).getEnseigne();
+       Intent i = new Intent(ListPromotion.this, InfoOffer.class);
+
+        i.putExtra("id_enseigne", ListPromotions.get(position).getId_enseigne());
+        i.putExtra("nom_enseigne", ListPromotions.get(position).getEnseigne().getNom_commercial());
         i.putExtra("id_promotion", ListPromotions.get(position).getId_promotion());
         i.putExtra("descr_promo", ListPromotions.get(position).getDescr_promo());
-        i.putExtra("date_deb_promo", ListPromotions.get(position).getDate_deb_promo());
-        i.putExtra("date_fin_promo", ListPromotions.get(position).getDate_fin_promo());
+
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
+        Date today =  ListPromotions.get(position).getDate_deb_promo();
+        Date today2 = ListPromotions.get(position).getDate_fin_promo();
+
+        String reportDate = formatter.format(today);
+        String reportDate2 = formatter.format(today2);
+
+
+
+        i.putExtra("date_deb_promo",reportDate);
+        i.putExtra("date_fin_promo",reportDate2);
+
+
 
         startActivity(i);
     }
@@ -167,6 +188,9 @@ public class ListPromotion extends Activity  implements AdapterView.OnItemClickL
                             //Log.e("samarche","add list compte to client");
 
                             ListPromotions.add(promotion1);
+                        //    Log.e("GetEnseigneGetEnseigne", ""+id_enseigne);
+
+                           GetEnseigne gEnseigne = new GetEnseigne("http://mohamednouira.esy.es/getEnseigne.php", id_enseigne, context, i);
 
 
                         } catch (Exception e) {
@@ -200,6 +224,8 @@ public class ListPromotion extends Activity  implements AdapterView.OnItemClickL
 
             adapter = new AdapterListPromotion(ListPromotion.this, ListPromotions);
             ListViewOffers.setAdapter(adapter);
+
+
 
 
 

@@ -33,7 +33,7 @@ public class GetCarte{
 private static String url ;
 
 //private ProgressDialog pDialog;
-public static Carte carte1 = null;
+Carte carte1 = null;
 
 
 // clé
@@ -53,12 +53,14 @@ JSONArray carte = null;
 int compteur;
 Context context;
 
+    String id_cartex;
 
 
-
-        public GetCarte(String url, String id_carte, Context context, int compteur){
+        public GetCarte(String url, String id_cartex, Context context, int compteur){
             this.context = context;
-            this.url = url+"?id_carte="+id_carte;;
+
+            this.url = url+"?id_carte=";;
+            this.id_cartex = id_cartex;
             this.compteur = compteur;
             new GetCartes().execute();
 
@@ -121,7 +123,8 @@ private class GetCartes extends AsyncTask<Void, Void, Void> {
         ServiceHandler sh = new ServiceHandler();
 
         // get response
-        String jsonStr = sh.makeServiceCall(url, ServiceHandler.GET);
+        Log.e("id cartedddddddddd",""+url+id_cartex);
+        String jsonStr = sh.makeServiceCall(url+id_cartex, ServiceHandler.GET);
 
         Log.d("Response: Carte", "> " + jsonStr);
 
@@ -157,11 +160,11 @@ private class GetCartes extends AsyncTask<Void, Void, Void> {
                     carte1.setId_enseigne(Integer.parseInt(id_enseigne));
                     Log.e("samarchennnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn getCarte",carte1.getNom());
 
-                    GetCatégories gc = new GetCatégories("http://mohamednouira.esy.es/GetCategories.php",id_categories,context);
-                    carte1.setCatégories(gc.catégories1);
+                  //  GetCatégories gc = new GetCatégories("http://mohamednouira.esy.es/GetCategories.php",id_categories,context);
+                 //   carte1.setCatégories(gc.catégories1);
 
-                    GetEnseigne gcC = new GetEnseigne("http://mohamednouira.esy.es/getEnseigne.php",id_enseigne,context);
-                    carte1.setEnseigne(gcC.enseigne1);
+                   // GetEnseigne gcC = new GetEnseigne("http://mohamednouira.esy.es/getEnseigne.php",id_enseigne,context);
+                    //carte1.setEnseigne(gcC.enseigne1);
 
 
 
@@ -192,6 +195,7 @@ private class GetCartes extends AsyncTask<Void, Void, Void> {
         getCompte.ListCompte.get(compteur).setCarte(carte1);
 
         Log.e("id compete apres getcarte ",""+ getCompte.ListCompte.get(compteur).getId_compte());
+        carte1 = null;
 //        Log.e("samarchennnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn",""+ carte1.getNom());
         // Désactivation de la ProgressBar
       //  if (pDialog.isShowing())
