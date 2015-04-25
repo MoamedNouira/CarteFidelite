@@ -20,6 +20,8 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+
+import com.medbac.carte_fidelite.Adapter.AdapterListPromotion;
 import com.medbac.carte_fidelite.Models.Carte;
 import com.medbac.carte_fidelite.activity.MenuCarte;
 import com.medbac.carte_fidelite.Models.Enseigne;
@@ -41,10 +43,11 @@ public class GetEnseigne{
 
     // clé
     private static final String TAG_enseigne= "enseigne";
+
     private static final String TAG_id_enseigne = "id_enseigne";
     private static final String TAG_nom_commercial = "nom_commercial";
     private static final String TAG_adresse = "adresse";
-    private static final String TAG_vlle = "vlle";
+    private static final String TAG_vlle = "vile";
     private static final String TAG_code_postal= "code_postal";
     private static final String TAG_tell = "tell";
     private static final String TAG_mail = "mail";
@@ -59,11 +62,11 @@ public class GetEnseigne{
 
     String id_enseignex;
 
-
+    String test;
     public GetEnseigne(String url, String id_enseignex, Context context, int compteur){
         this.context = context;
         this.url = url+"?id_enseigne=";;
-        this.id_enseignex = id_enseignex;
+        this.id_enseignex = ""+getAllPromotion.promotion1.getId_enseigne();
         this.compteur = compteur;
         new GetEnseignes().execute();
 
@@ -164,6 +167,10 @@ public class GetEnseigne{
                         enseigne1.setTell(Integer.parseInt(tell));
                         enseigne1.setMail(mail);
 
+                        getAllPromotion.ListPromotion.add(getAllPromotion.promotion1);
+                        getAllPromotion.ListPromotion.get(compteur).setEnseigne(enseigne1);
+
+                        Log.e("getensssssssssssssssss",""+ getAllPromotion.ListPromotion.get(compteur).getEnseigne().getNom_commercial());
                         //  GetCatégories gc = new GetCatégories("http://mohamednouira.esy.es/GetCategories.php",id_categories,context);
                         //   carte1.setCatégories(gc.catégories1);
 
@@ -196,10 +203,14 @@ public class GetEnseigne{
 	         *  -...
 	         */
 
-            ListPromotion.ListPromotions.get(compteur).setEnseigne(enseigne1);
+
 
          //   Log.e("ServiceHandler", "okokokokok"+  enseigne1.getId_enseigne());
+
+
+
             enseigne1 = null;
+
 //        Log.e("samarchennnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn",""+ carte1.getNom());
             // Désactivation de la ProgressBar
             //  if (pDialog.isShowing())

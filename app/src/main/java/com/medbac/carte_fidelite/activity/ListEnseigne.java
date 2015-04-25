@@ -91,6 +91,7 @@ public class ListEnseigne extends Activity  implements AdapterView.OnItemClickLi
          i.putExtra("tell",ListEnseignes.get(position).getTell());
           i.putExtra("mail",ListEnseignes.get(position).getMail());
          startActivity(i);
+
     }
 
 

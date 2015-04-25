@@ -89,8 +89,6 @@ public class ListCarte extends Activity {
                public void onItemClick(AdapterView<?> arg0, View view, int position,long arg3) {
                 Intent i = new Intent(ListCarte.this,FrInfoCarte.class);
                 i.putExtra("position", position);
-
-
                 ArrayList <Compte> ListCompte2 =new ArrayList<Compte>();
                 ListCompte2 = GetClient.client1.getCompte();
                 i.putExtra("nom_carte",ListCompte2.get(position).getCarte().getNom());

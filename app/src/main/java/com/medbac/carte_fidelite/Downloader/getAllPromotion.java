@@ -31,7 +31,7 @@ import java.util.Locale;
 public class getAllPromotion   {
 
     private static String url ;
-    public static ArrayList ListPromotion  = new ArrayList();
+    public static ArrayList<Promotion> ListPromotion  = new ArrayList<Promotion>();
     ListView ListViewOffers;
     AdapterListPromotion adapter;
 
@@ -51,6 +51,7 @@ public class getAllPromotion   {
     JSONArray promotion = null;
 
     Context context;
+
 
 
 
@@ -168,12 +169,13 @@ public class getAllPromotion   {
                         promotion1.setDate_fin_promo(date_fin_promo);
                         promotion1.setId_enseigne(Integer.parseInt(id_enseigne));
 
+                        GetEnseigne gEnseigne = new GetEnseigne("http://mohamednouira.esy.es/getEnseigne.php", id_enseigne, context, i);
 
                        // getCompte gc = new getCompte("http://mohamednouira.esy.es/getCompte.php",id_client,context);
                         //client1.setCompte(gc.ListCompte);
                         //Log.e("samarche","add list compte to client");
 
-                        ListPromotion.add(promotion1);
+
 
 
                         } catch (Exception e) {

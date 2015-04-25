@@ -73,17 +73,10 @@ public class AdapterListPromotion  extends BaseAdapter {
              String reportDate = df.format(today);
               String reportDate2 = df.format(today2);
 
-
-
-
-
-
-
         title_date_deb_promo.setText(reportDate);
         title_date_fin_promo.setText(reportDate2);
 
-        //  txt_artist.setText(getCompte.ListCompteCarte.get(position).getNom());
-
+        title_promotion_enseigne.setText(list_promotion.get(position).getEnseigne().getNom_commercial());
 
         return v;
     }

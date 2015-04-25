@@ -33,7 +33,7 @@ public class Coordonnée {
         return longitude;
     }
 
-    public void setLongitude(Double longitude) {
+    public void setLongitude(float longitude) {
         this.longitude = longitude;
     }
 
@@ -41,7 +41,7 @@ public class Coordonnée {
         return latitude;
     }
 
-    public void setLatitude(Double latitude) {
+    public void setLatitude(float latitude) {
         this.latitude = latitude;
     }
 
