@@ -1,74 +1,57 @@
 package com.medbac.carte_fidelite.Downloader;
 
-import android.app.Activity;
-import android.app.ProgressDialog;
 import android.content.Context;
-import android.content.Intent;
 import android.os.AsyncTask;
-import android.os.Bundle;
-import android.support.v7.app.ActionBar;
 import android.util.Log;
-import android.widget.ListAdapter;
-import android.widget.ListView;
-import android.widget.SimpleAdapter;
 import android.widget.Toast;
 
+import com.medbac.carte_fidelite.Models.Coordonnee;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-
-import com.medbac.carte_fidelite.Adapter.AdapterListPromotion;
-import com.medbac.carte_fidelite.Models.Carte;
-import com.medbac.carte_fidelite.activity.MenuCarte;
-import com.medbac.carte_fidelite.Models.Enseigne;
-import com.medbac.carte_fidelite.activity.ListPromotion;
-import com.medbac.carte_fidelite.activity.MenuCarte;
-
-import activity.carte_fidelite.medbac.com.cartefidelite.R;
 
 /**
  * Created by Mohamed Nouira on 19/03/2015.
  */
-public class GetEnseigne{
+public class getCoordonnee{
 
     private static String url ;
 
     //private ProgressDialog pDialog;
- public static    Enseigne enseigne1 ;
+    public static ArrayList<Coordonnee> ListCoordonnee= new ArrayList<Coordonnee>();
+
+    Coordonnee coordonnee1 ;
 
 
     // clé
-    private static final String TAG_enseigne= "enseigne";
+    private static final String TAG_coordonnee= "coordonnee";
 
+    private static final String TAG_id_coordonnee= "id_coordonnee";
+    private static final String TAG_longitude = "longitude";
+    private static final String TAG_latitude = "latitude";
     private static final String TAG_id_enseigne = "id_enseigne";
-    private static final String TAG_nom_commercial = "nom_commercial";
-    private static final String TAG_adresse = "adresse";
-    private static final String TAG_vlle = "vile";
-    private static final String TAG_code_postal= "code_postal";
-    private static final String TAG_tell = "tell";
-    private static final String TAG_mail = "mail";
+
 
 
 
 
     // tableau json
-    JSONArray enseigne = null;
+    JSONArray coordonnee = null;
     int compteur;
     Context context;
 
-    String id_enseignex;
+    String id_coordonneex;
 
-    String test;
-    public GetEnseigne(String url, String id_enseignex, Context context, int compteur){
+
+    public getCoordonnee(String url, String id_coordonneex, Context context, int compteur){
         this.context = context;
-        this.url = url+"?id_enseigne=";;
-        this.id_enseignex = ""+getAllPromotion.promotion1.getId_enseigne();
+        this.url = url+"?id_enseigne=";
+        this.id_coordonneex = ""+GetEnseigne.enseigne1.getId_enseigne();
         this.compteur = compteur;
-        new GetEnseignes().execute();
+        new GetCoordonnee().execute();
 
     }
 
@@ -88,15 +71,12 @@ public class GetEnseigne{
      * à jour l'interface de l'application en fin de traitement.
      *
      */
-    private class GetEnseignes extends AsyncTask<Void, Void, Void> {
+    private class GetCoordonnee extends AsyncTask<Void, Void, Void> {
 
-        String id_enseigne;
-        String nom_commercial ;
-        String adresse ;
-        String vlle ;
-        String code_postal;
-        String tell ;
-        String mail ;
+        String id_coordonnee;
+        String longitude ;
+        String latitude ;
+        String id_enseigne ;
 
 
 
@@ -130,50 +110,52 @@ public class GetEnseigne{
             ServiceHandler sh = new ServiceHandler();
 
             // get response
-            String jsonStr = sh.makeServiceCall(url+id_enseignex, ServiceHandler.GET);
+            String jsonStr = sh.makeServiceCall(url+id_coordonneex, ServiceHandler.GET);
 
-            Log.d("Response: enseigne", "> " + jsonStr);
+            Log.d("Response: coordonnee", "> " + jsonStr);
 
             if (jsonStr != null) {
                 try {
                     JSONObject jsonObj = new JSONObject(jsonStr);
 
                     // Get JSON Array
-                    enseigne = jsonObj.getJSONArray(TAG_enseigne);
+                    coordonnee = jsonObj.getJSONArray(TAG_coordonnee);
 
 
-
+                    String id_coordonnee;
+                    String longitude ;
+                    String latitude ;
+                    String id_enseigne ;
 
 
                     // looping through All Contacts
-                    for (int i = 0; i < enseigne.length(); i++) {
-                        JSONObject c = enseigne.getJSONObject(i);
+                    for (int i = 0; i < coordonnee.length(); i++) {
+                        JSONObject c = coordonnee.getJSONObject(i);
 
+                        id_coordonnee = c.getString(TAG_id_coordonnee);
+                        longitude = c.getString(TAG_longitude);
+                        latitude = c.getString(TAG_latitude);
                         id_enseigne = c.getString(TAG_id_enseigne);
-                        nom_commercial = c.getString(TAG_nom_commercial);
-                        adresse = c.getString(TAG_adresse);
-                        vlle = c.getString(TAG_vlle);
-                        code_postal = c.getString(TAG_code_postal);
-                        tell = c.getString(TAG_tell);
-                        mail = c.getString(TAG_mail);
 
-                        enseigne1 = new Enseigne();
+                        coordonnee1 = new Coordonnee();
 
-                        enseigne1.setId_enseigne(Integer.parseInt(id_enseigne));
-                        enseigne1.setNom_commercial(nom_commercial);
-                        enseigne1.setAdresse(adresse);
-                        enseigne1.setVile(vlle);
-                        enseigne1.setCode_postal(Integer.parseInt(code_postal));
-                        enseigne1.setTell(Integer.parseInt(tell));
-                        enseigne1.setMail(mail);
+                        coordonnee1.setId_coordonnee(Integer.parseInt(id_coordonnee));
+                        Double l = Double.parseDouble(longitude);
+                        Double ll = Double.parseDouble(latitude);
 
-                        getAllPromotion.ListPromotion.add(getAllPromotion.promotion1);
-                        getAllPromotion.ListPromotion.get(compteur).setEnseigne(enseigne1);
+                        coordonnee1.setLatitude(l);
+                        coordonnee1.setLatitude(ll);
+                        coordonnee1.setId_enseigne(Integer.parseInt(id_enseigne));
+                        ListCoordonnee.add(coordonnee1);
 
-                        Log.e("getensssssssssssssssss",""+ getAllPromotion.ListPromotion.get(compteur).getEnseigne().getNom_commercial());
+
+                        // getAllPromotion.ListPromotion.add(getAllPromotion.promotion1);
+                       // getAllPromotion.ListPromotion.get(compteur).setEnseigne(enseigne1);
+
+                      //  Log.e("getensssssssssssssssss",""+ getAllPromotion.ListPromotion.get(compteur).getEnseigne().getNom_commercial());
                         //  GetCatégories gc = new GetCatégories("http://mohamednouira.esy.es/GetCategories.php",id_categories,context);
                         //   carte1.setCatégories(gc.catégories1);
-                          getCoordonnee getc = new getCoordonnee("http://mohamednouira.esy.es/getCoordonnee.php",id_enseigne,context,i);
+
                         // GetEnseigne gcC = new GetEnseigne("http://mohamednouira.esy.es/getEnseigne.php",id_enseigne,context);
                         //carte1.setEnseigne(gcC.enseigne1);
 
@@ -204,12 +186,13 @@ public class GetEnseigne{
 	         */
 
 
+            //   Log.e("ServiceHandler", "okokokokok"+  enseigne1.getId_enseigne());
 
-         //   Log.e("ServiceHandler", "okokokokok"+  enseigne1.getId_enseigne());
+         //   Log.e("zzzzzzzzzzzzzzzzzzzzzzzzzzz",""+ GetEnseigne.enseigne1.getId_enseigne());
 
+            //GetEnseigne.enseigne1.setCoordonnee(ListCoordonnee);
 
-
-            enseigne1 = null;
+            coordonnee1 = null;
 
 //        Log.e("samarchennnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn",""+ carte1.getNom());
             // Désactivation de la ProgressBar

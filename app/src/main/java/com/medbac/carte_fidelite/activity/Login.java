@@ -39,7 +39,10 @@ public class Login  extends Activity {
         connexion = (Button) findViewById(R.id.bt_connexion);
 
         id = (EditText) findViewById(R.id.editText13);
+        id.setText("n");
         password = (EditText) findViewById(R.id.editText16);
+        password.setText("n");
+
         motpasse = (TextView) findViewById(R.id.textView2);
 
     }

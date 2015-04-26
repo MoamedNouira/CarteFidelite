@@ -23,17 +23,17 @@ public class Enseigne {
     private int tell;
     private String mail;
 
-    private ArrayList<Coordonnée> coordonnée = new ArrayList<Coordonnée>();
+    private ArrayList<Coordonnee> coordonnee = new ArrayList<Coordonnee>();
     private ArrayList<Carte> carte = new ArrayList<Carte>();
     private ArrayList<Promotion> promotions = new ArrayList<Promotion>();
 
 
-    public ArrayList<Coordonnée> getCoordonnée() {
-        return coordonnée;
+    public ArrayList<Coordonnee> getCoordonnee() {
+        return coordonnee;
     }
 
-    public void setCoordonnée(ArrayList<Coordonnée> coordonnée) {
-        this.coordonnée = coordonnée;
+    public void setCoordonnee(ArrayList<Coordonnee> coordonnee) {
+        this.coordonnee = coordonnee;
     }
 
     public ArrayList<Carte> getCarte() {
@@ -55,7 +55,7 @@ public class Enseigne {
     public Enseigne() {
     }
 
-    public Enseigne(int id_enseigne, String nom_commercial, String adresse, String vile, int code_postal, int tell, String mail, ArrayList<Coordonnée> coordonnée, ArrayList<Carte> carte, ArrayList<Promotion> promotions) {
+    public Enseigne(int id_enseigne, String nom_commercial, String adresse, String vile, int code_postal, int tell, String mail, ArrayList<Coordonnee> coordonnee, ArrayList<Carte> carte, ArrayList<Promotion> promotions) {
         this.id_enseigne = id_enseigne;
         this.nom_commercial = nom_commercial;
         this.adresse = adresse;
@@ -63,7 +63,7 @@ public class Enseigne {
         this.code_postal = code_postal;
         this.tell = tell;
         this.mail = mail;
-        this.coordonnée = coordonnée;
+        this.coordonnee = coordonnee;
         this.carte = carte;
         this.promotions = promotions;
     }
