@@ -173,9 +173,10 @@ public class GetEnseigne{
                         Log.e("getensssssssssssssssss",""+ getAllPromotion.ListPromotion.get(compteur).getEnseigne().getNom_commercial());
                         //  GetCatégories gc = new GetCatégories("http://mohamednouira.esy.es/GetCategories.php",id_categories,context);
                         //   carte1.setCatégories(gc.catégories1);
-                          getCoordonnee getc = new getCoordonnee("http://mohamednouira.esy.es/getCoordonnee.php",id_enseigne,context,i);
-                        // GetEnseigne gcC = new GetEnseigne("http://mohamednouira.esy.es/getEnseigne.php",id_enseigne,context);
-                        //carte1.setEnseigne(gcC.enseigne1);
+
+
+                       getCoordonnee getc = new getCoordonnee("http://mohamednouira.esy.es/getCoordonnee.php",id_enseigne,context,i,enseigne1);
+
 
 
 

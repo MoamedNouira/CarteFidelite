@@ -128,8 +128,8 @@
         android:layout_height="wrap_content"
         android:text="localisation "
         android:id="@+id/enseigne_modifier"
-        android:layout_marginTop="37dp"
-        android:layout_below="@+id/enseigne_text_mail"
+        android:layout_marginTop="300dp"
+        android:layout_below="@+id/enseigne_local"
         android:layout_centerHorizontal="true"
         android:onClick="onClick"
         />

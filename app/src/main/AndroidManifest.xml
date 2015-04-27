@@ -133,11 +133,19 @@
             android:name="com.medbac.carte_fidelite.activity.InfoEnseigne"
             android:label="@string/title_activity_promotion"
             android:theme="@android:style/Theme.Holo.Light.NoActionBar" />
-
+        <activity
+            android:name="com.medbac.carte_fidelite.activity.Localisation"
+            android:label="@string/title_activity_promotion"
+            android:theme="@android:style/Theme.Holo.Light.NoActionBar" />
 
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"
             android:value="AIzaSyAni-lCnRXfTo1P-VLv98zVLc84NRO8Mww" />
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version"
+            />
 
 
     </application>

@@ -6,6 +6,8 @@ import android.util.Log;
 import android.widget.Toast;
 
 import com.medbac.carte_fidelite.Models.Coordonnee;
+import com.medbac.carte_fidelite.Models.Enseigne;
+import com.medbac.carte_fidelite.activity.ListEnseigne;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -24,7 +26,8 @@ public class getCoordonnee{
     public static ArrayList<Coordonnee> ListCoordonnee= new ArrayList<Coordonnee>();
 
     Coordonnee coordonnee1 ;
-
+Enseigne enseigne1;
+    ArrayList<Enseigne> ListEnseignes;
 
     // clé
     private static final String TAG_coordonnee= "coordonnee";
@@ -44,13 +47,26 @@ public class getCoordonnee{
     Context context;
 
     String id_coordonneex;
+String s;
 
-
-    public getCoordonnee(String url, String id_coordonneex, Context context, int compteur){
+    public getCoordonnee(String url, String id_coordonneex, Context context, int compteur,Enseigne enseigne1, ArrayList<Enseigne> ListEnseignes,String s){
         this.context = context;
         this.url = url+"?id_enseigne=";
         this.id_coordonneex = ""+GetEnseigne.enseigne1.getId_enseigne();
         this.compteur = compteur;
+        this.enseigne1=enseigne1;
+        this.ListEnseignes=ListEnseignes;
+        this.s=s;
+        new GetCoordonnee().execute();
+
+    }
+
+    public getCoordonnee(String url, String id_coordonneex, Context context, int compteur,Enseigne enseigne1){
+        this.context = context;
+        this.url = url+"?id_enseigne=";
+        this.id_coordonneex = ""+GetEnseigne.enseigne1.getId_enseigne();
+        this.compteur = compteur;
+        this.enseigne1=enseigne1;
         new GetCoordonnee().execute();
 
     }
@@ -145,7 +161,9 @@ public class getCoordonnee{
 
                         coordonnee1.setLatitude(l);
                         coordonnee1.setLatitude(ll);
+
                         coordonnee1.setId_enseigne(Integer.parseInt(id_enseigne));
+
                         ListCoordonnee.add(coordonnee1);
 
 
@@ -159,11 +177,16 @@ public class getCoordonnee{
                         // GetEnseigne gcC = new GetEnseigne("http://mohamednouira.esy.es/getEnseigne.php",id_enseigne,context);
                         //carte1.setEnseigne(gcC.enseigne1);
 
-
-
-
                     }
-                } catch (JSONException e) {
+                   enseigne1.setCoordonnee(ListCoordonnee);
+            Log.e("mmmmmmmmmmmmmmmmmmmmmmmmmmm",""+enseigne1.getNom_commercial() +" "+ enseigne1.getCoordonnee().get(0).getLatitude());
+            if(s=="list"){
+                ListEnseignes.add(enseigne1);
+
+            }
+
+                }
+                catch (JSONException e) {
                     e.printStackTrace();
                 }
             } else {
@@ -192,7 +215,10 @@ public class getCoordonnee{
 
             //GetEnseigne.enseigne1.setCoordonnee(ListCoordonnee);
 
-            coordonnee1 = null;
+//             Log.e("zzzeeeeeeezzzzzzzzzzzzzzzzzzzzzzzz",""+ ListCoordonnee.get(0).getLatitude());
+
+
+        //    coordonnee1 = null;
 
 //        Log.e("samarchennnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn",""+ carte1.getNom());
             // Désactivation de la ProgressBar

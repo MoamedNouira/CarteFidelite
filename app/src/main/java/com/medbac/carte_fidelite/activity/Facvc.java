@@ -33,6 +33,7 @@ public class Facvc extends Activity  {
     EditText type_carte;
     EditText description;
     Button prendre_photo;
+    Button categorie;
     Button ok;
     Uri imageUri                      = null;
     static TextView imageDetails      = null;
@@ -54,6 +55,7 @@ public class Facvc extends Activity  {
         showImg = (ImageView) findViewById(R.id.showImg);
 
         final Button photo = (Button) findViewById(R.id.prendre_photo);
+        Button categorie =  (Button) findViewById(R.id.categorie);
 
         ok.setOnClickListener(new OnClickListener() {
             public void onClick(View v) {
@@ -77,7 +79,18 @@ public class Facvc extends Activity  {
 
 
 
+        categorie.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
+
+
+
+
+
+
+            }
+        });
 
 
 

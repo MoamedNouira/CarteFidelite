@@ -7,13 +7,22 @@ import java.util.ArrayList;
  */
 public class Catégories {
     private int id_catégories;
-    private String libellé_cat;
+
+    public String getNom_cat() {
+        return nom_cat;
+    }
+
+    public void setNom_cat(String nom_cat) {
+        this.nom_cat = nom_cat;
+    }
+
+    private String nom_cat;
 
     private ArrayList<Carte> carte = new ArrayList<Carte>();
 
-    public Catégories(int id_catégories, String libellé_cat, ArrayList<Carte> carte) {
+    public Catégories(int id_catégories, String nom_cat, ArrayList<Carte> carte) {
         this.id_catégories = id_catégories;
-        this.libellé_cat = libellé_cat;
+        this.nom_cat = nom_cat;
         this.carte = carte;
     }
 
@@ -29,13 +38,8 @@ public class Catégories {
         this.id_catégories = id_catégories;
     }
 
-    public String getLibellé_cat() {
-        return libellé_cat;
-    }
 
-    public void setLibellé_cat(String libellé_cat) {
-        this.libellé_cat = libellé_cat;
-    }
+
 
     public ArrayList<Carte> getCarte() {
         return carte;

@@ -33,7 +33,7 @@ public class getAllCategorie  {
     // clé
     private static final String TAG_categories = "categories";
     private static final String TAG_id_categories = "id_categories";
-    private static final String TAG_libelle_cat = "libelle_cat";
+    private static final String TAG_nom_cat = "nom_cat";
 
 
 
@@ -74,7 +74,7 @@ public class getAllCategorie  {
     private class GetCategorie extends AsyncTask<Void, Void, Void> {
 
         String id_categories;
-        String libelle_cat ;
+        String nom_cat ;
 
 
 
@@ -124,19 +124,19 @@ public class getAllCategorie  {
                     for (int i = 0; i < categories.length(); i++) {
                         JSONObject c = categories.getJSONObject(i);
                         id_categories = c.getString(TAG_id_categories);
-                        libelle_cat = c.getString(TAG_libelle_cat);
+                        nom_cat = c.getString(TAG_nom_cat);
 
                         Catégories catégories1 = new Catégories();
                         catégories1.setId_catégories(Integer.parseInt(id_categories));
-                        catégories1.setLibellé_cat(libelle_cat);
+                        catégories1.setNom_cat(nom_cat);
 
                         listCat.add(catégories1);
 
-                        Log.e("samarche cat", "" + listCat.size());
+                        Log.e(" catcatcatcatcatcatcat", "" + listCat.size());
 
                         Log.e("ServiceHandler", "jjjjjjjjjjjjjjjjj");
 
-                        AdapterListAjouteCarteCat adapter = new AdapterListAjouteCarteCat(context, listCat);
+                     //   AdapterListAjouteCarteCat adapter = new AdapterListAjouteCarteCat(context, listCat);
                   //      ListView ListViewAjouteCarteCat = (ListView)((Activity)context).findViewById(R.id.listViewAjouteCarteCat);
 //                        ListViewAjouteCarteCat.setAdapter(adapter);
 

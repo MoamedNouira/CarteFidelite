@@ -21,6 +21,7 @@ import com.medbac.carte_fidelite.Adapter.AdapterListPromotion;
 import com.medbac.carte_fidelite.Downloader.GetEnseigne;
 import com.medbac.carte_fidelite.Downloader.ServiceHandler;
 import com.medbac.carte_fidelite.Downloader.getAllPromotion;
+import com.medbac.carte_fidelite.Downloader.getCoordonnee;
 import com.medbac.carte_fidelite.Models.Promotion;
 import com.medbac.carte_fidelite.Models.Enseigne;
 
@@ -46,7 +47,7 @@ public class ListEnseigne extends Activity  implements AdapterView.OnItemClickLi
 
     private static String url = "http://mohamednouira.esy.es/getAllEnseigne.php";
     private ProgressDialog pDialog;
-    private Enseigne enseigne1 = null;
+    public static Enseigne enseigne1 = null;
     // clé
     private static final String TAG_enseigne= "enseigne";
     private static final String TAG_id_enseigne = "id_enseigne";
@@ -171,13 +172,15 @@ public class ListEnseigne extends Activity  implements AdapterView.OnItemClickLi
                             enseigne1.setCode_postal(Integer.parseInt(code_postal));
                             enseigne1.setTell(Integer.parseInt(tell));
                             enseigne1.setMail(mail);
+                            getCoordonnee getc = new getCoordonnee("http://mohamednouira.esy.es/getCoordonnee.php",id_enseigne,context,i,enseigne1,ListEnseignes,"list");
 
                             // getCompte gc = new getCompte("http://mohamednouira.esy.es/getCompte.php",id_client,context);
                             //client1.setCompte(gc.ListCompte);
                             //Log.e("samarche","add list compte to client");
                             //  GetEnseigne gEnseigne = new GetEnseigne("http://mohamednouira.esy.es/getEnseigne.php", id_enseigne, context, i);
 
-                            ListEnseignes.add(enseigne1);
+
+                            Log.e("ffffffffffffffffffffffffffffffffffff",""+ListEnseignes.get(i).getCoordonnee().get(i).getLatitude());
 
 
 

@@ -17,7 +17,7 @@ import activity.carte_fidelite.medbac.com.cartefidelite.R;
 /**
  * Created by Mohamed Nouira on 24/04/2015.
  */
-public class InfoEnseigne  extends Activity{
+public class InfoEnseigne  extends Activity {
 
     TextView enseigne_text_nom;
     TextView enseigne_text_vile;
@@ -25,6 +25,7 @@ public class InfoEnseigne  extends Activity{
     TextView enseigne_text_code;
     TextView enseigne_text_tell;
     TextView enseigne_text_mail;
+    Button local;
     int id_enseigne;
 
 
@@ -39,6 +40,7 @@ public class InfoEnseigne  extends Activity{
         enseigne_text_code = (TextView) findViewById(R.id.enseigne_text_code);
         enseigne_text_tell = (TextView) findViewById(R.id.enseigne_text_tell);
         enseigne_text_mail = (TextView) findViewById(R.id.enseigne_text_mail);
+        local = (Button) findViewById(R.id.enseigne_local);
 
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
@@ -54,7 +56,18 @@ public class InfoEnseigne  extends Activity{
             enseigne_text_mail.setText(extras.getString("mail"));
 
         }
+
+
+
     }
+
+
+    public void onClick(View view) {
+        Intent i = new Intent(InfoEnseigne.this,Localisation.class);
+        startActivity(i);
+    }
+
+
     @Override
     protected void onDestroy() {
         super.onDestroy();

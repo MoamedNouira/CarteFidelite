@@ -13,6 +13,8 @@ import com.medbac.carte_fidelite.Models.Client;
 
 import com.medbac.carte_fidelite.Downloader.GetClient;
 import com.medbac.carte_fidelite.Downloader.getAllPromotion;
+import com.medbac.carte_fidelite.Downloader.getAllCategorie;
+
 
 
 
@@ -77,6 +79,7 @@ public class Login  extends Activity {
 
                 GetClient gc = new GetClient("http://mohamednouira.esy.es/getLogin.php",Sid,Spassword,this);
                 getAllPromotion p = new getAllPromotion("http://mohamednouira.esy.es/getAllPromotion.php",this);
+                getAllCategorie gcat = new getAllCategorie("http://mohamednouira.esy.es/getAllCategorie.php",this);
 
 
             }
