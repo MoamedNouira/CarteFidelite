@@ -8,12 +8,15 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.medbac.carte_fidelite.Downloader.GetAllCarte;
 import com.medbac.carte_fidelite.Models.Client;
 
 
 import com.medbac.carte_fidelite.Downloader.GetClient;
 import com.medbac.carte_fidelite.Downloader.getAllPromotion;
 import com.medbac.carte_fidelite.Downloader.getAllCategorie;
+import com.medbac.carte_fidelite.Downloader.getAllCoordonnee;
 
 
 
@@ -80,6 +83,8 @@ public class Login  extends Activity {
                 GetClient gc = new GetClient("http://mohamednouira.esy.es/getLogin.php",Sid,Spassword,this);
                 getAllPromotion p = new getAllPromotion("http://mohamednouira.esy.es/getAllPromotion.php",this);
                 getAllCategorie gcat = new getAllCategorie("http://mohamednouira.esy.es/getAllCategorie.php",this);
+                GetAllCarte gcarte=new GetAllCarte("http://mohamednouira.esy.es/getAllCarte.php",this);
+                getAllCoordonnee gcor=new getAllCoordonnee("http://mohamednouira.esy.es/getAllCoordonnee.php",this);
 
 
             }

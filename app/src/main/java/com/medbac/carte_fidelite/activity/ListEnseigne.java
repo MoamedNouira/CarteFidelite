@@ -172,12 +172,11 @@ public class ListEnseigne extends Activity  implements AdapterView.OnItemClickLi
                             enseigne1.setCode_postal(Integer.parseInt(code_postal));
                             enseigne1.setTell(Integer.parseInt(tell));
                             enseigne1.setMail(mail);
-                            getCoordonnee getc = new getCoordonnee("http://mohamednouira.esy.es/getCoordonnee.php",id_enseigne,context,i,enseigne1,ListEnseignes,"list");
+                            ListEnseignes.add(enseigne1);
 
-                            // getCompte gc = new getCompte("http://mohamednouira.esy.es/getCompte.php",id_client,context);
-                            //client1.setCompte(gc.ListCompte);
+                            //   getCoordonnee getc = new getCoordonnee("http://mohamednouira.esy.es/getCoordonnee.php",id_enseigne,context,i,enseigne1,ListEnseignes,"list");
+
                             //Log.e("samarche","add list compte to client");
-                            //  GetEnseigne gEnseigne = new GetEnseigne("http://mohamednouira.esy.es/getEnseigne.php", id_enseigne, context, i);
 
 
                             Log.e("ffffffffffffffffffffffffffffffffffff",""+ListEnseignes.get(i).getCoordonnee().get(i).getLatitude());

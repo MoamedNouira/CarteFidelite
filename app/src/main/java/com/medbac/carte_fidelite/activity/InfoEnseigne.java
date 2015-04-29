@@ -11,6 +11,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.medbac.carte_fidelite.Models.*;
+import com.medbac.carte_fidelite.Downloader.getAllCoordonnee;
+
+import java.util.ArrayList;
+
 import activity.carte_fidelite.medbac.com.cartefidelite.R;
 
 
@@ -26,6 +30,7 @@ public class InfoEnseigne  extends Activity {
     TextView enseigne_text_tell;
     TextView enseigne_text_mail;
     Button local;
+    public static ArrayList<Coordonnee>list_coor;
     int id_enseigne;
 
 
@@ -56,7 +61,18 @@ public class InfoEnseigne  extends Activity {
             enseigne_text_mail.setText(extras.getString("mail"));
 
         }
+        list_coor=new ArrayList<Coordonnee>();
 
+        for(int x = 0;x < getAllCoordonnee.ListAllCoordonnee.size();x++){
+                if(getAllCoordonnee.ListAllCoordonnee.get(x).getId_enseigne()==id_enseigne){
+                    list_coor.add(getAllCoordonnee.ListAllCoordonnee.get(x));
+                    Log.e("llllllllllllllllllll", ""+list_coor.get(x).getLatitude());
+                    Log.e("llllllllllllllllllll", ""+list_coor.get(x).getLongitude());
+
+
+                }
+
+            }
 
 
     }
