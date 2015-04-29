@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -49,8 +50,26 @@ public class FragmentAjouteCarteViege   extends Fragment {
     Carte carte;
     Enseigne enseigne;
     TextView code;
+
+
+   String  adress;
+    String vile;
+    String  code_postal;
+    String tell;
+    String mail;
+
+    String description;
+    String type_carte;
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
+
+        if (android.os.Build.VERSION.SDK_INT > 9) {
+            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+            StrictMode.setThreadPolicy(policy);
+        }
+
         View rootView = inflater.inflate(R.layout.fragment_ajoute_carte_viege, container, false);
 
         scanner = (Button)  rootView.findViewById(R.id.button7);
@@ -108,7 +127,7 @@ public class FragmentAjouteCarteViege   extends Fragment {
             String Snom_carte = nom_carte.getText().toString();
             String Snom_enseigne = nom_enseigne.getText().toString();
             String Scode_barre = code_barre.getText().toString();
-
+            Log.e("click" ,"clich inserttttttttt");
             if (Snom_carte == "" || Snom_enseigne == "" || Scode_barre == "" ) {
                 nom_carte.setError("nom de carte est obligatoire");
                 nom_enseigne.setError("nom de enseigne est obligatoire");
@@ -118,13 +137,18 @@ public class FragmentAjouteCarteViege   extends Fragment {
             } else {
 
 
+
+
+
             }
+
+           }
 
 
 
 
         }
-    }
+
 
 
     public void addListenerOnButton() {
@@ -178,41 +202,15 @@ public void onActivityResult(int request,int result, Intent data){
     super.onActivityResult(request, result, data);
 
 
-                             /*    IntentResult scanningResult = IntentIntegrator.parseActivityResult(request, result, data);
-                        String scanData = (scanningResult != null) ? scanningResult.getContents() : "";
-                        if (scanData == null || scanData.isEmpty()) {
-                            code.setText("Scan complete, no data");
-                        } else {
-                            code.setText(scanData);
-                        }
-                        */
-    //if (scanResult != null) {
 
-     //   String barcode;
-      //  barcode = scanResult.getContents();
-
-      //  code_barre.setText("dddddd");
-
-   // }
-/*
-    IntentResult res = IntentIntegrator.parseActivityResult(request, result, data);
-    if (res != null) {
-        String contents = res.getContents();
-        if (contents != null) {
-            showDialog(R.string.result_succeeded, result.toString());
-        } else {
-            showDialog(R.string.result_failed, getString(R.string.result_failed_why));
-        }
-    }
-*/
 
     if (request == 1) {
 
         if(result == Activity.RESULT_OK){
             nom_carte.setText("nom_carte");
 
-            String type_carte=data.getStringExtra("type_carte");
-            String description=data.getStringExtra("description");
+            this.type_carte=data.getStringExtra("type_carte");
+            this.description=data.getStringExtra("description");
             ImageView showImg = (ImageView) data.getParcelableExtra("showImg");
         }
         if (result == Activity.RESULT_CANCELED) {
@@ -224,11 +222,11 @@ public void onActivityResult(int request,int result, Intent data){
         if(result == Activity.RESULT_OK){
             nom_enseigne.setText("nom_enseigne");
 
-            String adresse=data.getStringExtra("adresse");
-            String vile=data.getStringExtra("vile");
-            String code_postal=data.getStringExtra("code_postal");
-            String tell=data.getStringExtra("tell");
-            String mail=data.getStringExtra("mail");
+            this.adress=data.getStringExtra("adresse");
+            this.vile=data.getStringExtra("vile");
+            this.code_postal=data.getStringExtra("code_postal");
+            this.tell=data.getStringExtra("tell");
+            this.mail=data.getStringExtra("mail");
 
 
 

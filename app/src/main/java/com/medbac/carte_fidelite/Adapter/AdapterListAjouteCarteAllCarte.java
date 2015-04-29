@@ -1,6 +1,7 @@
 package com.medbac.carte_fidelite.Adapter;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -55,21 +56,10 @@ public class AdapterListAjouteCarteAllCarte extends BaseAdapter {
         TextView txt_duration=(TextView)v.findViewById(R.id.duration);
         ImageView image_list_image=(ImageView)v.findViewById(R.id.list_image_allcarte);
 
-        list_allcarte = new ArrayList<Carte>();
-        for(int i=0;i< list_allcarte.size();i++)
-        {
-
-            //compte =  list_compte.get(i);
-            //carte=compte.getCarte();
-            //Carte carten = new Carte();
-
-            //   carten.setNom(carte.getNom());
-//            Log.e("valide", ""+(list_compte.get(i)).getCarte().getNom());
-            //    list_carte.add(carten);
-        }
 
 //        txt_title.setText(list_allcarte.get(position).getNom());
         txt_title.setText("dddd");
+        Log.e("FRgetallcarteFFFF", "" + list_allcarte.size());
 
         //  txt_artist.setText(getCompte.ListCompteCarte.get(position).getNom());
 
