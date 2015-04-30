@@ -81,6 +81,14 @@ public class InfoCarteCarte extends Fragment implements View.OnClickListener {
 
 
         }
+
+
+        if(v.getId()==R.id.ButtonButton){
+
+
+
+
+        }
     }
 
 }

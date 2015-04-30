@@ -10,6 +10,12 @@ import android.view.View;
 import android.widget.ProgressBar;
 import android.support.v7.app.ActionBar;
 import android.view.Window;
+
+import com.medbac.carte_fidelite.Downloader.GetAllCarte;
+import com.medbac.carte_fidelite.Downloader.getAllCategorie;
+import com.medbac.carte_fidelite.Downloader.getAllCoordonnee;
+import com.medbac.carte_fidelite.Downloader.getAllPromotion;
+
 import activity.carte_fidelite.medbac.com.cartefidelite.R;
 
 
@@ -41,6 +47,7 @@ public class MainActivity extends Activity {
                     while(active && (waited<splashTime))
                     {
                         sleep(100);
+
                         if(active)
                         {
                             waited +=100;

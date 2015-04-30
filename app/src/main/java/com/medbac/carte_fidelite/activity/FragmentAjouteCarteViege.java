@@ -127,16 +127,68 @@ public class FragmentAjouteCarteViege   extends Fragment {
             String Snom_carte = nom_carte.getText().toString();
             String Snom_enseigne = nom_enseigne.getText().toString();
             String Scode_barre = code_barre.getText().toString();
-            Log.e("click" ,"clich inserttttttttt");
-            if (Snom_carte == "" || Snom_enseigne == "" || Scode_barre == "" ) {
+            if (Snom_carte.equals("") || Snom_enseigne.equals("") || Scode_barre.equals("") ) {
                 nom_carte.setError("nom de carte est obligatoire");
                 nom_enseigne.setError("nom de enseigne est obligatoire");
                 code_barre.setError("code barre de carte est obligatoire");
 
+                Log.e("click" ,"clich inserttttttttt");
 
             } else {
+                Log.e("click" ,"OK OK OK");
 
 
+                HttpClient httpClient = new DefaultHttpClient();
+                HttpPost httpPost = new HttpPost("http://mohamednouira.esy.es/setCarteV.php");
+                ArrayList<NameValuePair> client = new ArrayList<NameValuePair>();
+
+
+                client.add(new BasicNameValuePair("id_client",Integer.toString(GetClient.client1.getId_clinet())));
+
+                client.add(new BasicNameValuePair("nom_commercial",Snom_enseigne));
+                client.add(new BasicNameValuePair("adresse",adress));
+                client.add(new BasicNameValuePair("vile",vile));
+                client.add(new BasicNameValuePair("code_postal",code_postal        ));
+                client.add(new BasicNameValuePair("tell",       tell));
+                client.add(new BasicNameValuePair("mail",    mail   ));
+                client.add(new BasicNameValuePair("nom",Snom_carte));
+                client.add(new BasicNameValuePair("descr_carte",  description      ));
+                client.add(new BasicNameValuePair("type_carte",     type_carte    ));
+                client.add(new BasicNameValuePair("image","image.png" ));
+                client.add(new BasicNameValuePair("code_barre",Scode_barre));
+
+
+                try {
+                    httpPost.setEntity(new UrlEncodedFormEntity(client));
+                    HttpResponse httpRespose = httpClient.execute(httpPost);
+                    Log.e("ss", "ee");
+                    HttpEntity httpEntity = httpRespose.getEntity();
+                    InputStream in = httpEntity.getContent();
+                    BufferedReader read = new BufferedReader(new InputStreamReader(in));
+
+                    String isi = "";
+                    String baris = "";
+
+                    while ((baris = read.readLine()) != null) {
+                        isi += baris;
+                    }
+
+                    //Jika isi tidak sama dengan "null " maka akan tampil Toast "Berhasil" sebaliknya akan tampil "Gagal"
+                    if (!isi.equals("null")) {
+                        Toast.makeText(getActivity(), "Berhasil", Toast.LENGTH_LONG).show();
+                    } else {
+                        Toast.makeText(getActivity(), "Gagal", Toast.LENGTH_LONG).show();
+                    }
+
+                    Toast.makeText(getActivity(), "les donnees sont enregistrées", Toast.LENGTH_SHORT).show();
+
+                    Intent i = new Intent(getActivity(), Login.class);
+                    startActivity(i);
+
+
+                } catch (Exception e) {
+                    Log.e("log_tag", "Error in http connection :" + e.toString());
+                }
 
 
 

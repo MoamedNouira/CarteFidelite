@@ -60,7 +60,6 @@ public class AdapterListAjouteCarteAllCarte extends BaseAdapter {
 //        txt_title.setText(list_allcarte.get(position).getNom());
         txt_title.setText("dddd");
         Log.e("FRgetallcarteFFFF", "" + list_allcarte.size());
-
         //  txt_artist.setText(getCompte.ListCompteCarte.get(position).getNom());
 
 

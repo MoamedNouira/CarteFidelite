@@ -13,6 +13,7 @@ import android.widget.ImageView;
 import activity.carte_fidelite.medbac.com.cartefidelite.R;
 import com.medbac.carte_fidelite.Downloader.GetCarte;
 import com.medbac.carte_fidelite.Downloader.GetClient;
+import com.medbac.carte_fidelite.Downloader.ImageLoader;
 import com.medbac.carte_fidelite.Downloader.getCompte;
 
 import com.medbac.carte_fidelite.Models.Compte;
@@ -34,10 +35,12 @@ public class AdapterListCarte extends BaseAdapter {
     private ArrayList<Carte> list_carte;
     Compte compte;
     Carte carte;
+    public ImageLoader imageLoader;
 
    public AdapterListCarte(Context c, ArrayList<Compte> list_compte){
         this.c = c;
         this.list_compte = list_compte;
+       imageLoader = new ImageLoader(c);
     }
 
     @Override
@@ -86,6 +89,8 @@ public class AdapterListCarte extends BaseAdapter {
         txt_artist.setText(GetClient.client1.getNom()+" "+GetClient.client1.getPrenom());
         String strLong = Long.toString(getCompte.ListCompte.get(position).getCode_barre());
         txt_duration.setText(strLong);
+
+        imageLoader.DisplayImage("http://mohamednouira.esy.es/images/carfor.jpg", image_item_list);
 
 
 
