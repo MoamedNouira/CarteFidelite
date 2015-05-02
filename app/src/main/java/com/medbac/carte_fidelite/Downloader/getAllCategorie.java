@@ -24,7 +24,7 @@ import activity.carte_fidelite.medbac.com.cartefidelite.R;
 public class getAllCategorie  {
 
     private static String url ;
-    private ArrayList listCat = null;
+    public static ArrayList<Catégories> listCat = null;
     private ListView ListViewAjouteCarteCat;
     //private ProgressDialog pDialog;
     public static Catégories catégories1 = null;

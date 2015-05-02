@@ -97,6 +97,8 @@ public class ListCarte extends Activity {
                 i.putExtra("nb_point",ListCompte2.get(position).getNb_point());
                 i.putExtra("descr_carte",ListCompte2.get(position).getCarte().getDescr_carte());
                 i.putExtra("image",ListCompte2.get(position).getCarte().getImage());
+                i.putExtra("id_compte",ListCompte2.get(position).getId_compte());
+
 
 
 

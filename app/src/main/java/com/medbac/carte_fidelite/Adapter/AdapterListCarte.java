@@ -90,7 +90,7 @@ public class AdapterListCarte extends BaseAdapter {
         String strLong = Long.toString(getCompte.ListCompte.get(position).getCode_barre());
         txt_duration.setText(strLong);
 
-        imageLoader.DisplayImage("http://mohamednouira.esy.es/images/carfor.jpg", image_item_list);
+        imageLoader.DisplayImage("http://mohamednouira.esy.es/images/"+getCompte.ListCompte.get(position).getCarte().getImage(), image_item_list);
 
 
 

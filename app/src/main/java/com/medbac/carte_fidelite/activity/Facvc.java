@@ -1,8 +1,10 @@
 package com.medbac.carte_fidelite.activity;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.ContentValues;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
@@ -24,6 +26,7 @@ import android.widget.Toast;
 import java.io.IOException;
 
 import activity.carte_fidelite.medbac.com.cartefidelite.R;
+import com.medbac.carte_fidelite.Downloader.getAllCategorie;
 
 /**
  * Created by Mohamed Nouira on 08/04/2015.
@@ -33,6 +36,9 @@ public class Facvc extends Activity  {
     EditText type_carte;
     EditText description;
     Button prendre_photo;
+    final CharSequence[] items={"One","two","three"};
+
+
     Button categorie;
     Button ok;
     Uri imageUri                      = null;
@@ -83,11 +89,24 @@ public class Facvc extends Activity  {
             @Override
             public void onClick(View view) {
 
+                // TODO Auto-generated method stub
 
+                AlertDialog.Builder builder3=new AlertDialog.Builder(Facvc.this);
+                builder3.setTitle("Pick your choice").setItems(items, new DialogInterface.OnClickListener() {
 
+                    @Override
 
+                    public void onClick(DialogInterface dialog, int which) {
 
+// TODO Auto-generated method stub
 
+                        Toast.makeText(Facvc.this, "U clicked "+items[which], Toast.LENGTH_LONG).show();
+
+                    }
+
+                });
+
+                builder3.show();
 
             }
         });

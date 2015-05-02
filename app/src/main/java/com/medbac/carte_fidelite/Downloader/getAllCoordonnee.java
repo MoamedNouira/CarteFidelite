@@ -175,30 +175,7 @@ import java.util.ArrayList;
             @Override
             protected void onPostExecute(Void result) {
                 super.onPostExecute(result);
-			 /*
-	         * Ici, le code exécuté une fois le traitement terminé, par exemple:
-	         *  -Mise à jour de l'affichage
-	         *  -Affichage d'une pop-up indiquant la fin du traitement
-	         *  -Désactivation de la ProgressBar
-	         *  -...
-	         */
 
-
-                //   Log.e("ServiceHandler", "okokokokok"+  enseigne1.getId_enseigne());
-
-                //   Log.e("zzzzzzzzzzzzzzzzzzzzzzzzzzz",""+ GetEnseigne.enseigne1.getId_enseigne());
-
-                //GetEnseigne.enseigne1.setCoordonnee(ListCoordonnee);
-
-//             Log.e("zzzeeeeeeezzzzzzzzzzzzzzzzzzzzzzzz",""+ ListCoordonnee.get(0).getLatitude());
-
-
-                //    coordonnee1 = null;
-
-//        Log.e("samarchennnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn",""+ carte1.getNom());
-                // Désactivation de la ProgressBar
-                //  if (pDialog.isShowing())
-                //     pDialog.dismiss();
 
 
             }

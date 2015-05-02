@@ -32,7 +32,7 @@ public class ImageLoader {
         executorService=Executors.newFixedThreadPool(5);
     }
     
-    final int stub_id=R.drawable.ic_plusone_medium_off_client;
+    final int stub_id=R.drawable.nonimage;
     public void DisplayImage(String url, ImageView imageView)
     {
         imageViews.put(imageView, url);

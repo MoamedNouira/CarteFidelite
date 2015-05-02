@@ -31,6 +31,7 @@ public class FrInfoCarte extends FragmentActivity implements
     public static  int nb_point ;
     public static   String descr_carte;
     public static   String image;
+    public static   int id_compte;
 
 	// Tab titles
 	private String[] tabs = { "Carte", "Localiser" };
@@ -105,6 +106,7 @@ public class FrInfoCarte extends FragmentActivity implements
             nb_point = extras.getInt("nb_point");
                descr_carte = extras.getString("descr_carte");
               image = extras.getString("image");
+              id_compte = extras.getInt("id_compte");
 
 
 

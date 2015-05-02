@@ -40,6 +40,22 @@ public class Login  extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
 
+
+
+        if(getAllPromotion.ListPromotion.size()!=0){
+            getAllPromotion.ListPromotion=null;
+        };
+        if( GetAllCarte.ListAllCarte.size()!=0){
+            GetAllCarte.ListAllCarte=null;
+        };
+        if( getAllCoordonnee.ListAllCoordonnee.size()!=0){
+            getAllCoordonnee.ListAllCoordonnee=null;
+        };
+
+
+
+
+
         creer_compte = (Button) findViewById(R.id.bt_compte);
         connexion = (Button) findViewById(R.id.bt_connexion);
 
@@ -85,7 +101,7 @@ public class Login  extends Activity {
                 getAllCategorie gcat = new getAllCategorie("http://mohamednouira.esy.es/getAllCategorie.php",this);
                 GetAllCarte gcarte=new GetAllCarte("http://mohamednouira.esy.es/getAllCarte.php",this);
                 getAllCoordonnee gcor=new getAllCoordonnee("http://mohamednouira.esy.es/getAllCoordonnee.php",this);
-
+               // getAllEnseigne galleng=new getAllEnseigne("http://mohamednouira.esy.es/getAllEnseigne.php",this);
 
             }
 
