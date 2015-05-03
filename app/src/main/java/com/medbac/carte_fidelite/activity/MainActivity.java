@@ -22,7 +22,7 @@ import activity.carte_fidelite.medbac.com.cartefidelite.R;
 public class MainActivity extends Activity {
 
     boolean active = true;
-    int splashTime = 4000;
+    int splashTime = 400;
 
 
 
@@ -46,11 +46,11 @@ public class MainActivity extends Activity {
 
                     while(active && (waited<splashTime))
                     {
-                        sleep(100);
+                        sleep(10);
 
                         if(active)
                         {
-                            waited +=100;
+                            waited +=10;
                         }
                     }
                 }

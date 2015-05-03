@@ -8,20 +8,16 @@
 
     <!--  ListRow Left sied Thumbnail image -->
     <LinearLayout android:id="@+id/thumbnail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="130dp"
+        android:layout_height="95dp"
         android:layout_alignParentLeft="true"
-        android:background="@drawable/image_bg"
         android:layout_marginRight="5dip"
-        android:paddingLeft="50dp"
-        android:paddingTop="25dp"
-        android:paddingRight="50dp"
-        android:paddingBottom="25dp">
+        >
 
         <ImageView
             android:id="@+id/image_item_listallcarte"
-            android:layout_width="50dip"
-            android:layout_height="50dip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:src="@drawable/menu_enseigne2"/>
 
     </LinearLayout>

@@ -3,7 +3,6 @@ package com.medbac.carte_fidelite.activity;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.support.v4.app.Fragment;
@@ -48,7 +47,7 @@ public class FragmentAjouteCarteViege   extends Fragment {
     Context c;
     Compte compte;
     Carte carte;
-    Enseigne enseigne;
+    ENseigne enseigne;
     TextView code;
 
 
@@ -82,7 +81,7 @@ public class FragmentAjouteCarteViege   extends Fragment {
 
         Carte carte= new Carte();
         Compte compte=new Compte();
-        Enseigne enseigne = new Enseigne();
+        ENseigne enseigne = new ENseigne();
 
 
 

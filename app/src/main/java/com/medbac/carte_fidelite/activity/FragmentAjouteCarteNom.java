@@ -32,12 +32,12 @@ public class FragmentAjouteCarteNom  extends Fragment {
 
         ListViewAllCarte = (ListView)rootView.findViewById(R.id.listViewAllCarte);
         ListAllCarte=new ArrayList<Carte>();
-      //  Log.e("FRgetallcarte", "" + GetAllCarte.ListAllCarte.size());
+        //  Log.e("FRgetallcarte", "" + GetAllCarte.ListAllCarte.size());
 
         ListAllCarte= GetAllCarte.ListAllCarte;
 
         adapter = new AdapterListAjouteCarteAllCarte(getActivity(), ListAllCarte);
-     ListViewAllCarte.setAdapter(adapter);
+        ListViewAllCarte.setAdapter(adapter);
         return rootView;
 
     }

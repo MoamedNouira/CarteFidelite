@@ -25,6 +25,7 @@ public class getAllEnseigne {
 
     private static String url;
     private ProgressDialog pDialog;
+
     private Enseigne enseigne1 = null;
     // clé
     private static final String TAG_enseigne= "enseigne";
@@ -37,7 +38,7 @@ public class getAllEnseigne {
     private static final String TAG_mail = "mail";
     // tableau json
     JSONArray enseigne = null;
-    public static ArrayList<Enseigne> ListEnseignes;
+    public static ArrayList<Enseigne> ListEnseignes=new ArrayList<Enseigne>();
 
     ListView ListViewEnseigne;
 
@@ -45,13 +46,13 @@ public class getAllEnseigne {
     public getAllEnseigne (String url, Context context){
         this.context = context;
         this.url = url;
-        new getAllEnseigne().execute();
+        new GetAllEnseigne().execute();
 
     }
 
 
 
-    private class getAllEnseigne extends AsyncTask<Void, Void, Void> {
+    private class GetAllEnseigne extends AsyncTask<Void, Void, Void> {
         String id_enseigne;
         String nom_commercial ;
         String adresse ;
@@ -65,7 +66,7 @@ public class getAllEnseigne {
         protected void onPreExecute() {
             super.onPreExecute();
 
-            pDialog = new ProgressDialog(getAllEnseigne.this);
+            pDialog = new ProgressDialog(context);
             pDialog.setMessage("chargement... ");
             pDialog.setCancelable(false);
             pDialog.show();
@@ -133,7 +134,7 @@ public class getAllEnseigne {
                             //Log.e("samarche","add list compte to client");
 
 
-                            Log.e("ffffffffffffffffffffffffffffffffffff",""+ListEnseignes.get(i).getCoordonnee().get(i).getLatitude());
+                            Log.e(" ListEnseignes ListEnseignes",""+ ListEnseignes.size());
 
 
 

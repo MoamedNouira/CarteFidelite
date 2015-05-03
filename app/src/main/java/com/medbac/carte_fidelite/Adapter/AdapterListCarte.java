@@ -72,7 +72,7 @@ public class AdapterListCarte extends BaseAdapter {
         TextView txt_duration=(TextView)v.findViewById(R.id.duration);
         ImageView image_list_image=(ImageView)v.findViewById(R.id.list_image);
 
-        list_carte = new ArrayList<Carte>();
+       /* list_carte = new ArrayList<Carte>();
         for(int i=0;i< list_compte.size();i++)
         {
 
@@ -84,7 +84,7 @@ public class AdapterListCarte extends BaseAdapter {
 //            Log.e("valide", ""+(list_compte.get(i)).getCarte().getNom());
             list_carte.add(carten);
           }
-
+*/
         txt_title.setText(getCompte.ListCompte.get(position).getCarte().getNom());
         txt_artist.setText(GetClient.client1.getNom()+" "+GetClient.client1.getPrenom());
         String strLong = Long.toString(getCompte.ListCompte.get(position).getCode_barre());

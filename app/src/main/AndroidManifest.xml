@@ -59,7 +59,7 @@
             android:label="@string/title_activity_carte"
             android:theme="@android:style/Theme.Holo.Light.NoActionBar" />
         <activity
-            android:name="com.medbac.carte_fidelite.activity.Enseigne"
+            android:name="com.medbac.carte_fidelite.activity.ENseigne"
             android:label="@string/title_activity_enseigne"
             android:theme="@android:style/Theme.Holo.Light.NoActionBar" />
         <activity

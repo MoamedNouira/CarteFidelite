@@ -9,7 +9,9 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.medbac.carte_fidelite.Downloader.ImageLoader;
 import com.medbac.carte_fidelite.Models.Carte;
+import com.medbac.carte_fidelite.Downloader.getAllEnseigne;
 
 import java.util.ArrayList;
 
@@ -23,10 +25,13 @@ public class AdapterListAjouteCarteAllCarte extends BaseAdapter {
      ArrayList<Carte> list_allcarte;
     Context c;
     Carte carte;
+    public ImageLoader imageLoader;
 
     public AdapterListAjouteCarteAllCarte(Context c, ArrayList<Carte> list_allcarte){
         this.c = c;
         this.list_allcarte = list_allcarte;
+        imageLoader = new ImageLoader(c);
+
     }
     @Override
     public int getCount() {
@@ -52,14 +57,25 @@ public class AdapterListAjouteCarteAllCarte extends BaseAdapter {
             v=inflater.inflate(R.layout.item_list_allcarte,null);
         }
         ImageView image_item_list=(ImageView)v.findViewById(R.id.image_item_listallcarte);
-        TextView txt_title=(TextView)v.findViewById(R.id.title_enseigne);
-        TextView txt_duration=(TextView)v.findViewById(R.id.duration);
+        TextView title_enseigne=(TextView)v.findViewById(R.id.title_enseigne);
+        TextView title_allcarte=(TextView)v.findViewById(R.id.title_allcarte);
         ImageView image_list_image=(ImageView)v.findViewById(R.id.list_image_allcarte);
 
 
 //        txt_title.setText(list_allcarte.get(position).getNom());
-        txt_title.setText("dddd");
-        Log.e("FRgetallcarteFFFF", "" + list_allcarte.size());
+        title_allcarte.setText(list_allcarte.get(position).getNom());
+        imageLoader.DisplayImage("http://mohamednouira.esy.es/images/"+list_allcarte.get(position).getImage(), image_item_list);
+
+        for(int i=0;i<getAllEnseigne.ListEnseignes.size();i++){
+            if(list_allcarte.get(position).getId_enseigne() == getAllEnseigne.ListEnseignes.get(i).getId_enseigne())
+            {
+                title_enseigne.setText(getAllEnseigne.ListEnseignes.get(i).getNom_commercial());
+            }
+
+        }
+
+        //  txt_duration.setText(list_allcarte.get(position).getNom());
+
         //  txt_artist.setText(getCompte.ListCompteCarte.get(position).getNom());
 
 

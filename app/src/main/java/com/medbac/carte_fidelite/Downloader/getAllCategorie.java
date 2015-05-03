@@ -119,7 +119,7 @@ public class getAllCategorie  {
                     // Get JSON Array
                        categories = jsonObj.getJSONArray(TAG_categories);
 
-                     ArrayList<Catégories> listCat = new ArrayList<Catégories>();
+                     listCat = new ArrayList<Catégories>();
                     // looping through All Contacts
                     for (int i = 0; i < categories.length(); i++) {
                         JSONObject c = categories.getJSONObject(i);

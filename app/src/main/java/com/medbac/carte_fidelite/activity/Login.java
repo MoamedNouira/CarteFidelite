@@ -11,7 +11,7 @@ import android.widget.Toast;
 
 import com.medbac.carte_fidelite.Downloader.GetAllCarte;
 import com.medbac.carte_fidelite.Models.Client;
-
+import com.medbac.carte_fidelite.Downloader.getAllEnseigne;
 
 import com.medbac.carte_fidelite.Downloader.GetClient;
 import com.medbac.carte_fidelite.Downloader.getAllPromotion;
@@ -101,7 +101,7 @@ public class Login  extends Activity {
                 getAllCategorie gcat = new getAllCategorie("http://mohamednouira.esy.es/getAllCategorie.php",this);
                 GetAllCarte gcarte=new GetAllCarte("http://mohamednouira.esy.es/getAllCarte.php",this);
                 getAllCoordonnee gcor=new getAllCoordonnee("http://mohamednouira.esy.es/getAllCoordonnee.php",this);
-               // getAllEnseigne galleng=new getAllEnseigne("http://mohamednouira.esy.es/getAllEnseigne.php",this);
+                getAllEnseigne galleng=new getAllEnseigne("http://mohamednouira.esy.es/getAllEnseigne.php",this);
 
             }
 

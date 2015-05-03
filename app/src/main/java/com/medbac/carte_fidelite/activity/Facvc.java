@@ -15,18 +15,27 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import activity.carte_fidelite.medbac.com.cartefidelite.R;
+
+import com.medbac.carte_fidelite.Adapter.AdapterListAjouteCarteCat;
+import com.medbac.carte_fidelite.Adapter.AdapterListCat;
 import com.medbac.carte_fidelite.Downloader.getAllCategorie;
+import com.medbac.carte_fidelite.Models.Catégories;
 
 /**
  * Created by Mohamed Nouira on 08/04/2015.
@@ -36,8 +45,9 @@ public class Facvc extends Activity  {
     EditText type_carte;
     EditText description;
     Button prendre_photo;
-    final CharSequence[] items={"One","two","three"};
-
+     ArrayList<String> cattegNom;
+     ArrayList<Integer> cattegId;
+    AlertDialog alertDialogS;
 
     Button categorie;
     Button ok;
@@ -45,6 +55,8 @@ public class Facvc extends Activity  {
     static TextView imageDetails      = null;
     public  static ImageView showImg  = null;
     Facvc CameraActivity = null;
+    ArrayList<Catégories> listCatg;
+
     final static int CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE = 1;
 
     @Override
@@ -53,6 +65,7 @@ public class Facvc extends Activity  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.facvc);
         CameraActivity = this;
+
 
         imageDetails = (TextView) findViewById(R.id.imageDetails);
         type_carte = (EditText) findViewById(R.id.type_carte);
@@ -89,24 +102,41 @@ public class Facvc extends Activity  {
             @Override
             public void onClick(View view) {
 
-                // TODO Auto-generated method stub
 
-                AlertDialog.Builder builder3=new AlertDialog.Builder(Facvc.this);
-                builder3.setTitle("Pick your choice").setItems(items, new DialogInterface.OnClickListener() {
+                LayoutInflater li = LayoutInflater.from(Facvc.this);
+                View promptsView = li.inflate(R.layout.list_cat, null);
+
+                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(Facvc.this);
+
+                alertDialogBuilder.setView(promptsView);
+               listCatg=getAllCategorie.listCat;
+
+                ListView listView_cat_nom = (ListView) promptsView.findViewById(R.id.listViewCat);
+                Log.e("  getAllCategorie.listCat getAllCategorie.listCat", "" + listCatg.size());
+
+
+                AdapterListCat adpt = new AdapterListCat(Facvc.this, getAllCategorie.listCat);
+                listView_cat_nom.setAdapter(adpt);
+                // set dialog message
+                alertDialogBuilder.setCancelable(true);
+
+                // create alert dialog
+                alertDialogS = alertDialogBuilder.create();
+
+                // show it
+                alertDialogS.show();
+                listView_cat_nom.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
                     @Override
+                    public void onItemClick(AdapterView<?> arg0, View arg1,
+                                            int position, long arg3) {
+                        // TODO Auto-generated method stub
+                        alertDialogS.dismiss();
+                        Toast.makeText(Facvc.this, ""+getAllCategorie.listCat.get(position).getId_catégories(), Toast.LENGTH_SHORT).show();
 
-                    public void onClick(DialogInterface dialog, int which) {
-
-// TODO Auto-generated method stub
-
-                        Toast.makeText(Facvc.this, "U clicked "+items[which], Toast.LENGTH_LONG).show();
 
                     }
-
                 });
-
-                builder3.show();
 
             }
         });
