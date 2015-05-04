@@ -164,7 +164,8 @@ public class getAllEnseigne {
         protected void onPostExecute(Void result) {
             super.onPostExecute(result);
 
-
+            if (pDialog.isShowing())
+                pDialog.dismiss();
 
 
 

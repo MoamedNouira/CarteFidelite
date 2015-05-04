@@ -32,8 +32,8 @@ public class Login  extends Activity {
     Button connexion;
     EditText id, password;
     TextView motpasse;
-
-
+    public static String Sid;
+    public static String Spassword;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,27 +42,13 @@ public class Login  extends Activity {
 
 
 
-        if(getAllPromotion.ListPromotion.size()!=0){
-            getAllPromotion.ListPromotion=null;
-        };
-        if( GetAllCarte.ListAllCarte.size()!=0){
-            GetAllCarte.ListAllCarte=null;
-        };
-        if( getAllCoordonnee.ListAllCoordonnee.size()!=0){
-            getAllCoordonnee.ListAllCoordonnee=null;
-        };
-
-
-
-
-
         creer_compte = (Button) findViewById(R.id.bt_compte);
         connexion = (Button) findViewById(R.id.bt_connexion);
 
         id = (EditText) findViewById(R.id.editText13);
-        id.setText("n");
+        //id.setText("n");
         password = (EditText) findViewById(R.id.editText16);
-        password.setText("n");
+       // password.setText("n");
 
         motpasse = (TextView) findViewById(R.id.textView2);
 
@@ -84,8 +70,8 @@ public class Login  extends Activity {
         if (v.getId() == connexion.getId()) {
 
 
-            String Sid = id.getText().toString();
-            String Spassword = password.getText().toString();
+               Sid = id.getText().toString();
+               Spassword = password.getText().toString();
 
 
             if (Sid == null || Sid == "" || Sid.length() < 1) {
@@ -97,11 +83,8 @@ public class Login  extends Activity {
 
 
                 GetClient gc = new GetClient("http://mohamednouira.esy.es/getLogin.php",Sid,Spassword,this);
-                getAllPromotion p = new getAllPromotion("http://mohamednouira.esy.es/getAllPromotion.php",this);
-                getAllCategorie gcat = new getAllCategorie("http://mohamednouira.esy.es/getAllCategorie.php",this);
-                GetAllCarte gcarte=new GetAllCarte("http://mohamednouira.esy.es/getAllCarte.php",this);
-                getAllCoordonnee gcor=new getAllCoordonnee("http://mohamednouira.esy.es/getAllCoordonnee.php",this);
-                getAllEnseigne galleng=new getAllEnseigne("http://mohamednouira.esy.es/getAllEnseigne.php",this);
+
+
 
             }
 

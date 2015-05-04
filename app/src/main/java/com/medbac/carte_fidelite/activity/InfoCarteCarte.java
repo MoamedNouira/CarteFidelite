@@ -17,6 +17,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.zxing.integration.android.IntentIntegrator;
+import com.medbac.carte_fidelite.Downloader.GetAllCarte;
+import com.medbac.carte_fidelite.Downloader.GetClient;
+import com.medbac.carte_fidelite.Downloader.getAllCategorie;
+import com.medbac.carte_fidelite.Downloader.getAllCoordonnee;
+import com.medbac.carte_fidelite.Downloader.getAllEnseigne;
+import com.medbac.carte_fidelite.Downloader.getAllPromotion;
+import com.medbac.carte_fidelite.Downloader.getCompte;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -154,7 +161,12 @@ public class InfoCarteCarte extends Fragment implements View.OnClickListener {
 
                         Toast.makeText(getActivity(), "les donnees sont enregistrées", Toast.LENGTH_SHORT).show();
 
-                        Intent i = new Intent(getActivity(), Login.class);
+                        Log.e("SidSidSidSid", "" + Login.Sid+" "+Login.Spassword);
+
+
+                        Intent i = new Intent(getActivity(), MainActivity.class);
+
+
                         startActivity(i);
 
 
@@ -165,6 +177,10 @@ public class InfoCarteCarte extends Fragment implements View.OnClickListener {
 
 
                     Toast.makeText(getActivity(), "You clicked on YES", Toast.LENGTH_SHORT).show();
+
+
+
+
                 }
             });
 
@@ -185,5 +201,10 @@ public class InfoCarteCarte extends Fragment implements View.OnClickListener {
 
         }
     }
+    @Override
+    public void onStop() {
+        super.onStop();
+        GetClient.client1=null;
 
+    }
 }

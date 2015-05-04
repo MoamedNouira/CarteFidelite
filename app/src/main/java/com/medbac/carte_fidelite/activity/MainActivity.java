@@ -14,6 +14,7 @@ import android.view.Window;
 import com.medbac.carte_fidelite.Downloader.GetAllCarte;
 import com.medbac.carte_fidelite.Downloader.getAllCategorie;
 import com.medbac.carte_fidelite.Downloader.getAllCoordonnee;
+import com.medbac.carte_fidelite.Downloader.getAllEnseigne;
 import com.medbac.carte_fidelite.Downloader.getAllPromotion;
 
 import activity.carte_fidelite.medbac.com.cartefidelite.R;
@@ -26,11 +27,13 @@ public class MainActivity extends Activity {
 
 
 
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
 
 
 

@@ -1,6 +1,7 @@
 package com.medbac.carte_fidelite.Downloader;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
@@ -26,7 +27,7 @@ public class getAllCategorie  {
     private static String url ;
     public static ArrayList<Catégories> listCat = null;
     private ListView ListViewAjouteCarteCat;
-    //private ProgressDialog pDialog;
+    private ProgressDialog pDialog;
     public static Catégories catégories1 = null;
 
 
@@ -88,10 +89,10 @@ public class getAllCategorie  {
 	         *      =Barre de progression
 	         *  -...
 	         */
-            // pDialog = new ProgressDialog(context);
-            //pDialog.setMessage("chargement... ");
-            // pDialog.setCancelable(false);
-            // pDialog.show();
+             pDialog = new ProgressDialog(context);
+            pDialog.setMessage("chargement... ");
+             pDialog.setCancelable(false);
+            pDialog.show();
 
         }
 
@@ -166,7 +167,8 @@ public class getAllCategorie  {
             // Désactivation de la ProgressBar
             //  if (pDialog.isShowing())
             //     pDialog.dismiss();
-
+            if (pDialog.isShowing())
+                pDialog.dismiss();
         }
 
     }

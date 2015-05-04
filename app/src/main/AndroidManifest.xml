@@ -137,6 +137,11 @@
             android:name="com.medbac.carte_fidelite.activity.Localisation"
             android:label="@string/title_activity_promotion"
             android:theme="@android:style/Theme.Holo.Light.NoActionBar" />
+        <activity
+            android:name="com.medbac.carte_fidelite.activity.AjouteCarte"
+            android:label="@string/title_activity_promotion"
+            android:theme="@android:style/Theme.Holo.Light.NoActionBar" />
+
 
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"

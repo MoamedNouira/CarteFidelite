@@ -1,5 +1,6 @@
 package com.medbac.carte_fidelite.Downloader;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
@@ -18,7 +19,7 @@ import java.util.ArrayList;
 
     private static String url ;
 
-    //private ProgressDialog pDialog;
+    private ProgressDialog pDialog;
     public static ArrayList<Coordonnee> ListAllCoordonnee= new ArrayList<Coordonnee>();
 
     Coordonnee coordonnee1 ;
@@ -87,10 +88,10 @@ import java.util.ArrayList;
 	         *      =Barre de progression
 	         *  -...
 	         */
-                // pDialog = new ProgressDialog(context);
-                //pDialog.setMessage("chargement... ");
-                // pDialog.setCancelable(false);
-                // pDialog.show();
+                 pDialog = new ProgressDialog(context);
+                pDialog.setMessage("chargement... ");
+                 pDialog.setCancelable(false);
+                 pDialog.show();
 
             }
 
@@ -175,7 +176,8 @@ import java.util.ArrayList;
             @Override
             protected void onPostExecute(Void result) {
                 super.onPostExecute(result);
-
+                if (pDialog.isShowing())
+                    pDialog.dismiss();
 
 
             }

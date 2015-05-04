@@ -34,8 +34,14 @@ import android.widget.Button;
 import android.widget.Toast;
 import android.view.View;
 import android.view.View.OnClickListener;
+
+import com.medbac.carte_fidelite.Downloader.GetAllCarte;
 import com.medbac.carte_fidelite.Downloader.GetClient;
 import com.medbac.carte_fidelite.Downloader.ServiceHandler;
+import com.medbac.carte_fidelite.Downloader.getAllCategorie;
+import com.medbac.carte_fidelite.Downloader.getAllCoordonnee;
+import com.medbac.carte_fidelite.Downloader.getAllEnseigne;
+import com.medbac.carte_fidelite.Downloader.getAllPromotion;
 
 import activity.carte_fidelite.medbac.com.cartefidelite.R;
 
@@ -54,6 +60,13 @@ public class MenuCarte extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.menu_carte);
+
+        getAllPromotion p = new getAllPromotion("http://mohamednouira.esy.es/getAllPromotion.php",this);
+        getAllCategorie gcat = new getAllCategorie("http://mohamednouira.esy.es/getAllCategorie.php",this);
+        GetAllCarte gcarte=new GetAllCarte("http://mohamednouira.esy.es/getAllCarte.php",this);
+        getAllCoordonnee gcor=new getAllCoordonnee("http://mohamednouira.esy.es/getAllCoordonnee.php",this);
+        getAllEnseigne galleng=new getAllEnseigne("http://mohamednouira.esy.es/getAllEnseigne.php",this);
+
 
         ButtonMenuCarte = (Button) findViewById(R.id.button_menu_carte);
         ButtonMenuEnseigne = (Button) findViewById(R.id.button_menu_enseigne);

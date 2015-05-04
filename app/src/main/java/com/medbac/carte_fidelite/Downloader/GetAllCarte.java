@@ -32,7 +32,7 @@ public class GetAllCarte{
 
     private static String url ;
 
-    //private ProgressDialog pDialog;
+    private ProgressDialog pDialog;
     Carte carte1 = null;
    public static ArrayList<Carte> ListAllCarte=new ArrayList<Carte>();
 
@@ -103,10 +103,10 @@ public class GetAllCarte{
 	         *      =Barre de progression
 	         *  -...
 	         */
-            // pDialog = new ProgressDialog(context);
-            //pDialog.setMessage("chargement... ");
-            // pDialog.setCancelable(false);
-            // pDialog.show();
+            pDialog = new ProgressDialog(context);
+            pDialog.setMessage("chargement... ");
+             pDialog.setCancelable(false);
+            pDialog.show();
 
         }
 
@@ -199,7 +199,8 @@ public class GetAllCarte{
 
 
             carte1 = null;
-
+            if (pDialog.isShowing())
+                pDialog.dismiss();
 //        Log.e("samarchennnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn",""+ carte1.getNom());
             // Désactivation de la ProgressBar
             //  if (pDialog.isShowing())
