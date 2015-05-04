@@ -66,11 +66,11 @@ public class getAllEnseigne {
         protected void onPreExecute() {
             super.onPreExecute();
 
-            pDialog = new ProgressDialog(context);
+/*            pDialog = new ProgressDialog(context);
             pDialog.setMessage("chargement... ");
             pDialog.setCancelable(false);
             pDialog.show();
-
+*/
         }
 
         @Override
@@ -164,8 +164,8 @@ public class getAllEnseigne {
         protected void onPostExecute(Void result) {
             super.onPostExecute(result);
 
-            if (pDialog.isShowing())
-                pDialog.dismiss();
+          //  if (pDialog.isShowing())
+            //    pDialog.dismiss();
 
 
 

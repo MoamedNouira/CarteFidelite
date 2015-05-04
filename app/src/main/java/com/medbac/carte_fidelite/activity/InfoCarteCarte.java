@@ -159,14 +159,21 @@ public class InfoCarteCarte extends Fragment implements View.OnClickListener {
                             Toast.makeText(getActivity(), "Gagal", Toast.LENGTH_LONG).show();
                         }
 
-                        Toast.makeText(getActivity(), "les donnees sont enregistrées", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity(), "les donnees sont suppr", Toast.LENGTH_SHORT).show();
 
                         Log.e("SidSidSidSid", "" + Login.Sid+" "+Login.Spassword);
 
+                        GetClient.client1=null;
+                        /*getAllPromotion.ListPromotion=null;
+                        getAllCategorie.listCat=null;
+                        GetAllCarte.ListAllCarte=null;
+                        getAllCoordonnee.ListAllCoordonnee=null;
+                        getAllEnseigne.ListEnseignes=null;
+*/
+                        GetClient gc = new GetClient("http://mohamednouira.esy.es/getLogin.php",Login.Sid,Login.Spassword,getActivity());
 
-                        Intent i = new Intent(getActivity(), MainActivity.class);
 
-
+                        Intent i = new Intent(getActivity(), MenuCarte.class);
                         startActivity(i);
 
 
@@ -204,7 +211,6 @@ public class InfoCarteCarte extends Fragment implements View.OnClickListener {
     @Override
     public void onStop() {
         super.onStop();
-        GetClient.client1=null;
 
     }
 }

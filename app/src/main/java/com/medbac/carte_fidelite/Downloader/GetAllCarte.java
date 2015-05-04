@@ -102,12 +102,12 @@ public class GetAllCarte{
 	         *      =rond qui tourne pour indiquer une attente
 	         *      =Barre de progression
 	         *  -...
-	         */
+
             pDialog = new ProgressDialog(context);
             pDialog.setMessage("chargement... ");
              pDialog.setCancelable(false);
             pDialog.show();
-
+*/
         }
 
         @Override
@@ -195,12 +195,12 @@ public class GetAllCarte{
 	         *  -Affichage d'une pop-up indiquant la fin du traitement
 	         *  -Désactivation de la ProgressBar
 	         *  -...
-	         */
+
 
 
             carte1 = null;
             if (pDialog.isShowing())
-                pDialog.dismiss();
+                pDialog.dismiss();  */
 //        Log.e("samarchennnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn",""+ carte1.getNom());
             // Désactivation de la ProgressBar
             //  if (pDialog.isShowing())

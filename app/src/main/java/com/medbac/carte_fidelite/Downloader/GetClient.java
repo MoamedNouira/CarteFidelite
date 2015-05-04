@@ -201,7 +201,11 @@ public class GetClient  {
             if(GetClient.client1 == null ){
                 Toast.makeText(context, "login ou password no valide  ", Toast.LENGTH_LONG).show();
             }else {
-
+                getAllPromotion p = new getAllPromotion("http://mohamednouira.esy.es/getAllPromotion.php",context);
+                getAllCategorie gcat = new getAllCategorie("http://mohamednouira.esy.es/getAllCategorie.php",context);
+                GetAllCarte gcarte=new GetAllCarte("http://mohamednouira.esy.es/getAllCarte.php",context);
+                getAllCoordonnee gcor=new getAllCoordonnee("http://mohamednouira.esy.es/getAllCoordonnee.php",context);
+                getAllEnseigne galleng=new getAllEnseigne("http://mohamednouira.esy.es/getAllEnseigne.php",context);
                 Intent ii = new Intent(context, MenuCarte.class);
                 context.startActivity(ii);}
 

@@ -61,11 +61,7 @@ public class MenuCarte extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.menu_carte);
 
-        getAllPromotion p = new getAllPromotion("http://mohamednouira.esy.es/getAllPromotion.php",this);
-        getAllCategorie gcat = new getAllCategorie("http://mohamednouira.esy.es/getAllCategorie.php",this);
-        GetAllCarte gcarte=new GetAllCarte("http://mohamednouira.esy.es/getAllCarte.php",this);
-        getAllCoordonnee gcor=new getAllCoordonnee("http://mohamednouira.esy.es/getAllCoordonnee.php",this);
-        getAllEnseigne galleng=new getAllEnseigne("http://mohamednouira.esy.es/getAllEnseigne.php",this);
+
 
 
         ButtonMenuCarte = (Button) findViewById(R.id.button_menu_carte);

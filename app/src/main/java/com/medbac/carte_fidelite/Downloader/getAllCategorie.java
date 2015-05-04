@@ -88,12 +88,12 @@ public class getAllCategorie  {
 	         *      =rond qui tourne pour indiquer une attente
 	         *      =Barre de progression
 	         *  -...
-	         */
+
              pDialog = new ProgressDialog(context);
             pDialog.setMessage("chargement... ");
              pDialog.setCancelable(false);
             pDialog.show();
-
+ */
         }
 
         @Override
@@ -163,12 +163,12 @@ public class getAllCategorie  {
 	         *  -Affichage d'une pop-up indiquant la fin du traitement
 	         *  -Désactivation de la ProgressBar
 	         *  -...
-	         */
+
             // Désactivation de la ProgressBar
             //  if (pDialog.isShowing())
             //     pDialog.dismiss();
             if (pDialog.isShowing())
-                pDialog.dismiss();
+                pDialog.dismiss(); */
         }
 
     }

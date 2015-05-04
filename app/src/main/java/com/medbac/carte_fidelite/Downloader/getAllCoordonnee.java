@@ -87,12 +87,12 @@ import java.util.ArrayList;
 	         *      =rond qui tourne pour indiquer une attente
 	         *      =Barre de progression
 	         *  -...
-	         */
+
                  pDialog = new ProgressDialog(context);
                 pDialog.setMessage("chargement... ");
                  pDialog.setCancelable(false);
                  pDialog.show();
-
+*/
             }
 
             @Override
@@ -176,8 +176,8 @@ import java.util.ArrayList;
             @Override
             protected void onPostExecute(Void result) {
                 super.onPostExecute(result);
-                if (pDialog.isShowing())
-                    pDialog.dismiss();
+               // if (pDialog.isShowing())
+                 //   pDialog.dismiss();
 
 
             }
