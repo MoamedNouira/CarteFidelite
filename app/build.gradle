@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 19
-    buildToolsVersion "21.1.2"
+    buildToolsVersion '21.1.2'
 
     defaultConfig {
         applicationId "activity.carte_fidelite.medbac.com.cartefidelite"
@@ -28,5 +28,5 @@ dependencies {
     //  compile 'com.google.android.gms:play-services:7.0.0'
     compile 'com.google.android.gms:play-services:7.0.0'
     compile 'com.google.android.gms:play-services-wearable:7.0.0'
-   // compile files('libs/google_play_services/libproject/google-play-services_lib/libs/google-play-services.jar')
+    // compile files('libs/google_play_services/libproject/google-play-services_lib/libs/google-play-services.jar')
 }

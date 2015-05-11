@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Large"
+        android:id="@+id/text_nomcarte"
+        android:layout_marginTop="40dp"
+        android:layout_centerHorizontal="true"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Code barre :"
+        android:id="@+id/text_codebarre"
+        android:layout_marginTop="150dp"
+        android:layout_marginLeft="20dp"
+        />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/mod_codebarre"
+        android:layout_alignTop="150dp"
+        android:layout_marginTop="150dp"
+        android:layout_marginLeft="150dp"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Scanne Code Barre"
+        android:id="@+id/bt_scannebarre"
+        android:layout_marginTop="230dp"
+        android:layout_centerHorizontal="true"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="OK"
+        android:id="@+id/modifier_ok"
+        android:layout_marginTop="350dp"
+        android:layout_centerHorizontal="true"
+        />
+</RelativeLayout>

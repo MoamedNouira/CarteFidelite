@@ -139,6 +139,7 @@ private class GetCartes extends AsyncTask<Void, Void, Void> {
                 carte = jsonObj.getJSONArray(TAG_CLIENT);
 
 
+                carte1 = new Carte();
 
 
 
@@ -155,7 +156,6 @@ private class GetCartes extends AsyncTask<Void, Void, Void> {
                     image = c.getString(TAG_image);
 
 
-                    carte1 = new Carte();
 
                     carte1.setId_carte(Integer.parseInt(id_carte));
                     carte1.setNom(nom);
@@ -199,10 +199,10 @@ private class GetCartes extends AsyncTask<Void, Void, Void> {
 	         */
 
         getCompte.ListCompte.get(compteur).setCarte(carte1);
-
         Log.e("id compete apres getcarte ",""+ getCompte.ListCompte.get(compteur).getId_compte());
-        carte1 = null;
-//        Log.e("samarchennnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn",""+ carte1.getNom());
+
+
+        //        Log.e("samarchennnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn",""+ carte1.getNom());
         // Désactivation de la ProgressBar
       //  if (pDialog.isShowing())
        //     pDialog.dismiss();

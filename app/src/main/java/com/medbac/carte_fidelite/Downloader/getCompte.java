@@ -27,11 +27,9 @@ public class getCompte {
 
     private static String url ;
 
-    public static  ArrayList<Compte> ListCompte = new ArrayList<Compte>();
-
+    public static  ArrayList<Compte> ListCompte=new ArrayList<Compte>();
     private ProgressDialog pDialog;
     public static Compte compte1 = null;
-    public static ArrayList<Carte> ListCompteCarte ;
 
     // clé
     private static final String TAG_compte = "compte";
@@ -127,8 +125,8 @@ public class getCompte {
 
                     // Get JSON Array
                     compte = jsonObj.getJSONArray(TAG_compte);
+                  // ListCompte=new ArrayList<Compte>();
 
-                    ListCompteCarte = new ArrayList<Carte>() ;
 
                     // looping through All Contacts
                     for (int i = 0; i < compte.length(); i++) {
@@ -179,25 +177,13 @@ public class getCompte {
         @Override
         protected void onPostExecute(Void result) {
             super.onPostExecute(result);
-			 /*
-	         * Ici, le code exécuté une fois le traitement terminé, par exemple:
-	         *  -Mise à jour de l'affichage
-	         *  -Affichage d'une pop-up indiquant la fin du traitement
-	         *  -Désactivation de la ProgressBar
-	         *  -...
-	         */
+
             // Désactivation de la ProgressBar
        //     if (pDialog.isShowing())
          //       pDialog.dismiss();
 
 
 
-       /*
-            */
-
-            /**
-             * Updating parsed JSON data into ListView
-             */
 
         }
 

@@ -27,11 +27,7 @@ import activity.carte_fidelite.medbac.com.cartefidelite.R;
 public class MainActivity extends Activity {
 
     boolean active = true;
-    int splashTime = 400;
-    private ProgressDialog pDialog;
-    ProgressBar pb;
-
-
+    int splashTime = 4000;
 
 
 
@@ -39,57 +35,52 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        pb=(ProgressBar)findViewById(R.id.progressBar);
 
-        new starte().execute();
+
+
+
+
+
+        Thread splashThread=new Thread()
+        {
+            public void run()
+            {
+                try
+                {
+                    int waited=0;
+
+                    while(active && (waited<splashTime))
+                    {
+                        sleep(100);
+                        if(active)
+                        {
+                            waited +=100;
+                        }
+                    }
+                }
+                catch(Exception e)
+                {
+                    e.toString();
+                }
+
+
+                finally
+                {
+
+                    Intent int1=new Intent(getApplicationContext(),Login.class);
+                    startActivity(int1);
+                    finish();
+
+
+                }
+            }
+        };
+
+        splashThread.start();
+
 
 
     }
-
-    private class starte extends AsyncTask<Void, Void, Void> {
-
-        @Override
-        protected void onPreExecute() {
-            super.onPreExecute();
-            pb.setVisibility(View.VISIBLE);
-
-
-        }
-
-        @Override
-        protected Void doInBackground(Void... arg0) {
-
-            getAllPromotion p = new getAllPromotion("http://mohamednouira.esy.es/getAllPromotion.php",MainActivity.this);
-            getAllCategorie gcat = new getAllCategorie("http://mohamednouira.esy.es/getAllCategorie.php",MainActivity.this);
-            GetAllCarte gcarte=new GetAllCarte("http://mohamednouira.esy.es/getAllCarte.php",MainActivity.this);
-            getAllCoordonnee gcor=new getAllCoordonnee("http://mohamednouira.esy.es/getAllCoordonnee.php",MainActivity.this);
-            getAllEnseigne galleng=new getAllEnseigne("http://mohamednouira.esy.es/getAllEnseigne.php",MainActivity.this);
-
-            return null;
-        }
-
-        @Override
-        protected void onPostExecute(Void result) {
-            super.onPostExecute(result);
-
-            pb.setVisibility(View.INVISIBLE);
-            Intent int1=new Intent(getApplicationContext(),Login.class);
-            startActivity(int1);
-
-        }
-
-
-    }
-
-
-
-
-
-
-
-
-
-
 
 
 

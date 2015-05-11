@@ -38,7 +38,7 @@ public class getAllEnseigne {
     private static final String TAG_mail = "mail";
     // tableau json
     JSONArray enseigne = null;
-    public static ArrayList<Enseigne> ListEnseignes=new ArrayList<Enseigne>();
+    public static ArrayList<Enseigne> ListEnseignes=null;
 
     ListView ListViewEnseigne;
 
@@ -90,7 +90,7 @@ public class getAllEnseigne {
 
                     // Get JSON Array
                     enseigne = jsonObj.getJSONArray(TAG_enseigne);
-
+                    ListEnseignes=new ArrayList<Enseigne>();
 
                     // looping through All Contacts
                     for (int i = 0; i < enseigne.length(); i++) {

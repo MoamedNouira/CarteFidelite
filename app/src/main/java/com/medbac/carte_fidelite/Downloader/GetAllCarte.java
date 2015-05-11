@@ -34,7 +34,7 @@ public class GetAllCarte{
 
     private ProgressDialog pDialog;
     Carte carte1 = null;
-   public static ArrayList<Carte> ListAllCarte=new ArrayList<Carte>();
+   public static ArrayList<Carte> ListAllCarte=null;
 
 
     // clé
@@ -135,7 +135,7 @@ public class GetAllCarte{
                     // Get JSON Array
                     carte = jsonObj.getJSONArray(TAG_CLIENT);
 
-
+                    ListAllCarte=new ArrayList<Carte>();
 
 
 

@@ -31,7 +31,7 @@ import java.util.Locale;
 public class getAllPromotion   {
 
     private static String url ;
-    public static ArrayList<Promotion> ListPromotion  = new ArrayList<Promotion>();
+    public static ArrayList<Promotion> ListPromotion  =null;
     ListView ListViewOffers;
     AdapterListPromotion adapter;
 
@@ -129,7 +129,7 @@ public class getAllPromotion   {
 
                     // Get JSON Array
                     promotion = jsonObj.getJSONArray(TAG_promotion);
-
+                    ListPromotion= new ArrayList<Promotion>();
 
                     // looping through All Contacts
                     for (int i = 0; i < promotion.length(); i++) {

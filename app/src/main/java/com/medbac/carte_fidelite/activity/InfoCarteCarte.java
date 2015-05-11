@@ -24,6 +24,7 @@ import com.medbac.carte_fidelite.Downloader.getAllCoordonnee;
 import com.medbac.carte_fidelite.Downloader.getAllEnseigne;
 import com.medbac.carte_fidelite.Downloader.getAllPromotion;
 import com.medbac.carte_fidelite.Downloader.getCompte;
+import com.medbac.carte_fidelite.Models.Compte;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -70,6 +71,7 @@ public class InfoCarteCarte extends Fragment implements View.OnClickListener {
         TextView nb_point = (TextView)  rootView.findViewById(R.id.textView13);
         scanBtn = (Button)  rootView.findViewById(R.id.ButtonButton);
         supp = (Button)  rootView.findViewById(R.id.button6);
+        info_cartemod=(Button) rootView.findViewById(R.id.info_cartemod);
 
         nom_carte.setText(FrInfoCarte.nom_carte+"");
         descr_carte.setText(FrInfoCarte.descr_carte+"");
@@ -104,6 +106,22 @@ public class InfoCarteCarte extends Fragment implements View.OnClickListener {
             Log.e(" scodescodescodescodescode",""+scode);
             String strLong = Long.toString(scode);
             i.putExtra("scode",strLong);
+            startActivity(i);
+
+            // setResult(Facvc.RESULT_OK);
+
+
+
+        }
+        if(v.getId()==R.id.info_cartemod){
+            Intent i = new Intent(getActivity(), Modifier_codebarre.class);
+            long scode = FrInfoCarte.code_barre;
+            String nom_carte=FrInfoCarte.nom_carte;
+
+            String strLong = Long.toString(scode);
+            i.putExtra("nom_carte",nom_carte);
+            i.putExtra("scode",strLong);
+            i.putExtra("id_compte",FrInfoCarte.id_compte);
             startActivity(i);
 
             // setResult(Facvc.RESULT_OK);
@@ -163,18 +181,22 @@ public class InfoCarteCarte extends Fragment implements View.OnClickListener {
 
                         Log.e("SidSidSidSid", "" + Login.Sid+" "+Login.Spassword);
 
-                        GetClient.client1=null;
-                        /*getAllPromotion.ListPromotion=null;
-                        getAllCategorie.listCat=null;
-                        GetAllCarte.ListAllCarte=null;
-                        getAllCoordonnee.ListAllCoordonnee=null;
-                        getAllEnseigne.ListEnseignes=null;
-*/
+                       // GetClient.client1=null;
+                        //getCompte.ListCompte=null;
+
+                          ArrayList<Compte> com=new ArrayList<Compte>();
+                        com=getCompte.ListCompte;
+                       for(int i=0;i< getCompte.ListCompte.size();i++){
+                           if(getCompte.ListCompte.get(i).getId_compte()==FrInfoCarte.id_compte){
+                               com.remove(i);
+                           }
+                       }
+                        getCompte.ListCompte=com;
                         GetClient gc = new GetClient("http://mohamednouira.esy.es/getLogin.php",Login.Sid,Login.Spassword,getActivity());
 
 
-                        Intent i = new Intent(getActivity(), MenuCarte.class);
-                        startActivity(i);
+                       // Intent i = new Intent(getActivity(), MenuCarte.class);
+                      //  startActivity(i);
 
 
                     } catch (Exception e) {

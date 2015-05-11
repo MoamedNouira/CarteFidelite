@@ -20,7 +20,7 @@ import java.util.ArrayList;
     private static String url ;
 
     private ProgressDialog pDialog;
-    public static ArrayList<Coordonnee> ListAllCoordonnee= new ArrayList<Coordonnee>();
+    public static ArrayList<Coordonnee> ListAllCoordonnee= null;
 
     Coordonnee coordonnee1 ;
 
@@ -119,7 +119,7 @@ import java.util.ArrayList;
                         // Get JSON Array
                         coordonnee = jsonObj.getJSONArray(TAG_coordonnee);
 
-
+                    ListAllCoordonnee=new ArrayList<Coordonnee>();
                         String id_coordonnee;
                         String longitude ;
                         String latitude ;

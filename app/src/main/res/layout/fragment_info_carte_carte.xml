@@ -11,9 +11,12 @@
         android:layout_width="130dp"
         android:layout_height="wrap_content"
         android:text="Modifier la carte"
-        android:id="@+id/button5"
+        android:id="@+id/info_cartemod"
         android:layout_marginTop="300dp"
-        android:layout_marginLeft="20dp" />
+        android:layout_marginLeft="20dp"
+        android:onClick="onClick"
+
+        />
 
     <Button
         android:layout_width="130dp"

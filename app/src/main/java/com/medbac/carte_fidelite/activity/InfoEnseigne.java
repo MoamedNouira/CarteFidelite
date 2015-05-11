@@ -1,14 +1,20 @@
 package com.medbac.carte_fidelite.activity;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.view.View.OnClickListener;
 
 import com.medbac.carte_fidelite.Models.*;
 import com.medbac.carte_fidelite.Downloader.getAllCoordonnee;
@@ -22,6 +28,7 @@ import activity.carte_fidelite.medbac.com.cartefidelite.R;
  * Created by Mohamed Nouira on 24/04/2015.
  */
 public class InfoEnseigne  extends Activity {
+    AlertDialog.Builder alertDialogBuilder;
 
     TextView enseigne_text_nom;
     TextView enseigne_text_vile;
@@ -32,6 +39,9 @@ public class InfoEnseigne  extends Activity {
     Button local;
     public static ArrayList<Coordonnee>list_coor;
     int id_enseigne;
+    Button call;
+    final CharSequence[] items = {"tell", "sms", "mail"};
+    String number;
 
 
     @Override
@@ -46,6 +56,65 @@ public class InfoEnseigne  extends Activity {
         enseigne_text_tell = (TextView) findViewById(R.id.enseigne_text_tell);
         enseigne_text_mail = (TextView) findViewById(R.id.enseigne_text_mail);
         local = (Button) findViewById(R.id.enseigne_local);
+        call = (Button) findViewById(R.id.call);
+
+
+
+
+
+
+
+
+
+        call.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                alertDialogBuilder = new AlertDialog.Builder(InfoEnseigne.this);
+                alertDialogBuilder.setTitle("What is your favourite animal?");
+                alertDialogBuilder.setSingleChoiceItems(items, 1, new DialogInterface.OnClickListener() {
+                    Bundle extras = getIntent().getExtras();
+                    public void onClick(DialogInterface dialog, int item) {
+
+                        if (items[item].equals("tell")) {
+                            Bundle extras = getIntent().getExtras();
+                            if (extras != null) {
+
+                                Intent callIntent = new Intent(Intent.ACTION_CALL);
+                                // callIntent.setData(Uri.parse("tel:"+Integer.toString(extras.getInt("tell"))));
+                                 number = Integer.toString(extras.getInt("tell"));
+
+                                callIntent.setData(Uri.parse("tel:" + number));
+                                startActivity(callIntent);
+                            }
+                        } else if (items[item].equals("sms")) {
+                            if (extras != null) {
+                                String number = Integer.toString(extras.getInt("tell"));
+
+                                 number = "12346556";  // The number on which you want to send SMS
+                                startActivity(new Intent(Intent.ACTION_VIEW, Uri.fromParts("sms", number, null)));
+                            }
+
+                        } else if (items[item].equals("mail")) {
+
+
+
+                        }
+
+                        dialog.dismiss();
+                    }
+                });
+                alertDialogBuilder.show();
+
+
+                    }
+                });
+
+
+
+
+
+
+
 
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
